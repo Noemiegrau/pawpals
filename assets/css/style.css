@@ -9,12 +9,13 @@
 /* ===1.GLOBAL=== */
 
 * {
-    box-sizing: border-box;
+    margin: 0;
 }
 
 /* ===2.SECTIONS=== */
 
 .section {
-    text-align:center;
+    /* text-align:center; */
     font-size: 3em;
+    /* padding: 20px; */
   }
