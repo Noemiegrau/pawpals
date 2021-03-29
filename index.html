@@ -45,7 +45,58 @@
                     </button>
                 </div>
             </div>
-            
+            <!-- MODALS -->
+            <div id="create-1" class="modal">
+                <p>Is this for a cat or a dog?</p>
+                <div>
+                    <input type= "radio" id="cat" name="animal-choice" />
+                    <label for="cat">Cat</label>
+                    <input type= "radio" id="dog" name="animal-choice" />
+                    <label for="dog">Dog</label>
+                </div>
+                <div class="modal-next">
+                    <a href="#create-2" rel="modal:open">Next</a>
+                </div>
+            </div>
+            <div id="create-2" class="modal">
+                <p>Select a profile picture</p>
+                <div class="modal-next">
+                    <a href="#create-3" rel="modal:open">Next</a>
+                </div>
+            </div>
+            <div id="create-3" class="modal">
+                <p>What is your name?</p>
+                <div>
+                    <input type="text" id="name" />
+                    <label for="name"></label>
+                </div>
+                <div class="modal-next">
+                    <a href="#create-4" rel="modal:open">Next</a>
+                </div>
+            </div>
+            <div id="create-4" class="modal">
+                <p>What is your age?</p>
+                <div>
+                    <input type="text" id="age" />
+                </div>
+                <div class="modal-next">
+                    <a href="#create-5" rel="modal:open">Next</a>
+                </div>
+            </div>
+            <div id="create-5" class="modal">
+                <p>Are you interested in cats or dogs?</p>
+                <div>
+                    <input type= "radio" id="cats" name="interest-choice" />
+                    <label for="cat">Cat</label>
+                    <input type= "radio" id="dogs" name="interest-choice" />
+                    <label for="dog">Dog</label>
+                    <input type= "radio" id="both" name="interest-choice" />
+                    <label for="both">Both</label>
+                </div>
+                <div class="modal-next">
+                    <a href="#create-5" rel="modal:close">Finish</a>
+                </div>
+            </div>
         </div>
         <!-- pips will go here -->
     </div>

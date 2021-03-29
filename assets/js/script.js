@@ -1,3 +1,5 @@
+var $createProfileBtn = $('#createProfileBtn');
+// var $create1Btn = $('#create-1btn');
 // new Pageable("#container");
  
 new Pageable("#container", {
@@ -46,3 +48,11 @@ new Pageable("#container", {
         // do something when scrolling ends
     },
 });
+
+$createProfileBtn.click(function() {
+    $('#create-1').modal();
+});
+
+// $create1Btn.submit(function() {
+//     $('create-2').modal();
+// })
