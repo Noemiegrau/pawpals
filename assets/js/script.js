@@ -1,5 +1,5 @@
 // new Pageable("#container");
-
+ 
 new Pageable("#container", {
     childSelector: "[data-anchor]", // CSS3 selector string for the pages
     anchors: [], // define the page anchors
