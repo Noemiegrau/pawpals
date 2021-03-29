@@ -20,7 +20,7 @@
     font-family: 'Open Sans Condensed', sans-serif;
     /* font-family: 'Thasadith', sans-serif; */
     padding: 10px 10px;
-    width: 5%;
+    width: fit-content;
     margin-right: 40px;
     margin-top: 30px;
     border:none;
