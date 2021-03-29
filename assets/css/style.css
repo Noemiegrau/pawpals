@@ -7,7 +7,15 @@
     margin-left: 40px;
     position: absolute;
     width:10em;
-  }
+}
+
+.slogan-button-flexbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
  
 /*************************/
 
@@ -23,7 +31,7 @@
     width: fit-content;
     margin-right: 40px;
     margin-top: 30px;
-    border:none;
+    border: none;
     float: right;
     position: relative;
     font-size: 17px;
@@ -51,11 +59,11 @@
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 20px;
     /* font-family: 'Thasadith', sans-serif; */
-    padding: 10px 10px;
-    width: 12%;
-    margin-top: 750px;
-    margin-left: 43%;
-    position: relative;
+    padding: 10px 30px;
+    width: fit-content;
+    /* margin-top: 750px;
+    margin-left: 43%; */
+    /* position: relative; */
     background-image: linear-gradient(180deg, #ffe48b 0%, #da7d1afe 100%);
     transition:all .5s ease-out;
     background-size: 1px 100px;
@@ -74,14 +82,15 @@
 /* SLOGAN START */
 
 #slogan {
-    margin-left: 1000px;
+    text-align: center;
+    /* margin-left: 1000px;
     margin-right: 500px;
-    margin-top: -350px;
+    margin-top: -350px; */
 }
 
 #slogan p {
     font-family: 'Thasadith', sans-serif;
-    font-size: 92px;
+    font-size: 80px;
     color: whitesmoke;
 }
 
