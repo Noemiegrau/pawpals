@@ -99,6 +99,16 @@ function catApi() {
     });
 }
 
+// load stored userProfileObj
+var storedProfile = JSON.parse(localStorage.getItem('storedProfile'));
+
+if (!storedProfile) {
+    console.log('no profile found');
+} else {
+    console.log('profile found');
+    userProfileObj = storedProfile;
+}
+
 var imageSelection = function(imgUrl) {
     // console.log($choice.children().length);
     // if ($('#img-choice-1').children().length > 0) {
@@ -216,6 +226,10 @@ var create5Click = function() {
             var userInterestChoice = interestChoice[i].value;
             userProfileObj.interest = userInterestChoice;
             console.log(userProfileObj);
+
+            // store userProfileObj in localStorage
+            localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
+
             $.modal.close();
             break;
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
