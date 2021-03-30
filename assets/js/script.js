@@ -4,7 +4,7 @@ var $create2Btn = $('#create2Btn');
 var $create3Btn = $('#create3Btn');
 var $create4Btn = $('#create4Btn');
 var $create5Btn = $('#create5Btn');
-var $imageSelect = $('#image-selection');
+var $imgSelect = $('#img-select');
 var userProfileObj = {};
 // new Pageable("#container");
  
@@ -68,6 +68,7 @@ function dogApi() {
             // console.log(data.message);
             imgUrl = data.message;
             console.log("dog fetched");
+            imageSelection(imgUrl)
     });
 }
 
@@ -98,9 +99,18 @@ function catApi() {
 }
 
 var imageSelection = function(imgUrl) {
+    // console.log($choice.children().length);
+    if ($('#img-choice-1').children().length > 0) {
+        $('#img-choice-1').empty();
+    }
+    var $choice = $(`#img-choice-1`);
+    console.log($choice);
     var $image = $('<img>')
+        .attr('width', '100%')
         .attr('src', imgUrl);
-    $imageSelect.append($image);
+    $choice.append($image);
+    $imgSelect.append($choice);
+    // console.log(i);
 };
 
 var create1Click = function() {
@@ -111,26 +121,27 @@ var create1Click = function() {
         if (animalChoice[i].checked) {
             var userAnimal = animalChoice[i].value;
             userProfileObj.animal = userAnimal;
+            // for (i = 0; i < 5; i++) {
+            //     console.log(userProfileObj.animal);
+                if (userAnimal === 'cat') {
+                    catApi();
+                } else if (userAnimal === 'dog') {
+                    dogApi();
+                }
+            // }
             $('#create-2').modal();
-            break;
+            // break;
         } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
             alert('Make a selection');
             $('#create-1').modal();
-            break;
+            // break;
         };
     };
 };
 
 function create2Click() {
     console.log('click');
-    for (i = 0; i < 5; i++) {
-        console.log(userProfileObj.animal);
-        if (userProfileObj.animal === 'cat') {
-            catApi();
-        } else if (userProfileObj.animal === 'dog') {
-            dogApi();
-        }
-    }
+    
     $('#create-3').modal();
 };
 
