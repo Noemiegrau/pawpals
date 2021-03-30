@@ -5,6 +5,7 @@ var catSwipes = 0;
 // # of dog swipes counter
 var dogSwipes = 0;
 
+// random names
 var names = [
     "Amy", "Derek", "Charlie", "Quincy"
 ];
@@ -244,13 +245,27 @@ class Carousel {
     push() {
 
         let card = document.createElement('div');
-        // let cardFrame = document.createElement('div');
+        let nameAge = document.createElement('div');
+        nameAge.classList.add('name-age');
+        card.appendChild(nameAge);
         // cardFrame.appendChild(card);
         let name = document.createElement('p');
         var randomName = names[Math.floor(Math.random() * names.length)];
         name.innerHTML = randomName;
         name.classList.add('name');
-        card.appendChild(name);
+        nameAge.appendChild(name);
+
+        // get random age
+        var low = 1;
+        var high = 15;
+        
+        let age = document.createElement('span');
+        var randomAge = Math.floor(Math.random() * (high - low + 1)) + low;
+        age.innerHTML = randomAge;
+        age.classList.add('age');
+        nameAge.appendChild(age);
+
+
 
         card.classList.add('card')
         // cardFrame.classList.add('card-frame')
@@ -271,6 +286,7 @@ class Carousel {
     }
 
 }
+
 
 let board = document.querySelector('#board')
 
