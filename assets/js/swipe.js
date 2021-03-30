@@ -236,8 +236,11 @@ class Carousel {
 
             if (successful) {
 
+<<<<<<< HEAD
                 // if you have swiped right, and they swiped right,
                 // send a match alert before the card is removed
+=======
+>>>>>>> e17f761992d60bfa18f58f188e2a5d721fbc92ab
                 if (love == true && loveMatch == true) {
                     match++;
                     loveAlert();
@@ -320,6 +323,16 @@ class Carousel {
                 loveMatch = false;
             }
 
+<<<<<<< HEAD
+=======
+            // if (love == true && loveMatch == true) {
+            //     match++;
+            //     loveAlert();
+            // } else {
+            //     nomatch++;
+            // }
+
+>>>>>>> e17f761992d60bfa18f58f188e2a5d721fbc92ab
         } else {
             console.log("meow");
             // call Api for background image
@@ -331,6 +344,16 @@ class Carousel {
             } else {
                 loveMatch = false;
             }
+<<<<<<< HEAD
+=======
+
+            // if (love == true && loveMatch == true) {
+            //     match++;
+            //     loveAlert();
+            // } else {
+            //     nomatch++;
+            // }
+>>>>>>> e17f761992d60bfa18f58f188e2a5d721fbc92ab
             
         }
 
@@ -348,6 +371,7 @@ function loveAlert () {
     var matchAlert = document.createElement('div');
     matchAlert.innerHTML = "It's a Match!"
     matchAlert.classList.add("alert");
+    matchAlert.style.backgroundImage = this.hammer;
     
     var board = document.getElementById("board");
     board.append(matchAlert);
