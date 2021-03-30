@@ -17,7 +17,7 @@ new Pageable("#container", {
     swipeThreshold: 50, // swipe / mouse drag distance (px) before firing the page change event
     freeScroll: false, // allow manual scrolling when dragging instead of automatically moving to next page
     navPrevEl: false, // define an element to use to scroll to the previous page (CSS3 selector string or Element reference)
-    navNextEl: false, // define an element to use to scroll to the next page (CSS3 selector string or Element reference)
+    navNextEl: false, // define an element to use to scroll to the next page (CSS3 selec++tor string or Element reference)
     infinite: false, // enable infinite scrolling (from 0.4.0)
     // slideshow: { // enable slideshow that cycles through your pages automatically (from 0.4.0)
     //     interval: 3000, // time in ms between page change,
@@ -53,6 +53,7 @@ new Pageable("#container", {
     },
 });
 
+
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
 
@@ -72,9 +73,11 @@ var create1Click = function() {
     // $('#create-2').modal();
 };
 
+
 var create2Click = function() {
     console.log('click');
 
+  
     $('#create-3').modal();
 };
 
@@ -116,3 +119,43 @@ $create2Btn.click(create2Click);
 $create3Btn.click(create3Click);
 $create4Btn.click(create4Click);
 $create5Btn.click(create5Click);
+
+// API #1
+function dogApi() {
+    var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
+
+    fetch(dogFetchUrl)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        // random dog image URL
+        // console.log(data.message);
+        imgUrl = data.message;
+        console.log("dog fetched");
+    });
+}
+
+// API #2
+function catApi() {
+    var catApiKey = "6239a053-498a-49cb-ac5c-e7a746598576";
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("x-api-key", catApiKey);
+
+    var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+    };
+    
+    fetch("https://api.thecatapi.com/v1/images/search?format=json", requestOptions)
+    .then(function(response) {
+    return response.json();
+    })
+    .then(function(data) {
+    imgUrl = data[0].url;
+    console.log("cat fetched");
+    });
+}
