@@ -4,6 +4,7 @@ var $create2Btn = $('#create2Btn');
 var $create3Btn = $('#create3Btn');
 var $create4Btn = $('#create4Btn');
 var $create5Btn = $('#create5Btn');
+var userProfileObj = {};
 // new Pageable("#container");
  
 new Pageable("#container", {
@@ -61,7 +62,7 @@ var create1Click = function() {
     for (i = 0; i < animalChoice.length; i++) {
         if (animalChoice[i].checked) {
             var userAnimal = animalChoice[i].value;
-            console.log(userAnimal);
+            userProfileObj.animal = userAnimal;
             $('#create-2').modal();
             break;
         } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
@@ -70,28 +71,25 @@ var create1Click = function() {
             break;
         };
     };
-    // $('#create-2').modal();
 };
-
 
 var create2Click = function() {
     console.log('click');
 
-  
     $('#create-3').modal();
 };
 
 var create3Click = function() {
     var name = $('#user-name');
     var userName = name.val();
-    console.log(userName);
+    userProfileObj.name = userName;
     $('#create-4').modal();
 };
 
 var create4Click = function() {
     var age = $('#user-age');
     var userAge = age.val();
-    console.log(userAge);
+    userProfileObj.age = userAge;
     $('#create-5').modal();
 };
 
@@ -102,7 +100,8 @@ var create5Click = function() {
     for (i = 0; i < interestChoice.length; i++) {
         if (interestChoice[i].checked) {
             var userInterestChoice = interestChoice[i].value;
-            console.log(userInterestChoice);
+            userProfileObj.interest = userInterestChoice;
+            console.log(userProfileObj);
             break;
         };
     };
