@@ -4,6 +4,7 @@ var $create2Btn = $('#create2Btn');
 var $create3Btn = $('#create3Btn');
 var $create4Btn = $('#create4Btn');
 var $create5Btn = $('#create5Btn');
+var $imageSelect = $('#image-selection');
 var userProfileObj = {};
 // new Pageable("#container");
  
@@ -59,14 +60,14 @@ function dogApi() {
     var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
 
     fetch(dogFetchUrl)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        // random dog image URL
-        // console.log(data.message);
-        imgUrl = data.message;
-        console.log("dog fetched");
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            // random dog image URL
+            // console.log(data.message);
+            imgUrl = data.message;
+            console.log("dog fetched");
     });
 }
 
@@ -85,14 +86,22 @@ function catApi() {
     };
     
     fetch("https://api.thecatapi.com/v1/images/search?format=json", requestOptions)
-    .then(function(response) {
-    return response.json();
-    })
-    .then(function(data) {
-    imgUrl = data[0].url;
-    console.log("cat fetched");
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+            imgUrl = data[0].url;
+            console.log("cat fetched");
+            imageSelection(imgUrl);
     });
 }
+
+var imageSelection = function(imgUrl) {
+    var $image = $('<img>')
+        .attr('src', imgUrl);
+    $imageSelect.append($image);
+};
 
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
@@ -118,10 +127,8 @@ function create2Click() {
         console.log(userProfileObj.animal);
         if (userProfileObj.animal === 'cat') {
             catApi();
-            console.log(imageURL);
         } else if (userProfileObj.animal === 'dog') {
             dogApi();
-            console.log(imageURL);
         }
     }
     $('#create-3').modal();
