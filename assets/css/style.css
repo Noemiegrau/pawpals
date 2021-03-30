@@ -4,17 +4,27 @@
 
 /* Create-profile modal classes */
 
-/* .modal-next {
-    margin-top: 15px;
+#create-3 input {
+    font-size: 26px;
+    font-family: 'Open Sans condensed', sans-serif;
+}
+
+.modal {
+    /* margin-top: 15px;
     width: fit-content;
-    border-radius: 15%;
+    border-radius: 15%; */
+    font-family: 'Open Sans condensed', sans-serif;
+    font-size: 26px;
     background-color: bisque;
-    padding: 5px;
-} */
+    /* padding: 5px; */
+}
 
 .modal button {
-    margin-top: 15px;
+    margin-top: 30px;
     background-color: #f9ca98;
+    font-family: 'Open Sans condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
     border-radius: 5px;
     padding: 10px;
     border: none;

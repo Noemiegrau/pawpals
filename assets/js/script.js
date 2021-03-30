@@ -61,10 +61,15 @@ var create1Click = function() {
         if (animalChoice[i].checked) {
             var userAnimal = animalChoice[i].value;
             console.log(userAnimal);
+            $('#create-2').modal();
+            break;
+        } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
+            alert('Make a selection');
+            $('#create-1').modal();
             break;
         };
     };
-    $('#create-2').modal();
+    // $('#create-2').modal();
 };
 
 var create2Click = function() {
