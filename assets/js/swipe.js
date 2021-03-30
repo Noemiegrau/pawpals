@@ -1,4 +1,14 @@
 var imgUrl;
+// # of cat swipes counter
+var catSwipes = 0;
+
+// # of dog swipes counter
+var dogSwipes = 0;
+
+var names = [
+    "Amy", "Derek", "Charlie", "Quincy"
+];
+
 
 function dogApi() {
     var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
@@ -12,6 +22,7 @@ function dogApi() {
         // console.log(data.message);
         imgUrl = data.message;
         console.log("dog fetched");
+        dogSwipes++;
     });
 }
 
@@ -35,6 +46,7 @@ function catApi() {
     .then(function(data) {
       imgUrl = data[0].url;
       console.log("cat fetched");
+      catSwipes++;
     });
 }
 
@@ -235,7 +247,8 @@ class Carousel {
         // let cardFrame = document.createElement('div');
         // cardFrame.appendChild(card);
         let name = document.createElement('p');
-        name.innerHTML = "Name";
+        var randomName = names[Math.floor(Math.random() * names.length)];
+        name.innerHTML = randomName;
         name.classList.add('name');
         card.appendChild(name);
 
@@ -262,3 +275,5 @@ class Carousel {
 let board = document.querySelector('#board')
 
 let carousel = new Carousel(board)
+
+
