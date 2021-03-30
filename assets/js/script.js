@@ -54,6 +54,45 @@ new Pageable("#container", {
     },
 });
 
+// API #1
+function dogApi() {
+    var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
+
+    fetch(dogFetchUrl)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        // random dog image URL
+        // console.log(data.message);
+        imgUrl = data.message;
+        console.log("dog fetched");
+    });
+}
+
+// API #2
+function catApi() {
+    var catApiKey = "6239a053-498a-49cb-ac5c-e7a746598576";
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("x-api-key", catApiKey);
+
+    var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+    };
+    
+    fetch("https://api.thecatapi.com/v1/images/search?format=json", requestOptions)
+    .then(function(response) {
+    return response.json();
+    })
+    .then(function(data) {
+    imgUrl = data[0].url;
+    console.log("cat fetched");
+    });
+}
 
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
@@ -73,9 +112,18 @@ var create1Click = function() {
     };
 };
 
-var create2Click = function() {
+function create2Click() {
     console.log('click');
-
+    for (i = 0; i < 5; i++) {
+        console.log(userProfileObj.animal);
+        if (userProfileObj.animal === 'cat') {
+            catApi();
+            console.log(imageURL);
+        } else if (userProfileObj.animal === 'dog') {
+            dogApi();
+            console.log(imageURL);
+        }
+    }
     $('#create-3').modal();
 };
 
@@ -118,43 +166,3 @@ $create2Btn.click(create2Click);
 $create3Btn.click(create3Click);
 $create4Btn.click(create4Click);
 $create5Btn.click(create5Click);
-
-// API #1
-function dogApi() {
-    var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
-
-    fetch(dogFetchUrl)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        // random dog image URL
-        // console.log(data.message);
-        imgUrl = data.message;
-        console.log("dog fetched");
-    });
-}
-
-// API #2
-function catApi() {
-    var catApiKey = "6239a053-498a-49cb-ac5c-e7a746598576";
-
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("x-api-key", catApiKey);
-
-    var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow'
-    };
-    
-    fetch("https://api.thecatapi.com/v1/images/search?format=json", requestOptions)
-    .then(function(response) {
-    return response.json();
-    })
-    .then(function(data) {
-    imgUrl = data[0].url;
-    console.log("cat fetched");
-    });
-}
