@@ -69,7 +69,7 @@ function dogApi() {
             // console.log(data.message);
             imgUrl = data.message;
             console.log("dog fetched");
-            imageSelection(imgUrl)
+            imageSelection(imgUrl);
     });
 }
 
@@ -104,6 +104,7 @@ var imageSelection = function(imgUrl) {
     if ($('#img-choice-1').children().length > 0) {
         $('#img-choice-1').empty();
     }
+    console.log(imgUrl);
     var $choice = $(`#img-choice-1`);
     console.log($choice);
     var $image = $('<img>')
@@ -116,11 +117,13 @@ var imageSelection = function(imgUrl) {
 };
 
 var userAnimalCheck = function(userAnimal) {
+    console.log(userAnimal);
     if (userAnimal === 'cat') {
         catApi();
     } else if (userAnimal === 'dog') {
         dogApi();
-    }
+    };
+    $('#create-2').modal();
 }
 
 var create1Click = function() {
@@ -140,7 +143,7 @@ var create1Click = function() {
                 //     dogApi();
                 // }
             // }
-            $('#create-2').modal();
+            // $('#create-2').modal();
             // break;
         } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
             alert('Make a selection');
@@ -192,7 +195,7 @@ $createProfileBtn.click(function() {
 
 $create1Btn.click(create1Click);
 $create2Btn.click(create2Click);
-$newImgBtn.click(userAnimalCheck);
+$newImgBtn.click(create1Click);
 $create3Btn.click(create3Click);
 $create4Btn.click(create4Click);
 $create5Btn.click(create5Click);
