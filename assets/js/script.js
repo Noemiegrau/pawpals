@@ -176,6 +176,7 @@ function create2Click() {
             .split("\"")[1];
     userProfileObj.profileImg = userImg;
     
+    var name = $('#user-name').val('');
     $('#create-3').modal();
 };
 
@@ -195,8 +196,14 @@ var create3Click = function() {
 var create4Click = function() {
     var age = $('#user-age');
     var userAge = age.val();
-    userProfileObj.age = userAge;
-    $('#create-5').modal();
+    console.log(userAge);
+    if (!userAge) {
+        alert('please select your age');
+        $('create-4').modal();
+    } else {
+        userProfileObj.age = userAge;
+        $('#create-5').modal();
+    }
 };
 
 var create5Click = function() {
