@@ -55,13 +55,12 @@ new Pageable("#container", {
 
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
-    console.log('click');
 
     // find which is selected
     for (i = 0; i < animalChoice.length; i++) {
         if (animalChoice[i].checked) {
-            var userChoice = animalChoice[i].value;
-            console.log(userChoice);
+            var userAnimal = animalChoice[i].value;
+            console.log(userAnimal);
             break;
         };
     };
@@ -75,20 +74,30 @@ var create2Click = function() {
 };
 
 var create3Click = function() {
-    var name = $("input[name='name']");
-    console.log('click');
-    var userName = name.value;
+    var name = $('#user-name');
+    var userName = name.val();
     console.log(userName);
     $('#create-4').modal();
 };
 
 var create4Click = function() {
-    console.log('click');
+    var age = $('#user-age');
+    var userAge = age.val();
+    console.log(userAge);
     $('#create-5').modal();
 };
 
 var create5Click = function() {
-    console.log('click');
+    var interestChoice = $("input[name='interest-choice']");
+
+    // find which radio button is selected
+    for (i = 0; i < interestChoice.length; i++) {
+        if (interestChoice[i].checked) {
+            var userInterestChoice = interestChoice[i].value;
+            console.log(userInterestChoice);
+            break;
+        };
+    };
     $.modal.close();
 }
 
