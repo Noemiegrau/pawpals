@@ -1,0 +1,21 @@
+/* CSS DIRECTORY
+	1. =GLOBAL
+	2. =SECTIONS
+	3. =
+    4. =
+    5. =
+*/
+
+/* ===1.GLOBAL=== */
+
+* {
+    margin: 0;
+}
+
+/* ===2.SECTIONS=== */
+
+.section {
+    /* text-align:center; */
+    font-size: 3em;
+    /* padding: 20px; */
+  }
