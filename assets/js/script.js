@@ -5,6 +5,7 @@ var $create3Btn = $('#create3Btn');
 var $create4Btn = $('#create4Btn');
 var $create5Btn = $('#create5Btn');
 var $imgSelect = $('#img-select');
+var $newImgBtn = $('#new-img');
 var userProfileObj = {};
 // new Pageable("#container");
  
@@ -110,8 +111,17 @@ var imageSelection = function(imgUrl) {
         .attr('src', imgUrl);
     $choice.append($image);
     $imgSelect.append($choice);
+
     // console.log(i);
 };
+
+var userAnimalCheck = function(userAnimal) {
+    if (userAnimal === 'cat') {
+        catApi();
+    } else if (userAnimal === 'dog') {
+        dogApi();
+    }
+}
 
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
@@ -121,13 +131,14 @@ var create1Click = function() {
         if (animalChoice[i].checked) {
             var userAnimal = animalChoice[i].value;
             userProfileObj.animal = userAnimal;
+            userAnimalCheck(userAnimal);
             // for (i = 0; i < 5; i++) {
             //     console.log(userProfileObj.animal);
-                if (userAnimal === 'cat') {
-                    catApi();
-                } else if (userAnimal === 'dog') {
-                    dogApi();
-                }
+                // if (userAnimal === 'cat') {
+                //     catApi();
+                // } else if (userAnimal === 'dog') {
+                //     dogApi();
+                // }
             // }
             $('#create-2').modal();
             // break;
@@ -181,6 +192,7 @@ $createProfileBtn.click(function() {
 
 $create1Btn.click(create1Click);
 $create2Btn.click(create2Click);
+$newImgBtn.click(userAnimalCheck);
 $create3Btn.click(create3Click);
 $create4Btn.click(create4Click);
 $create5Btn.click(create5Click);
