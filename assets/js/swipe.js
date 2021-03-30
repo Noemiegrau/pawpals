@@ -9,7 +9,9 @@ var catSwipes = 0;
 var dogSwipes = 0;
 var totalSwipes = catSwipes + dogSwipes;
 
+// if they swipe right on you
 var love = false;
+// if you swipe right on them
 var loveMatch = false;
 
 // age range
@@ -211,7 +213,7 @@ class Carousel {
                 successful = true
                 // get right border position
                 posX = this.board.clientWidth
-
+                
                 love = true
 
             } else if (propX < -0.25 && e.direction == Hammer.DIRECTION_LEFT) {
@@ -234,14 +236,26 @@ class Carousel {
 
             if (successful) {
 
+                // if you have swiped right, and they swiped right,
+                // send a match alert before the card is removed
+                if (love == true && loveMatch == true) {
+                    match++;
+                    loveAlert();
+                } else {
+                    nomatch++;
+                }
+
                 // throw card in the chosen direction
                 this.topCard.style.transform =
                     'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg)'
+
+
 
                 // wait transition end
                 setTimeout(() => {
                     // remove swiped card
                     this.board.removeChild(this.topCard)
+
                     // add new card
                     this.push()
                     // handle gestures on new top card
@@ -296,36 +310,26 @@ class Carousel {
 
         if( Math.round(Math.random()) == 0 ) {
             console.log("Woof");
+            // call Api for background image
             dogApi();
-
+            
+            // assign true or false value on their swipe right
             if( Math.round(Math.random()) == 0 ) {
                 loveMatch = true;
             } else {
                 loveMatch = false;
-            }
-
-            if (love == true && loveMatch == true) {
-                match++;
-                loveAlert();
-            } else {
-                nomatch++;
             }
 
         } else {
             console.log("meow");
+            // call Api for background image
             catApi();
 
+            // assign true or false value on their swipe right
             if( Math.round(Math.random()) == 0 ) {
                 loveMatch = true;
             } else {
                 loveMatch = false;
-            }
-
-            if (love == true && loveMatch == true) {
-                match++;
-                loveAlert();
-            } else {
-                nomatch++;
             }
             
         }
