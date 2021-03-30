@@ -4,17 +4,20 @@
 
 /* Create-profile modal classes */
 
-.modal-next {
+/* .modal-next {
     margin-top: 15px;
     width: fit-content;
     border-radius: 15%;
     background-color: bisque;
     padding: 5px;
-}
+} */
 
-.modal-next a {
-    text-decoration: none;
-    color: salmon;
+.modal button {
+    margin-top: 15px;
+    background-color: #f9ca98;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
 }
 
 #page-1 {

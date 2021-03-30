@@ -1,5 +1,9 @@
 var $createProfileBtn = $('#createProfileBtn');
-// var $create1Btn = $('#create-1btn');
+var $create1Btn = $('#create1Btn');
+var $create2Btn = $('#create2Btn');
+var $create3Btn = $('#create3Btn');
+var $create4Btn = $('#create4Btn');
+var $create5Btn = $('#create5Btn');
 // new Pageable("#container");
  
 new Pageable("#container", {
@@ -49,10 +53,52 @@ new Pageable("#container", {
     },
 });
 
+var create1Click = function() {
+    var animalChoice = $("input[name='animal-choice']");
+    console.log('click');
+
+    // find which is selected
+    for (i = 0; i < animalChoice.length; i++) {
+        if (animalChoice[i].checked) {
+            var userChoice = animalChoice[i].value;
+            console.log(userChoice);
+            break;
+        };
+    };
+    $('#create-2').modal();
+};
+
+var create2Click = function() {
+    console.log('click');
+
+    $('#create-3').modal();
+};
+
+var create3Click = function() {
+    var name = $("input[name='name']");
+    console.log('click');
+    var userName = name.value;
+    console.log(userName);
+    $('#create-4').modal();
+};
+
+var create4Click = function() {
+    console.log('click');
+    $('#create-5').modal();
+};
+
+var create5Click = function() {
+    console.log('click');
+    $.modal.close();
+}
+
+// Create profile modal button click handlers
 $createProfileBtn.click(function() {
     $('#create-1').modal();
 });
 
-// $create1Btn.submit(function() {
-//     $('create-2').modal();
-// })
+$create1Btn.click(create1Click);
+$create2Btn.click(create2Click);
+$create3Btn.click(create3Click);
+$create4Btn.click(create4Click);
+$create5Btn.click(create5Click);

@@ -49,39 +49,31 @@
             <div id="create-1" class="modal">
                 <p>Is this for a cat or a dog?</p>
                 <div>
-                    <input type= "radio" id="cat" name="animal-choice" />
+                    <input type= "radio" id="cat" name="animal-choice" value="cat" />
                     <label for="cat">Cat</label>
-                    <input type= "radio" id="dog" name="animal-choice" />
+                    <input type= "radio" id="dog" name="animal-choice" value="dog" />
                     <label for="dog">Dog</label>
                 </div>
-                <div class="modal-next">
-                    <a href="#create-2" rel="modal:open">Next</a>
-                </div>
+                <button type="submit" id="create1Btn">Next</button>
             </div>
             <div id="create-2" class="modal">
                 <p>Select a profile picture</p>
-                <div class="modal-next">
-                    <a href="#create-3" rel="modal:open">Next</a>
-                </div>
+                <button type="submit" id="create2Btn">Next</button>
             </div>
             <div id="create-3" class="modal">
                 <p>What is your name?</p>
                 <div>
-                    <input type="text" id="name" />
-                    <label for="name"></label>
+                    <input type="text" id="user-name" />
+                    <label for="user-name"></label>
                 </div>
-                <div class="modal-next">
-                    <a href="#create-4" rel="modal:open">Next</a>
-                </div>
+                <button type="submit" id="create3Btn">Next</button>
             </div>
             <div id="create-4" class="modal">
                 <p>What is your age?</p>
                 <div>
                     <input type="text" id="age" />
                 </div>
-                <div class="modal-next">
-                    <a href="#create-5" rel="modal:open">Next</a>
-                </div>
+                <button type="submit" id="create4Btn">Next</button>
             </div>
             <div id="create-5" class="modal">
                 <p>Are you interested in cats or dogs?</p>
@@ -93,9 +85,7 @@
                     <input type= "radio" id="both" name="interest-choice" />
                     <label for="both">Both</label>
                 </div>
-                <div class="modal-next">
-                    <a href="#create-5" rel="modal:close">Finish</a>
-                </div>
+                <button type="submit" id="create5Btn">Finish</button>
             </div>
         </div>
         <!-- pips will go here -->
