@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Create-profile modal classes */
+
+#create-3 input {
+    font-size: 26px;
+    font-family: 'Open Sans condensed', sans-serif;
+}
+
+.modal {
+    /* margin-top: 15px;
+    width: fit-content;
+    border-radius: 15%; */
+    font-family: 'Open Sans condensed', sans-serif;
+    font-size: 26px;
+    background-color: bisque;
+    /* padding: 5px; */
+}
+
+.modal button {
+    margin-top: 30px;
+    background-color: #f9ca98;
+    font-family: 'Open Sans condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+}
+
+#page-1 {
+    background-color: salmon;
+}
+
+.pawpalsLogo {
+    margin-top: 30px;
+    margin-left: 40px;
+    position: absolute;
+    width:10em;
+}
+
+.slogan-button-flexbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+ 
+/*************************/
+
+/* MY PROFILE BUTTON START */
+
+#myProfileBtn {
+    background-color: white;
+    border-radius: 9px;
+    /* font-family: 'Chango', cursive*/
+    font-family: 'Open Sans Condensed', sans-serif;
+    /* font-family: 'Thasadith', sans-serif; */
+    padding: 10px 10px;
+    width: fit-content;
+    margin-right: 40px;
+    margin-top: 30px;
+    border: none;
+    float: right;
+    position: relative;
+    font-size: 17px;
+    color: salmon;
+    background-image: linear-gradient(100deg, #f2dfa0 0%, #f9ca98 70%);
+    transition:all .5s ease-out;
+    background-position: 0 -10px;
+}
+
+#myProfileBtn:hover {
+    background-position: 1px -50px;
+    color:black;
+}
+
+/* MY PROFILE BUTTON ENDS */
+
+/*************************/
+
+/* CREATE PROFILE BUTTON START */
+
+#createProfileBtn {
+    background-color: lightgoldenrodyellow;
+    border-radius: 9px;
+    /* font-family: 'Chango', cursive*/
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+    /* font-family: 'Thasadith', sans-serif; */
+    padding: 10px 30px;
+    width: fit-content;
+    /* margin-top: 750px;
+    margin-left: 43%; */
+    /* position: relative; */
+    background-image: linear-gradient(180deg, #ffe48b 0%, #da7d1afe 100%);
+    transition:all .5s ease-out;
+    background-size: 1px 100px;
+    background-position: 0 -10px;
+    border: none;
+}
+
+#createProfileBtn:hover {
+    background-position: 1px -50px;
+  }
+
+/* CREATE PROFILE BUTTON END */
+
+/*************************/
+
+/* SLOGAN START */
+
+#slogan {
+    text-align: center;
+    /* margin-left: 1000px;
+    margin-right: 500px;
+    margin-top: -350px; */
+}
+
+#slogan p {
+    font-family: 'Thasadith', sans-serif;
+    font-size: 80px;
+    color: whitesmoke;
+}
+
+/* SLOGAN END */
+
+/*************************/
+
+/* PROFILE SECTION START */
+
+.hide {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+}
