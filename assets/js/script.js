@@ -130,6 +130,16 @@ var userAnimalCheck = function(userAnimal) {
         dogApi();
     };
     $('#create-2').modal();
+};
+
+var ageRangeOpts = function() {
+    var $select = $('#user-age');
+    for (i = 0; i < 40; i++) {
+        var $userAgeOpt = $('<option>')
+            .val(i)
+            .text(i);
+        $select.append($userAgeOpt);
+    }
 }
 
 var create1Click = function() {
@@ -159,8 +169,7 @@ var create1Click = function() {
     };
 };
 
-function create2Click(imgUrl) {
-    console.log(imgUrl);
+function create2Click() {
     var img = $('.img-choice');
     var userImg = 
         img.css('backgroundImage')
@@ -173,8 +182,14 @@ function create2Click(imgUrl) {
 var create3Click = function() {
     var name = $('#user-name');
     var userName = name.val();
-    userProfileObj.name = userName;
-    $('#create-4').modal();
+    if (!userName) {
+        alert('Enter a name');
+        $('#create-3').modal();
+    } else {
+        userProfileObj.name = userName;
+        ageRangeOpts();
+        $('#create-4').modal();
+    };
 };
 
 var create4Click = function() {

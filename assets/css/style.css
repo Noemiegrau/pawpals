@@ -29,6 +29,15 @@
     font-family: 'Open Sans condensed', sans-serif;
 }
 
+#create-4 select {
+    font-family: 'Open Sans condensed', sans-serif;
+    font-size: 20px;
+}
+
+/* #create-4 option {
+    font-family: 'Open Sans condensed', sans-serif;
+} */
+
 .modal {
     height: fit-content;
     font-family: 'Open Sans condensed', sans-serif;
