@@ -4,6 +4,7 @@ var $create2Btn = $('#create2Btn');
 var $create3Btn = $('#create3Btn');
 var $create4Btn = $('#create4Btn');
 var $create5Btn = $('#create5Btn');
+
 // new Pageable("#container");
  
 new Pageable("#container", {
@@ -159,3 +160,4 @@ function catApi() {
     console.log("cat fetched");
     });
 }
+

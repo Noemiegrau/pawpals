@@ -129,3 +129,13 @@
 /* SLOGAN END */
 
 /*************************/
+
+/* PROFILE SECTION START */
+
+.hide {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+}
