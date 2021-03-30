@@ -162,9 +162,10 @@ var create1Click = function() {
             // $('#create-2').modal();
             // break;
         } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
+            console.log('boop');
             alert('Make a selection');
             $('#create-1').modal();
-            // break;
+            break;
         };
     };
 };
@@ -215,10 +216,16 @@ var create5Click = function() {
             var userInterestChoice = interestChoice[i].value;
             userProfileObj.interest = userInterestChoice;
             console.log(userProfileObj);
+            $.modal.close();
             break;
-        };
+        } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
+            alert('Please select an option');
+            console.log('none');
+            $('#create-5').modal();
+            break;
+        }
     };
-    $.modal.close();
+    // $.modal.close();
 }
 
 // Create profile modal button click handlers
