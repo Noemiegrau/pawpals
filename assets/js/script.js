@@ -101,17 +101,23 @@ function catApi() {
 
 var imageSelection = function(imgUrl) {
     // console.log($choice.children().length);
-    if ($('#img-choice-1').children().length > 0) {
-        $('#img-choice-1').empty();
-    }
+    // if ($('#img-choice-1').children().length > 0) {
+    //     $('#img-choice-1').empty();
+    // }
+    // if ($('img-choice-1').attr('backgroundImage'))
     console.log(imgUrl);
-    var $choice = $(`#img-choice-1`);
-    console.log($choice);
-    var $image = $('<img>')
-        .attr('width', '100%')
-        .attr('src', imgUrl);
-    $choice.append($image);
-    $imgSelect.append($choice);
+    $('.img-choice')
+        .css(
+            'backgroundImage', 
+            "url('" + imgUrl + "')"
+            );
+    // var $choice = $(`#img-choice-1`);
+    // console.log($choice);
+    // var $image = $('<img>')
+    //     .attr('width', '100%')
+    //     .attr('src', imgUrl);
+    // $choice.append($image);
+    // $imgSelect.append($choice);
 
     // console.log(i);
 };
