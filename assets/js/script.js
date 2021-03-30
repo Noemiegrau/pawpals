@@ -159,8 +159,13 @@ var create1Click = function() {
     };
 };
 
-function create2Click() {
-    console.log('click');
+function create2Click(imgUrl) {
+    console.log(imgUrl);
+    var img = $('.img-choice');
+    var userImg = 
+        img.css('backgroundImage')
+            .split("\"")[1];
+    userProfileObj.profileImg = userImg;
     
     $('#create-3').modal();
 };
