@@ -160,6 +160,8 @@ var create1Click = function() {
         if (animalChoice[i].checked) {
             var userAnimal = animalChoice[i].value;
             userProfileObj.animal = userAnimal;
+
+            //send to check for image fetching
             userAnimalCheck(userAnimal);
             // for (i = 0; i < 5; i++) {
             //     console.log(userProfileObj.animal);
@@ -193,11 +195,20 @@ function create2Click() {
 
 var create3Click = function() {
     var name = $('#user-name');
-    var userName = name.val();
-    if (!userName) {
+    var nameInput = name.val().toLowerCase();
+    console.log(nameInput);
+    if (!nameInput) {
         alert('Enter a name');
         $('#create-3').modal();
     } else {
+        // format name properly
+        var nameSplit = nameInput.split(' ');
+        for (var i = 0; i < nameSplit.length; i++) {
+              nameSplit[i] = nameSplit[i][0].toUpperCase() + nameSplit[i].substr(1);
+        }
+         var userName = nameSplit.join(' ');
+         console.log(userName);
+
         userProfileObj.name = userName;
         ageRangeOpts();
         $('#create-4').modal();
