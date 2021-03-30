@@ -1,110 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Project 1</title>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/pageable@latest/dist/pageable.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Chango&family=Open+Sans+Condensed:wght@300&family=Thasadith&display=swap"
+    />
+    <link
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.css"
+        integrity="sha512-T3VL1q6jMUIzGLRB9z86oJg9PgF7A55eC2XkB93zyWSqQw3Ju+6IEJZYBfT7E9wOHM7HCMCOZSpcssxnUn6AeQ=="
+        crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Paw Pals</title>
 </head>
-
 <body>
 
-    <!-- Start fullPage.js -->
-    <div id="fullpage">
-
-        <!-- Section Mood -->
-        <div class="section p-5">
-
-            <!-- Hero/Logo -->
-            <section class="hero">
-                <div class="hero-body p-0">
-                    <span class="title pl-6 has-text-weight-light is-size-5-mobile">Logo</span>
+    <div class="pg-wrapper">
+        <div id="container" class="pg-container">
+            <!-- pages -->
+            <div data-anchor="page-1" id="page-1" class="pg-page pg-active">
+                <div>
+                    <img src="./assets/images/pawpals.png" alt="paw pals logo" class="pawpalsLogo">
                 </div>
-            </section>
 
-            <!-- Main content mood section-->
-            <div class="columns is-mobile">
-                <div class="column is-half is-offset-one-quarter">
-
-                    <h1 class="title p-5 pt-5 mt-6 has-text-centered is-size-4-mobile">Choose Your Mood</h1>
-                    
-                    <div class="control has-text-centered">
-                        <div class="select">
-                          <select>
-                            <option>I am feeling..</option>
-                            <option>Happy</option>
-                            <option>Mad</option>
-                            <option>Sad</option>
-                            <option>Strong</option>
-                          </select>
-                        </div>
+                <!-- button to Login -->
+                <button type="button" id="myProfileBtn"> 
+                    MY PROFILE
+                </button>
+                <!-- container to center these items -->
+                <div class="slogan-button-flexbox">
+                    <!-- slogan section-->
+                    <div id="slogan">
+                        <p>THERE GOES THE NEIGHBORHOOD</p>
                     </div>
-
-                    <div class="control has-text-centered">
-                        <button class="button is-primary mt-4">Submit</button>
-                    </div>
-
+                    <!-- button to create profile -->
+                    <button type="button" id="createProfileBtn"> 
+                        CREATE A PROFILE
+                    </button>
                 </div>
             </div>
-
-        </div>
-
-        <!-- Section Artist -->
-        <div class="section">
-
-            <!-- Hero/Logo -->
-            <section class="hero">
-                <div class="hero-body p-0">
-                    <span class="title pl-6 has-text-weight-light is-size-5-mobile">Logo</span>
+            <!-- MODALS -->
+            <div id="create-1" class="modal">
+                <p>Is this for a cat or a dog?</p>
+                <div>
+                    <input type= "radio" id="cat" name="animal-choice" value="cat" />
+                    <label for="cat">Cat</label>
+                    <input type= "radio" id="dog" name="animal-choice" value="dog" />
+                    <label for="dog">Dog</label>
                 </div>
-            </section>
-
-            <div class="columns is-mobile">
-                <div class="column is-half is-offset-one-quarter">
-
-                    <h1 class="slide title p-5 pt-5 mt-6 has-text-centered is-size-4-mobile" data-anchor="slide1">Choose Artist</h1>
-
-                </div>   
+                <button type="submit" id="create1Btn">Next</button>
             </div>
-
-
-        </div>
-
-        <!-- Section Live Chat -->
-        <div class="section">
-
-            <!-- Hero/Logo -->
-            <section class="hero">
-                <div class="hero-body p-0">
-                    <span class="title pl-6 has-text-weight-light is-size-5-mobile">Logo</span>
-                </div>
-            </section>
-
-            <div class="columns is-mobile">
-                <div class="column is-half is-offset-one-quarter">
-
-                    <h1 class="title p-5 pt-5 mt-6 has-text-centered is-size-4-mobile">Live Chat</h1>
-
-                </div>
+            <div id="create-2" class="modal">
+                <p>Select a profile picture</p>
+                <button type="submit" id="create2Btn">Next</button>
             </div>
-
+            <div id="create-3" class="modal">
+                <p>What is your name?</p>
+                <div>
+                    <input type="text" id="user-name" />
+                    <label for="user-name"></label>
+                </div>
+                <button type="submit" id="create3Btn">Next</button>
+            </div>
+            <div id="create-4" class="modal">
+                <p>What is your age?</p>
+                <div>
+                    <input type="number" id="user-age" />
+                </div>
+                <button type="submit" id="create4Btn">Next</button>
+            </div>
+            <div id="create-5" class="modal">
+                <p>Are you interested in cats or dogs?</p>
+                <div>
+                    <input type= "radio" id="cats" name="interest-choice" value="cats"/>
+                    <label for="cats">Cats</label>
+                    <input type= "radio" id="dogs" name="interest-choice" value="dogs"/>
+                    <label for="dogs">Dogs</label>
+                    <input type= "radio" id="both" name="interest-choice" value="both"/>
+                    <label for="both">Both</label>
+                </div>
+                <button type="submit" id="create5Btn">Finish</button>
+            </div>
         </div>
-
+        <!-- pips will go here -->
     </div>
-
-
-    <!-- CDNJS link for fullPage.js -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.min.js" integrity="sha512-HqbDsHIJoZ36Csd7NMupWFxC7e7aX2qm213sX+hirN+yEx/eUNlZrTWPs1dUQDEW4fMVkerv1PfMohR1WdFFJQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.extensions.min.js" integrity="sha512-2whoeiZFzA/g6YGH/nI7iXRQlMPYLECQYLFYKXxqigVzCQYAMvQ1v+oy8TYN5ccbyeyG55mjdMjI7CQSN25B0g==" crossorigin="anonymous"></script>
-    <!-- CDNJS link for jQuery -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script> -->
-    <script src="./assets/js/script.js"></script>
-    
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.js"
+        integrity="sha512-ztxZscxb55lKL+xmWGZEbBHekIzy+1qYKHGZTWZYH1GUwxy0hiA18lW6ORIMj4DHRgvmP/qGcvqwEyFFV7OYVQ=="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/pageable@latest/dist/pageable.min.js"></script>
+    <script src="./assets/js/script.js"></script>  
 </body>
-</html>
+</html> 
