@@ -20,7 +20,7 @@ Project is created using:
 
 
 ## **_Link URL to deployed app on GitHub_**
-https://noemiegrau.github.io/project-1-group-4/
+https://github.com/Noemiegrau/project-1-group-4
 
 ## **_Link URL to GitHub Repository_**
 https://github.com/Noemiegrau/project-1-group-4
