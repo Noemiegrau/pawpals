@@ -1,3 +1,9 @@
+var $createProfileBtn = $('#createProfileBtn');
+var $create1Btn = $('#create1Btn');
+var $create2Btn = $('#create2Btn');
+var $create3Btn = $('#create3Btn');
+var $create4Btn = $('#create4Btn');
+var $create5Btn = $('#create5Btn');
 // new Pageable("#container");
  
 new Pageable("#container", {
@@ -46,3 +52,67 @@ new Pageable("#container", {
         // do something when scrolling ends
     },
 });
+
+var create1Click = function() {
+    var animalChoice = $("input[name='animal-choice']");
+
+    // find which is selected
+    for (i = 0; i < animalChoice.length; i++) {
+        if (animalChoice[i].checked) {
+            var userAnimal = animalChoice[i].value;
+            console.log(userAnimal);
+            $('#create-2').modal();
+            break;
+        } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
+            alert('Make a selection');
+            $('#create-1').modal();
+            break;
+        };
+    };
+    // $('#create-2').modal();
+};
+
+var create2Click = function() {
+    console.log('click');
+
+    $('#create-3').modal();
+};
+
+var create3Click = function() {
+    var name = $('#user-name');
+    var userName = name.val();
+    console.log(userName);
+    $('#create-4').modal();
+};
+
+var create4Click = function() {
+    var age = $('#user-age');
+    var userAge = age.val();
+    console.log(userAge);
+    $('#create-5').modal();
+};
+
+var create5Click = function() {
+    var interestChoice = $("input[name='interest-choice']");
+
+    // find which radio button is selected
+    for (i = 0; i < interestChoice.length; i++) {
+        if (interestChoice[i].checked) {
+            var userInterestChoice = interestChoice[i].value;
+            console.log(userInterestChoice);
+            break;
+        };
+    };
+    $.modal.close();
+}
+
+// Create profile modal button click handlers
+$createProfileBtn.click(function() {
+    $('#create-1').modal();
+});
+
+$create1Btn.click(create1Click);
+$create2Btn.click(create2Click);
+$create3Btn.click(create3Click);
+$create4Btn.click(create4Click);
+$create5Btn.click(create5Click);
