@@ -1,9 +1,14 @@
 var imgUrl;
-// # of cat swipes counter
-var catSwipes = 0;
 
-// # of dog swipes counter
+var match = 0;
+var nomatch = 0;
+
+var catSwipes = 0;
 var dogSwipes = 0;
+var totalSwipes = catSwipes + dogSwipes;
+
+var love;
+var loveMatch;
 
 // random names
 var names = [
@@ -202,6 +207,8 @@ class Carousel {
                 // get right border position
                 posX = this.board.clientWidth
 
+                love = true
+
             } else if (propX < -0.25 && e.direction == Hammer.DIRECTION_LEFT) {
 
                 successful = true
@@ -284,9 +291,35 @@ class Carousel {
         if( Math.round(Math.random()) == 0 ) {
             console.log("Woof");
             dogApi();
+            if( Math.round(Math.random()) == 0 ) {
+                loveMatch = true;
+            } else {
+                loveMatch = false;
+            }
+
+            if (love == true && loveMatch == love) {
+                match++;
+                loveAlert();
+            } else {
+                nomatch++;
+            }
+
         } else {
             console.log("meow");
             catApi();
+            if( Math.round(Math.random()) == 0 ) {
+                loveMatch = true;
+            } else {
+                loveMatch = false;
+            }
+
+            if (love == true && loveMatch == love) {
+                match++;
+                loveAlert();
+            } else {
+                nomatch++;
+            }
+            
         }
 
         card.style.backgroundImage =
@@ -296,6 +329,10 @@ class Carousel {
 
     }
 
+}
+
+function loveAlert () {
+    window.alert ("It's a match!!!");
 }
 
 
