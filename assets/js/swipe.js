@@ -10,6 +10,10 @@ var names = [
     "Amy", "Derek", "Charlie", "Quincy"
 ];
 
+var bios = [
+    "I like turtles", "I am a pirate ARRRG", "What's your favorite food?"
+];
+
 
 function dogApi() {
     var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
@@ -264,6 +268,13 @@ class Carousel {
         age.innerHTML = randomAge;
         age.classList.add('age');
         nameAge.appendChild(age);
+
+        // get random bio
+        let bio = document.createElement('p');
+        var randombio = bios[Math.floor(Math.random() * bios.length)];
+        bio.innerHTML = randombio;
+        bio.classList.add('bio');
+        nameAge.appendChild(bio);
 
 
 
