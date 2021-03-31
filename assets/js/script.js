@@ -13,6 +13,7 @@ var $create2 = $('#create-2');
 var $create3 = $('#create-3');
 var $create4 = $('#create-4');
 var $create5 = $('#create-5');
+var modalNum = 0;
 var $imgSelect = $('#img-select');
 var $newImgBtn = $('#new-img');
 var userProfileObj = {};
@@ -195,6 +196,7 @@ var clearAgeOpt = function() {
 
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
+    modalNum = 1;
 
     // find which is selected
     for (i = 0; i < animalChoice.length; i++) {
@@ -217,7 +219,7 @@ var create1Click = function() {
             // $create2.modal(createModalProps);
             // break;
         } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
-            console.log('boop');
+            console.log(modalNum);
             alert('Make a selection');
             $create1.modal(createModalProps);
             break;
@@ -226,6 +228,8 @@ var create1Click = function() {
 };
 
 function create2Click() {
+    modalNum = 2;
+    console.log(modalNum);
     var userImg = $('.img-choice')
         .css('backgroundImage')
         .split("\"")[1];
@@ -236,12 +240,15 @@ function create2Click() {
 };
 
 var create3Click = function() {
+    modalNum = 3;
+    
     var nameInput = 
         $('#user-name')
         .val()
         .toLowerCase();
     console.log(nameInput);
     if (!nameInput) {
+        console.log(modalNum);
         alert('Enter a name');
         $create3.modal(createModalProps);
     } else {
@@ -260,11 +267,13 @@ var create3Click = function() {
 };
 
 var create4Click = function() {
+    modalNum = 4;
     var userAge =
         $('#user-age')
         .val();
     console.log(userAge);
     if (!userAge) {
+        console.log(modalNum);
         alert('please select your age');
         $('create-4').modal(createModalProps);
     } else {
@@ -275,6 +284,7 @@ var create4Click = function() {
 };
 
 var create5Click = function() {
+    modalNum = 5;
     var interestChoice = $("input[name='interest-choice']");
 
     // find which radio button is selected
@@ -293,6 +303,7 @@ var create5Click = function() {
             $.modal.close();
             break;
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
+            console.log(modalNum);
             alert('Please select an option');
             console.log('none');
             $create5.modal(createModalProps);
