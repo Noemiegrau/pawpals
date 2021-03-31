@@ -152,6 +152,19 @@ var ageRangeOpts = function() {
     }
 }
 
+var deselectRadios = function(radioLength) {
+    for (i = 0; i < 5; i++) {
+        console.log(radioLength);
+        var radios = $("input[type='radio']");
+        radios[i].checked = false;
+    };
+};
+
+var clearAgeOpt = function() {
+    var ageSelect = $('#user-age');
+    ageSelect.prop('selectedIndex', 0)
+}
+
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
 
@@ -163,6 +176,8 @@ var create1Click = function() {
 
             //send to check for image fetching
             userAnimalCheck(userAnimal);
+            var radioLength = animalChoice.length;
+            deselectRadios(radioLength);
             // for (i = 0; i < 5; i++) {
             //     console.log(userProfileObj.animal);
                 // if (userAnimal === 'cat') {
@@ -224,6 +239,7 @@ var create4Click = function() {
         $('create-4').modal();
     } else {
         userProfileObj.age = userAge;
+        clearAgeOpt();
         $('#create-5').modal();
     }
 };
@@ -240,6 +256,8 @@ var create5Click = function() {
 
             // store userProfileObj in localStorage
             localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
+            var radioLength = interestChoice.length;
+            deselectRadios(radioLength);
 
             $.modal.close();
             break;
