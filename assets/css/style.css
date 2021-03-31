@@ -4,19 +4,45 @@
 
 /* Create-profile modal classes */
 
+#create-2 .img-select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#create-2 .img-choice {
+    width: 320px;
+    height: 320px;
+    background-size: cover;
+    background-position: center;
+}
+
+#create-2 .img {
+    width: 320px;
+    max-height: 320px;
+    /* flex: 40%; */
+    /* padding: 5px; */
+}
+
 #create-3 input {
     font-size: 26px;
     font-family: 'Open Sans condensed', sans-serif;
 }
 
+#create-4 select {
+    font-family: 'Open Sans condensed', sans-serif;
+    font-size: 20px;
+}
+
+/* #create-4 option {
+    font-family: 'Open Sans condensed', sans-serif;
+} */
+
 .modal {
-    /* margin-top: 15px;
-    width: fit-content;
-    border-radius: 15%; */
+    height: fit-content;
     font-family: 'Open Sans condensed', sans-serif;
     font-size: 26px;
     background-color: bisque;
-    /* padding: 5px; */
 }
 
 .modal button {

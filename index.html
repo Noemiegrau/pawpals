@@ -60,7 +60,17 @@
             </div>
             <div id="create-2" class="modal">
                 <p>Select a profile picture</p>
-                <button type="submit" id="create2Btn">Next</button>
+                <div class="img-select">
+                    <div class="img-choice"></div>
+                    <!-- <div class="img-choice" id="img-choice-2"></div>
+                    <div class="img-choice" id="img-choice-3"></div>
+                    <div class="img-choice" id="img-choice-4"></div>
+                    <div class="img-choice" id="img-choice-5"></div> -->
+                </div>
+                <p>Select this picture?</p>
+                <button type="submit" id="create2Btn">Yes</button>
+                <button type="button" id="new-img">Nah, new picture</button>
+                <!-- <button type="submit" id="create2Btn">Next</button> -->
             </div>
             <div id="create-3" class="modal">
                 <p>What is your name?</p>
@@ -73,7 +83,10 @@
             <div id="create-4" class="modal">
                 <p>What is your age?</p>
                 <div>
-                    <input type="number" id="user-age" />
+                    <!-- <input type="number" id="user-age" /> -->
+                    <select name="user-age" id="user-age">
+                        <option value="" disabled selected>Select your age</option>
+                    </select>
                 </div>
                 <button type="submit" id="create4Btn">Next</button>
             </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Build a Full Featured Tinder Like Carousel in Vanilla JavaScript</title>
@@ -18,6 +19,9 @@
                 position: relative;
                 overflow: hidden;
                 background-color: rgb(245, 247, 250);
+                display: flex;
+                align-items:center;
+                justify-content:flex-end;
             }
 
             .card {
@@ -73,10 +77,20 @@
                 text-shadow: 2px 1px palevioletred;
             }
             .bio {
-                position: absolute;
+                position: fixed;
+                width: 90%;
                 margin-top: 70px;
-                font-size: 20px;
+                font-size: 13px;
                 font-family: Arial, Helvetica, sans-serif;
+            }
+            .alert {
+                height: 320px;
+                width: 320px;
+                display: flex;
+                margin-bottom: 250px;
+                font-size: 72px;
+                color: pink;
+                background-size: cover;
             }
         </style>
     </head>
@@ -84,6 +98,11 @@
     <body>
         <div id="board"></div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous">
+        </script>
         <script src="./assets/js/swipe.js"></script>
     </body>
 
