@@ -1,4 +1,5 @@
 var $createProfileBtn = $('#createProfileBtn');
+var $loginBtn = $('#loginBtn');
 var $create1Btn = $('#create1Btn');
 var $create2Btn = $('#create2Btn');
 var $create3Btn = $('#create3Btn');
@@ -15,6 +16,7 @@ var $create5 = $('#create-5');
 var $imgSelect = $('#img-select');
 var $newImgBtn = $('#new-img');
 var userProfileObj = {};
+var profileExists = false;
 var createModalProps = {
     clickClose: false,
     showClose: false
@@ -85,7 +87,7 @@ function dogApi() {
             console.log("dog fetched");
             imageSelection(imgUrl);
     });
-}
+};
 
 // API #2
 function catApi() {
@@ -111,7 +113,7 @@ function catApi() {
             console.log("cat fetched");
             imageSelection(imgUrl);
     });
-}
+};
 
 // load stored userProfileObj
 var storedProfile = JSON.parse(localStorage.getItem('storedProfile'));
@@ -120,8 +122,18 @@ if (!storedProfile) {
     console.log('no profile found');
 } else {
     console.log('profile found');
+    profileExists = true;
     userProfileObj = storedProfile;
-}
+};
+
+var loginProfileCheck = function() {
+    if (profileExists == true) {
+        console.log('yeeee');
+        location.href = './swipe.html';
+    } else if (profileExists == false) {
+        console.log('boooooo');
+    }
+};
 
 var imageSelection = function(imgUrl) {
     // console.log($choice.children().length);
@@ -277,6 +289,7 @@ var create5Click = function() {
             var radioLength = interestChoice.length;
             deselectRadios(radioLength);
 
+            profileExists = true;
             $.modal.close();
             break;
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
@@ -300,6 +313,7 @@ $createProfileBtn.click(function() {
     );
 });
 
+$loginBtn.click(loginProfileCheck);
 $create1Btn.click(create1Click);
 $create2Btn.click(create2Click);
 $newImgBtn.click(userAnimalCheck);
