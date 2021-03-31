@@ -350,7 +350,8 @@ var create5Click = function() {
             deselectRadios(radioLength);
 
             profileExists = true;
-            $.modal.close();
+            loginProfileCheck();
+            // $.modal.close();
             break;
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
             alertModal(modalNum);
