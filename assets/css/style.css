@@ -155,3 +155,18 @@
 /* SLOGAN END */
 
 /*************************/
+
+/* PROFILE SECTION START */
+
+.hide {
+    display: none;
+}
+
+.shadow-box:hover {
+    box-shadow: 1px 8px 20px grey;
+    -webkit-transition:  box-shadow .6s ease-in;
+}
+
+/* PROFILE SECTION END */
+
+/*************************/
