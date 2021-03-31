@@ -294,7 +294,13 @@ var create5Click = function() {
 
 // Create profile modal button click handlers
 $createProfileBtn.click(function() {
-    $create1.modal(createModalProps);
+    $create1.modal(
+    //     { 
+    //     fadeDuration: 1000,
+    //     fadeDelay : 0.5
+    // },
+    // createModalProps
+    );
 });
 
 $create1Btn.click(create1Click);
