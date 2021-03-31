@@ -350,14 +350,14 @@ function loveAlert () {
     var matchAlert = document.createElement('div');
     matchAlert.innerHTML = "It's a Match!"
     matchAlert.classList.add("alert");
-    // matchAlert.style.backgroundImage =
-    // "url('" + imgUrl + "')";
+    matchAlert.style.backgroundImage =
+    "url('" + imgUrl + "')";
     
     var board = document.getElementById("board");
     board.append(matchAlert);
     setTimeout(function(){
         $('.alert').remove();
-   },500);
+   }, 1500);
 }
 
 
