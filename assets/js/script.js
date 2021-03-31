@@ -1,5 +1,6 @@
 var $createProfileBtn = $('#createProfileBtn');
 var $loginBtn = $('#loginBtn');
+var $alertBtn = $('#alert-btn')
 var $create1Btn = $('#create1Btn');
 var $create2Btn = $('#create2Btn');
 var $create3Btn = $('#create3Btn');
@@ -13,11 +14,13 @@ var $create2 = $('#create-2');
 var $create3 = $('#create-3');
 var $create4 = $('#create-4');
 var $create5 = $('#create-5');
-var modalNum = 0;
+var $modalAlert = $('#modal-alert');
+var $alertText = $('#alert-text');
 var $imgSelect = $('#img-select');
 var $newImgBtn = $('#new-img');
 var userProfileObj = {};
 var profileExists = false;
+var modalNum = 0;
 var createModalProps = {
     clickClose: false,
     showClose: false
@@ -127,6 +130,63 @@ if (!storedProfile) {
     userProfileObj = storedProfile;
 };
 
+var alertModal = function(modalNum) {
+    console.log(modalNum);
+    // var sendBackTo = $(`create${modalNum}`);
+    // console.log(sendBackTo);
+
+    switch(modalNum) {
+        case 1:
+            console.log(modalNum);
+            $alertText.text('Please make a selection');
+            $modalAlert.modal(createModalProps);
+            break;
+        case 2:
+            break;
+        case 3:
+            $alertText.text('Please enter your name');
+            $modalAlert.modal(createModalProps);
+            break;
+        case 4:
+            $alertText.text('Please enter your age');
+            $modalAlert.modal(createModalProps);
+            break;
+        case 5:
+            $alertText.text('Please make a selection');
+            $modalAlert.modal(createModalProps);
+            break;
+    };
+};
+
+var sendBackTo = function() {
+    console.log('send back to');
+    console.log(modalNum);
+
+    switch(modalNum) {
+        case 1:
+            $create1.modal(createModalProps);
+            break;
+        case 2:
+            $create2.modal(createModalProps);
+            break;
+        case 3:
+            $create3.modal(createModalProps);
+            break;
+        case 4:
+            $create4.modal(createModalProps);
+            break;
+        case 5:
+            $create5.modal(createModalProps);
+            break;
+    };
+
+    // var backToModal = '$' + `create${modalNum}`;
+    // console.log(backToModal);
+    // backToModal.modal(createModalProps);
+
+}
+
+// $create3.modal(createModalProps);
 var loginProfileCheck = function() {
     if (profileExists == true) {
         console.log('yeeee');
@@ -160,9 +220,7 @@ var imageSelection = function(imgUrl) {
 };
 
 var userAnimalCheck = function() {
-    // console.log(userProfileObj.animal);
     userAnimal = userProfileObj.animal;
-    // console.log(userAnimal);
     if (userAnimal === 'cat') {
         catApi();
     } else if (userAnimal === 'dog') {
@@ -216,12 +274,8 @@ var create1Click = function() {
                 //     dogApi();
                 // }
             // }
-            // $create2.modal(createModalProps);
-            // break;
         } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
-            console.log(modalNum);
-            alert('Make a selection');
-            $create1.modal(createModalProps);
+            alertModal(modalNum);
             break;
         };
     };
@@ -248,9 +302,7 @@ var create3Click = function() {
         .toLowerCase();
     console.log(nameInput);
     if (!nameInput) {
-        console.log(modalNum);
-        alert('Enter a name');
-        $create3.modal(createModalProps);
+        alertModal(modalNum);
     } else {
         // format name properly
         var nameSplit = nameInput.split(' ');
@@ -273,9 +325,7 @@ var create4Click = function() {
         .val();
     console.log(userAge);
     if (!userAge) {
-        console.log(modalNum);
-        alert('please select your age');
-        $('create-4').modal(createModalProps);
+        alertModal(modalNum);
     } else {
         userProfileObj.age = userAge;
         clearAgeOpt();
@@ -303,10 +353,7 @@ var create5Click = function() {
             $.modal.close();
             break;
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
-            console.log(modalNum);
-            alert('Please select an option');
-            console.log('none');
-            $create5.modal(createModalProps);
+            alertModal(modalNum);
             break;
         }
     };
@@ -324,6 +371,7 @@ $createProfileBtn.click(function() {
     );
 });
 
+$alertBtn.click(sendBackTo);
 $loginBtn.click(loginProfileCheck);
 $create1Btn.click(create1Click);
 $create2Btn.click(create2Click);
