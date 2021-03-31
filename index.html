@@ -16,9 +16,10 @@
         integrity="sha512-T3VL1q6jMUIzGLRB9z86oJg9PgF7A55eC2XkB93zyWSqQw3Ju+6IEJZYBfT7E9wOHM7HCMCOZSpcssxnUn6AeQ=="
         crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Paw Pals</title>
-    <link rel="shortcut icon" type="image/png" href="./assets/images/pink_paw"/>
+    <link rel="shortcut icon" type="image/png" href="./assets/images/pawPink.png"/>
 </head>
 <body>
 
@@ -89,6 +90,70 @@
                 <button type="submit" id="create5Btn">Finish</button>
             </div>
         </div>
+
+        <!-- MY PROFILES PAGE-->
+        <div id="my-profile-page" class="">
+
+            <div class="columns features">
+
+                <div class="column is-3"></div>
+
+                <div class="column is-3">
+
+                    <div id="my-profile-container" class="card shadow-box">
+
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://source.unsplash.com/6Ticnhs1AG0" alt="animal profile picture" class="modal-button">
+                            </figure>
+                        </div>
+
+                        <div class="card-content">
+                            <p class="title is-4">Animal Name</p>
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="subtitle is-6">Age</p>
+                                    <div class="buttons is-centered">
+                                        <span class="button is-link modal-button is-warning" data-target="modal-image2">Edit</span>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- <div class="content">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris.
+                            </div> -->
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="column is-3">
+
+                    <div id="analytics-container" class="card shadow-box">
+                        
+                        <div id="analytics-list" class="card-content">
+                            <h1 class="title is-4"> Analytics</h1>
+                            <div class="content">
+                                <p class="subtitle is-6 age">Average age: <span class="age-number"></span></p>
+                                <p class="subtitle is-6 match">Number of match: <span class="match-number"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-3"></div>
+
+            </div>
+
+            <div id="end-buttons">
+                <button type="button" id="btn-create-profile-two" onclick="">Create a profile</button>
+                <button type="button" id="btn-swipe" onclick="">Start swiping</button> 
+            </div>
+
+        </div>
+
         <!-- pips will go here -->
     </div>
     <script
