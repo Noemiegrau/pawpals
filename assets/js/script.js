@@ -70,27 +70,6 @@ new Pageable("#container", {
     },
 });
 
-
-// Hamburger Menu 
-
-(function() {
-    'use strict';
-    $('.hamburger-menu').click(function (e) {
-        e.preventDefault();
-        if ($(this).hasClass('active')){
-            $(this).removeClass('active');
-            $('.menu-overlay').fadeToggle( 'fast', 'linear' );
-            $('.menu .menu-list').slideToggle( 'slow', 'swing' );
-            $('.hamburger-menu-wrapper').toggleClass('bounce-effect');
-        } else {
-            $(this).addClass('active');
-            $('.menu-overlay').fadeToggle( 'fast', 'linear' );
-            $('.menu .menu-list').slideToggle( 'slow', 'swing' );
-            $('.hamburger-menu-wrapper').toggleClass('bounce-effect');
-        }
-    })
-  })();
-
 // API #1
 function dogApi() {
     var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
@@ -202,12 +181,6 @@ var clearAgeOpt = function() {
     ageSelect.prop('selectedIndex', 0)
 }
 
-// var newImage = function() {
-//     var animalChoice = ;
-//     userAnimalCheck(userAnimal);
-// }
-
-
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
 
@@ -241,7 +214,6 @@ var create1Click = function() {
 };
 
 function create2Click() {
-    // var img = $('.img-choice');
     var userImg = $('.img-choice')
         .css('backgroundImage')
         .split("\"")[1];
@@ -252,7 +224,6 @@ function create2Click() {
 };
 
 var create3Click = function() {
-    // var name = $('#user-name');
     var nameInput = 
         $('#user-name')
         .val()
@@ -277,7 +248,6 @@ var create3Click = function() {
 };
 
 var create4Click = function() {
-    // var age = $('#user-age');
     var userAge =
         $('#user-age')
         .val();
