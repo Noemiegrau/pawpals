@@ -21,6 +21,7 @@ var createModalProps = {
 };
 
 // new Pageable("#container");
+
  
 new Pageable("#container", {
     childSelector: "[data-anchor]", // CSS3 selector string for the pages
@@ -68,6 +69,27 @@ new Pageable("#container", {
         // do something when scrolling ends
     },
 });
+
+
+// Hamburger Menu 
+
+(function() {
+    'use strict';
+    $('.hamburger-menu').click(function (e) {
+        e.preventDefault();
+        if ($(this).hasClass('active')){
+            $(this).removeClass('active');
+            $('.menu-overlay').fadeToggle( 'fast', 'linear' );
+            $('.menu .menu-list').slideToggle( 'slow', 'swing' );
+            $('.hamburger-menu-wrapper').toggleClass('bounce-effect');
+        } else {
+            $(this).addClass('active');
+            $('.menu-overlay').fadeToggle( 'fast', 'linear' );
+            $('.menu .menu-list').slideToggle( 'slow', 'swing' );
+            $('.hamburger-menu-wrapper').toggleClass('bounce-effect');
+        }
+    })
+  })();
 
 // API #1
 function dogApi() {
@@ -184,6 +206,7 @@ var clearAgeOpt = function() {
 //     var animalChoice = ;
 //     userAnimalCheck(userAnimal);
 // }
+
 
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
