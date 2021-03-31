@@ -26,6 +26,73 @@ var bios = [
     "I like turtles", "I am a pirate", "What's your favorite food?", "Take me to the park", "I'm looking for my soulmate", "want a bff", "Looking for a hiking buddy", "I am well-balanced and stable, but willing to let you knock me off my feet.", "I am someone who will kiss you in the rain.", "What I am is good enough." , "I am old fashioned sometimes. I still believe in romance, in roses, in holding hands.", "I don't smoke, drink or party every weekend. I don't play around or start drama to get attention. Yes, we do still exist!" , "I'm going to make the rest of my life the best of my life. Care to share it with me?", "I am strong, kind, smart, hilarious, sweet, lovable, and amazing. Isn't that what you've been looking for?", "I'm neither especially clever nor especially gifted, except for when it comes to being your perfect other half.", "I won't run away in the storms.", "I want to inspire and be inspired.", "I am here to find love and give love in return.", "I can guarantee you won't find anybody else like me.", "WiFi, food, my bed, snuggles. Perfection.", "I am strong enough to protect you and soft enough to melt your heart.", "If I could rate my personality, I'd say good looking!", "I live my life without stress and worries.", "I am good looking (In certain lighting).", "I am not the one your mother warned you about.", "I am too positive to be doubtful, too optimistic to be fearful, and too determined to be defeated.", "Forget what hurt you in the past. It wasn't me. I'm like the opposite of that person!", "I'm not beautiful like you, but I'm beautiful like me!", "I am just one small person in this big world trying to find real love.", "Once I've found my special someone, my life will be complete.", "Being both strong and soft is a combination I have mastered.", "I'm not here to be an average partner, I'm here to be an awesome partner.", "Don't let idiots ruin your day, date me instead!", "I'm a tidy person, with a few messy habits.", "I've learned to stop rushing things that need time to grow.", "I've learned to stop rushing things that need time to grow.", "I'm loving, and I'll always look forward to seeing you at the end of each day.", "I appreciate the little things.", "I'm willing to work hard to make you happy in life.", "I want to be everything you didn't know you were looking for.", "I don't want a perfect relationship: I want someone to act silly with, who treats me well, and who loves being with me more than anything.", "I want to be the reason you look down at your phone and smile.", "I want someone I can love who will love me back.", "I want someone who will watch movies with me on lazy days.", "I want someone who will keep surprising me.", "I want someone who can make me smile for no reason.", "I want to be the reason your dreams will come true.", "I want someone loving, who can cook, and if you look good in a pair of jeans, that would be a bonus!", "I want to build a lifetime of dreams with someone special.", "I want a lasting relationship.", "I want to fall madly in love.", "I want a happily ever after.", "I want to meet someone who is afraid to lose me.", "I want to build a future with the right person.", "I want to meet someone who will text me good morning and goodnight.", "I want to meet someone who gives me compliments.", "I want to meet someone who makes me laugh.", "I want to meet someone who likes to cuddle.", "I want to meet someone wants to surprise me and hug me from behind.", "I want to meet someone who won't rush things.", "I want someone who I can be completely myself around.", "I want someone I can play Xbox with.", "I want someone who I can kiss in the pouring rain.", "I want someone who enjoys holding hands.", "I want someone who will be my best friend.", "I just want someone to throw cookie dough around in the kitchen with.", "I want someone who will remember the little things.", "I want you—So be brave and want me too!", "I want someone to love me without restriction, trust me without fear, and want me without demand!", "I want to be the best at loving you.", "I am 100% ready to invest in a long term relationship.", "I am looking for my last love.", "I believe happiness is wanting what you get.", "I believe the best time for new beginnings is now.", "I believe in true love.", "I believe in sticking around through the good and the bad times.", "I believe the right person is out there looking for me.", "I could be the person you've been dreaming of.", "Together we could make our dreams come true.", "I believe nothing is more romantic than someone who wants you as much as you want them.", "I believe an honest relationship is more important than a perfect relationship.", "I believe life is short, and I want to waste it wisely.", "I'm not going to say it's going to be easy, but I can promise it will be worth it!", "I believe I am too good a catch to be single.", "I believe I have a lot of love to give.", "I am here because I believe life begins at the end of your comfort zone.", "I believe how you make others feel about themselves says a lot about you.", "I believe something beautiful is on the horizon.", "I believe some people cross your path and change your whole direction.", "I believe good looks fade, but a good heart keeps you beautiful forever.", "Let’s just go out on a first date and talk about something random.", "I’m actually here because my family and friends think it’s weird I keep on showing up to family events, dinners, baby showers and weddings alone. So, do you want to be my plus one?", "Swipe right if you hate cold cereals or if you want to argue with me about it.", "I floss. That’s how responsible I am.", "I don’t want a partner in crime. I commit all my crimes on my own. I would never drag you into that.", "Eh, I’ll do this part when I think of something clever.", "Let’s match, chat and date!", "I always keep a loaded gun on my nightstand in the event of an intruder, so I can shoot myself to avoid meeting new people.", "Even I’d date me.", "Well, here I am. What are your other two wishes?", "Do you believe in love at first sight – or should you swipe right again?", "Last time I was someone’s type, I was donating blood.", "Not here for a long time, just for a good time.", "Swipe right if you want to find love in this hopeless place.", "I like to party. And by party I mean take naps.", "“By far my favorite grandchild.” – My Grandma", "Swipe right and I’ll promise that I’ll fight by any memes possible.", "You want a tough project? Look no further.", "Let’s go for a nice walk and see inside each other’s minds.", "I’m here to catch Pokemon, not feelings.", "I’d tell you a lengthy description about myself but that would take away from the mystery.", "Swipe right and start your free 30 day trial with me today.", "Basically, I want someone I can share my entire life with who will leave me alone most of the time.", "Am I a good person? No. But do I try and better myself everyday? Still no.", "A simple guy with some extraordinary dreams… trying to live my life to the fullest.", "The first bite of a raw carrot makes me hiccup 99% of the time, but I keep on eating it anyway. So, that should tell you enough about my perseverance.", "Some people give off the “don’t screw with me” vibe. Mine is more “you can spill a soup in my lap and I’ll probably end up apologizing to you.”", "If we match, I already told my mom about us.", "It would be a plus if you could fit into my mum’s sweater and fill in the void she left behind.", "Dating me ensures you’ll always be the better-looking one.", "For the love of God, someone please date me, so I can stop bringing my mom to parties as my plus one.", "I’m not into taking things slowly.", "Like my shirt? It’s made of boyfriend material.", " Two reasons to date me: 1. Because you’d be the good looking one 2. Please.", "Adventurer, dreamer, lover, warrior, artist, scholar.", "I’m looking for love. Real love. Ridiculous, inconvenient, consuming, can’t-live-without-each-other love.", "Ask me out, don’t chat me up.", "Badass with a heart of gold.", "Stop staring at me, woman. – Every dog ever.", "A warrior, not a worrier.", "I am the human equivalent of a 1997 Pontiac Sunfire."
 ];
 
+new Pageable("#container", {
+    childSelector: "[data-anchor]", // CSS3 selector string for the pages
+    anchors: [], // define the page anchors
+    pips: false, // display the pips
+    animation: 300, // the duration in ms of the scroll animation
+    delay: 0, // the delay in ms before the scroll animation starts
+    throttle: 50, // the interval in ms that the resize callback is fired
+    orientation: "vertical", // or horizontal
+    swipeThreshold: 50, // swipe / mouse drag distance (px) before firing the page change event
+    freeScroll: false, // allow manual scrolling when dragging instead of automatically moving to next page
+    navPrevEl: false, // define an element to use to scroll to the previous page (CSS3 selector string or Element reference)
+    navNextEl: false, // define an element to use to scroll to the next page (CSS3 selec++tor string or Element reference)
+    infinite: false, // enable infinite scrolling (from 0.4.0)
+    // slideshow: { // enable slideshow that cycles through your pages automatically (from 0.4.0)
+    //     interval: 3000, // time in ms between page change,
+    //     delay: 0 // delay in ms after the interval has ended and before changing page
+    // },
+    // events: {
+    //     wheel: true, // enable / disable mousewheel scrolling
+    //     mouse: true, // enable / disable mouse drag scrolling
+    //     touch: true, // enable / disable touch / swipe scrolling
+    //     keydown: true, // enable / disable keyboard navigation
+    // },
+    // easing: function(currentTime, startPos, endPos, interval) {
+    //     // the easing function used for the scroll animation
+    //     return -endPos * (currentTime /= interval) * (currentTime - 2) + startPos;
+    // },
+    onInit: function() {
+        // do something when the instance is ready
+    },
+    onUpdate: function() {
+        // do something when the instance updates
+    },    
+    onBeforeStart: function() {
+        // do something before scrolling begins
+    },
+    onStart: function() {
+        // do something when scrolling begins
+    },
+    onScroll: function() {
+        // do something during scroll
+    },
+    onFinish: function() {
+        // do something when scrolling ends
+    },
+});
+
+// var profilesListEl = document.getElementById('profiles-list');
+
+// (function() {
+//     'use strict';
+//     $('.hamburger-menu').click(function (e) {
+//         e.preventDefault();
+//         if ($(this).hasClass('active')){
+//             $(this).removeClass('active');
+//             $('.menu-overlay').fadeToggle( 'fast', 'linear' );
+//             $('.menu .menu-list').slideToggle( 'slow', 'swing' );
+//             $('.hamburger-menu-wrapper').toggleClass('bounce-effect');
+//         } else {
+//             $(this).addClass('active');
+//             $('.menu-overlay').fadeToggle( 'fast', 'linear' );
+//             $('.menu .menu-list').slideToggle( 'slow', 'swing' );
+//             $('.hamburger-menu-wrapper').toggleClass('bounce-effect');
+//         }
+//     })
+//   })();
+
 function dogApi() {
     var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
     

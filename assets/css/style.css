@@ -1,108 +1,108 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Create-profile modal classes */
 
 #create-2 .img-select {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #create-2 .img-choice {
-    width: 320px;
-    height: 320px;
-    background-size: cover;
-    background-position: center;
+  width: 320px;
+  height: 320px;
+  background-size: cover;
+  background-position: center;
 }
 
 #create-2 .img {
-    width: 320px;
-    max-height: 320px;
-    /* flex: 40%; */
-    /* padding: 5px; */
+  width: 320px;
+  max-height: 320px;
+  /* flex: 40%; */
+  /* padding: 5px; */
 }
 
 #create-3 input {
-    font-size: 26px;
-    font-family: 'Open Sans condensed', sans-serif;
+  font-size: 26px;
+  font-family: 'Open Sans condensed', sans-serif;
 }
 
 #create-4 select {
-    font-family: 'Open Sans condensed', sans-serif;
-    font-size: 20px;
+  font-family: 'Open Sans condensed', sans-serif;
+  font-size: 20px;
 }
 
 /* #create-4 option {
-    font-family: 'Open Sans condensed', sans-serif;
+  font-family: 'Open Sans condensed', sans-serif;
 } */
 
 .modal {
-    height: fit-content;
-    font-family: 'Open Sans condensed', sans-serif;
-    font-size: 26px;
-    background-color: bisque;
+  height: fit-content;
+  font-family: 'Open Sans condensed', sans-serif;
+  font-size: 26px;
+  background-color: bisque;
 }
 
 .modal button {
-    margin-top: 30px;
-    background-color: #f9ca98;
-    font-family: 'Open Sans condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 900;
-    border-radius: 5px;
-    padding: 10px;
-    border: none;
+  margin-top: 30px;
+  background-color: #f9ca98;
+  font-family: 'Open Sans condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
 }
 
 #page-1 {
-    background-color: salmon;
+  background-color: salmon;
 }
 
 .pawpalsLogo {
-    margin-top: 30px;
-    margin-left: 40px;
-    position: absolute;
-    width:10em;
+  margin-top: 30px;
+  margin-left: 40px;
+  position: absolute;
+  width:10em;
 }
 
 .slogan-button-flexbox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 40vw;
 }
  
 /*************************/
 
 /* MY PROFILE BUTTON START */
 
-#myProfileBtn {
-    background-color: white;
-    border-radius: 9px;
-    /* font-family: 'Chango', cursive*/
-    font-family: 'Open Sans Condensed', sans-serif;
-    /* font-family: 'Thasadith', sans-serif; */
-    padding: 10px 10px;
-    width: fit-content;
-    margin-right: 40px;
-    margin-top: 30px;
-    border: none;
-    float: right;
-    position: relative;
-    font-size: 17px;
-    color: salmon;
-    background-image: linear-gradient(100deg, #f2dfa0 0%, #f9ca98 70%);
-    transition:all .5s ease-out;
-    background-position: 0 -10px;
+#loginBtn {
+  background-color: white;
+  border-radius: 9px;
+  /* font-family: 'Chango', cursive*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  /* font-family: 'Thasadith', sans-serif; */
+  padding: 10px 10px;
+  width: fit-content;
+  margin-right: 40px;
+  margin-top: 30px;
+  border: none;
+  float: right;
+  position: relative;
+  font-size: 17px;
+  color: salmon;
+  background-image: linear-gradient(100deg, #f2dfa0 0%, #f9ca98 70%);
+  transition:all .5s ease-out;
+  background-position: 0 -10px;
 }
 
-#myProfileBtn:hover {
-    background-position: 1px -50px;
-    color:black;
+#loginBtn:hover {
+  background-position: 1px -50px;
+  color:black;
 }
 
 /* MY PROFILE BUTTON ENDS */
@@ -112,27 +112,27 @@
 /* CREATE PROFILE BUTTON START */
 
 #createProfileBtn {
-    background-color: lightgoldenrodyellow;
-    border-radius: 9px;
-    /* font-family: 'Chango', cursive*/
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 20px;
-    /* font-family: 'Thasadith', sans-serif; */
-    padding: 10px 30px;
-    width: fit-content;
-    /* margin-top: 750px;
-    margin-left: 43%; */
-    /* position: relative; */
-    background-image: linear-gradient(180deg, #ffe48b 0%, #da7d1afe 100%);
-    transition:all .5s ease-out;
-    background-size: 1px 100px;
-    background-position: 0 -10px;
-    border: none;
+  background-color: lightgoldenrodyellow;
+  border-radius: 9px;
+  /* font-family: 'Chango', cursive*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+  /* font-family: 'Thasadith', sans-serif; */
+  padding: 10px 30px;
+  width: fit-content;
+  /* margin-top: 750px;
+  margin-left: 43%; */
+  /* position: relative; */
+  background-image: linear-gradient(180deg, #ffe48b 0%, #da7d1afe 100%);
+  transition:all .5s ease-out;
+  background-size: 1px 100px;
+  background-position: 0 -10px;
+  border: none;
 }
 
 #createProfileBtn:hover {
-    background-position: 1px -50px;
-  }
+  background-position: 1px -50px;
+}
 
 /* CREATE PROFILE BUTTON END */
 
@@ -141,16 +141,16 @@
 /* SLOGAN START */
 
 #slogan {
-    text-align: center;
-    /* margin-left: 1000px;
-    margin-right: 500px;
-    margin-top: -350px; */
+  text-align: center;
+  /* margin-left: 1000px;
+  margin-right: 500px;
+  margin-top: -350px; */
 }
 
 #slogan p {
-    font-family: 'Thasadith', sans-serif;
-    font-size: 80px;
-    color: whitesmoke;
+  font-family: 'Thasadith', sans-serif;
+  font-size: 80px;
+  color: whitesmoke;
 }
 
 /* SLOGAN END */
@@ -160,7 +160,7 @@
 
 /* HAMBURGER MENU START */
 
-.hamburger-menu-wrapper {
+/* .hamburger-menu-wrapper {
     margin-top: 40px;
     background: #323232;
     padding: 10px;
@@ -256,18 +256,18 @@
     min-width: 220px;
     text-align: right;
     margin-right: 50px;
-  }
+  } */
   
-  .menu-list {
+  /* .menu-list {
     display: none;
-    position: absolute;
+    position: absolute; */
     /* top: calc(100% + 40px); */
-    width: 100%;
+    /* width: 100%;
     text-align: center;
     z-index: 9999;
-  }
+  } */
   
-  .menu-list a {
+  /* .menu-list a {
     color: #C6D2D6;
     text-decoration: none;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -289,18 +289,18 @@
     left: 0;
     background: rgba(0, 0, 0, 0.6);
     z-index: 1111;
-  }
+  } */
 
 /* PROFILE SECTION START */
 
-.hide {
+/* .hide {
     display: none;
 }
 
 .shadow-box:hover {
     box-shadow: 1px 8px 20px grey;
     -webkit-transition:  box-shadow .6s ease-in;
-}
+} */
 
 /* PROFILE SECTION END */
 

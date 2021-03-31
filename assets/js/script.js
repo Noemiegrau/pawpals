@@ -326,7 +326,7 @@ $createProfileBtn.click(function() {
     //     fadeDuration: 1000,
     //     fadeDelay : 0.5
     // },
-    // createModalProps
+    createModalProps
     );
 });
 
