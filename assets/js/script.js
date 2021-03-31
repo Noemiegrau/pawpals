@@ -4,6 +4,11 @@ var $create2Btn = $('#create2Btn');
 var $create3Btn = $('#create3Btn');
 var $create4Btn = $('#create4Btn');
 var $create5Btn = $('#create5Btn');
+var $create1 = $('#create-1');
+var $create2 = $('#create-2');
+var $create3 = $('#create-3');
+var $create4 = $('#create-4');
+var $create5 = $('#create-5');
 var $imgSelect = $('#img-select');
 var $newImgBtn = $('#new-img');
 var userProfileObj = {};
@@ -139,7 +144,7 @@ var userAnimalCheck = function(userAnimal) {
     } else if (userAnimal === 'dog') {
         dogApi();
     };
-    $('#create-2').modal();
+    $create2.modal();
 };
 
 var ageRangeOpts = function() {
@@ -186,35 +191,38 @@ var create1Click = function() {
                 //     dogApi();
                 // }
             // }
-            // $('#create-2').modal();
+            // $create2.modal();
             // break;
         } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
             console.log('boop');
             alert('Make a selection');
-            $('#create-1').modal();
+            $create1.modal();
             break;
         };
     };
 };
 
 function create2Click() {
-    var img = $('.img-choice');
-    var userImg = 
-        img.css('backgroundImage')
-            .split("\"")[1];
+    // var img = $('.img-choice');
+    var userImg = $('.img-choice')
+        .css('backgroundImage')
+        .split("\"")[1];
     userProfileObj.profileImg = userImg;
     
     var name = $('#user-name').val('');
-    $('#create-3').modal();
+    $create3.modal();
 };
 
 var create3Click = function() {
-    var name = $('#user-name');
-    var nameInput = name.val().toLowerCase();
+    // var name = $('#user-name');
+    var nameInput = 
+        $('#user-name')
+        .val()
+        .toLowerCase();
     console.log(nameInput);
     if (!nameInput) {
         alert('Enter a name');
-        $('#create-3').modal();
+        $create3.modal();
     } else {
         // format name properly
         var nameSplit = nameInput.split(' ');
@@ -226,13 +234,15 @@ var create3Click = function() {
 
         userProfileObj.name = userName;
         ageRangeOpts();
-        $('#create-4').modal();
+        $create4.modal();
     };
 };
 
 var create4Click = function() {
-    var age = $('#user-age');
-    var userAge = age.val();
+    // var age = $('#user-age');
+    var userAge =
+        $('#user-age')
+        .val();
     console.log(userAge);
     if (!userAge) {
         alert('please select your age');
@@ -240,7 +250,7 @@ var create4Click = function() {
     } else {
         userProfileObj.age = userAge;
         clearAgeOpt();
-        $('#create-5').modal();
+        $create5.modal();
     }
 };
 
@@ -264,7 +274,7 @@ var create5Click = function() {
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
             alert('Please select an option');
             console.log('none');
-            $('#create-5').modal();
+            $create5.modal();
             break;
         }
     };
@@ -273,7 +283,7 @@ var create5Click = function() {
 
 // Create profile modal button click handlers
 $createProfileBtn.click(function() {
-    $('#create-1').modal();
+    $create1.modal();
 });
 
 $create1Btn.click(create1Click);
