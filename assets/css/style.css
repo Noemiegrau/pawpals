@@ -1,6 +1,7 @@
 * {
   overflow: hidden;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* Create-profile modal classes */
@@ -30,14 +31,32 @@
   font-family: 'Open Sans condensed', sans-serif;
 }
 
-#create-4 select {
+select {
+  font-family: 'Open Sans condensed', sans-serif;
+  font-size: 20px;
+  height: auto;
+}
+
+option {
+  font-family: 'Open Sans condensed', sans-serif;
+}
+
+#min-max-age {
+  padding-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#min-max-age select {
   font-family: 'Open Sans condensed', sans-serif;
   font-size: 20px;
 }
 
-/* #create-4 option {
-  font-family: 'Open Sans condensed', sans-serif;
-} */
+#min-max-age p {
+  margin: 0px 15px;
+  /* margin: 0px; */
+}
 
 .modal {
   height: fit-content;
