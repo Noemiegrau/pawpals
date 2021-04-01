@@ -239,6 +239,26 @@ var ageRangeOpts = function() {
     }
 }
 
+var minAgeOpts = function() {
+    var $select = $('#match-min-age');
+    for (i = 0; i < 40; i++) {
+        var $ageOpt = $('<option>')
+            .val(i)
+            .text(i);
+        $select.append($ageOpt);
+    };
+};
+
+var maxAgeOpts = function() {
+    var $select = $('#match-max-age');
+    for (i = 0; i < 40; i++) {
+        var $ageOpt = $('<option>')
+            .val(i)
+            .text(i);
+        $select.append($ageOpt);
+    };
+};
+
 var deselectRadios = function(radioLength) {
     for (i = 0; i < 5; i++) {
         console.log(radioLength);
@@ -329,6 +349,8 @@ var create4Click = function() {
     } else {
         userProfileObj.age = userAge;
         clearAgeOpt();
+        minAgeOpts();
+        maxAgeOpts();
         $create5.modal(createModalProps);
     }
 };
@@ -342,6 +364,14 @@ var create5Click = function() {
         if (interestChoice[i].checked) {
             var userInterestChoice = interestChoice[i].value;
             userProfileObj.interest = userInterestChoice;
+            var userMinAge = 
+                $('#match-min-age')
+                .val();
+            var userMaxAge =
+                $('#match-max-age')
+                .val();
+            userProfileObj.minAge = userMinAge;
+            userProfileObj.maxAge = userMaxAge;
             console.log(userProfileObj);
 
             // store userProfileObj in localStorage
