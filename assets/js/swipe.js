@@ -455,7 +455,7 @@ function loveAlert () {
     matchAlert.appendChild(matchText);
 
     // add matchProfileObj to matches array in userProfileObj
-    userProfileObj.matches.push(matchProfileObj);
+    userProfileObj.matchData.matches.push(matchProfileObj);
     
     // save to localStorage
     localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
