@@ -1,4 +1,6 @@
 var $createProfileBtn = $('#createProfileBtn');
+var $loginBtn = $('#loginBtn');
+var $alertBtn = $('#alert-btn')
 var $create1Btn = $('#create1Btn');
 var $create2Btn = $('#create2Btn');
 var $create3Btn = $('#create3Btn');
@@ -12,15 +14,20 @@ var $create2 = $('#create-2');
 var $create3 = $('#create-3');
 var $create4 = $('#create-4');
 var $create5 = $('#create-5');
+var $modalAlert = $('#modal-alert');
+var $alertText = $('#alert-text');
 var $imgSelect = $('#img-select');
 var $newImgBtn = $('#new-img');
 var userProfileObj = {};
+var profileExists = false;
+var modalNum = 0;
 var createModalProps = {
     clickClose: false,
     showClose: false
 };
 
 // new Pageable("#container");
+
  
 new Pageable("#container", {
     childSelector: "[data-anchor]", // CSS3 selector string for the pages
@@ -84,7 +91,7 @@ function dogApi() {
             console.log("dog fetched");
             imageSelection(imgUrl);
     });
-}
+};
 
 // API #2
 function catApi() {
@@ -110,7 +117,7 @@ function catApi() {
             console.log("cat fetched");
             imageSelection(imgUrl);
     });
-}
+};
 
 // load stored userProfileObj
 var storedProfile = JSON.parse(localStorage.getItem('storedProfile'));
@@ -119,8 +126,75 @@ if (!storedProfile) {
     console.log('no profile found');
 } else {
     console.log('profile found');
+    profileExists = true;
     userProfileObj = storedProfile;
+};
+
+var alertModal = function(modalNum) {
+    console.log(modalNum);
+    // var sendBackTo = $(`create${modalNum}`);
+    // console.log(sendBackTo);
+
+    switch(modalNum) {
+        case 1:
+            console.log(modalNum);
+            $alertText.text('Please make a selection');
+            $modalAlert.modal(createModalProps);
+            break;
+        case 2:
+            break;
+        case 3:
+            $alertText.text('Please enter your name');
+            $modalAlert.modal(createModalProps);
+            break;
+        case 4:
+            $alertText.text('Please enter your age');
+            $modalAlert.modal(createModalProps);
+            break;
+        case 5:
+            $alertText.text('Please make a selection');
+            $modalAlert.modal(createModalProps);
+            break;
+    };
+};
+
+var sendBackTo = function() {
+    console.log('send back to');
+    console.log(modalNum);
+
+    switch(modalNum) {
+        case 1:
+            $create1.modal(createModalProps);
+            break;
+        case 2:
+            $create2.modal(createModalProps);
+            break;
+        case 3:
+            $create3.modal(createModalProps);
+            break;
+        case 4:
+            $create4.modal(createModalProps);
+            break;
+        case 5:
+            $create5.modal(createModalProps);
+            break;
+    };
+
+    // var backToModal = '$' + `create${modalNum}`;
+    // console.log(backToModal);
+    // backToModal.modal(createModalProps);
+
 }
+
+// $create3.modal(createModalProps);
+var loginProfileCheck = function() {
+    if (profileExists == true) {
+        console.log('yeeee');
+        location.href = './swipe.html';
+    } else if (profileExists == false) {
+        console.log('boooooo');
+    }
+};
 
 var imageSelection = function(imgUrl) {
     // console.log($choice.children().length);
@@ -146,9 +220,7 @@ var imageSelection = function(imgUrl) {
 };
 
 var userAnimalCheck = function() {
-    // console.log(userProfileObj.animal);
     userAnimal = userProfileObj.animal;
-    // console.log(userAnimal);
     if (userAnimal === 'cat') {
         catApi();
     } else if (userAnimal === 'dog') {
@@ -167,6 +239,26 @@ var ageRangeOpts = function() {
     }
 }
 
+var minAgeOpts = function() {
+    var $select = $('#match-min-age');
+    for (i = 0; i < 40; i++) {
+        var $ageOpt = $('<option>')
+            .val(i)
+            .text(i);
+        $select.append($ageOpt);
+    };
+};
+
+var maxAgeOpts = function() {
+    var $select = $('#match-max-age');
+    for (i = 0; i < 40; i++) {
+        var $ageOpt = $('<option>')
+            .val(i)
+            .text(i);
+        $select.append($ageOpt);
+    };
+};
+
 var deselectRadios = function(radioLength) {
     for (i = 0; i < 5; i++) {
         console.log(radioLength);
@@ -180,13 +272,9 @@ var clearAgeOpt = function() {
     ageSelect.prop('selectedIndex', 0)
 }
 
-// var newImage = function() {
-//     var animalChoice = ;
-//     userAnimalCheck(userAnimal);
-// }
-
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
+    modalNum = 1;
 
     // find which is selected
     for (i = 0; i < animalChoice.length; i++) {
@@ -206,19 +294,16 @@ var create1Click = function() {
                 //     dogApi();
                 // }
             // }
-            // $create2.modal(createModalProps);
-            // break;
         } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
-            console.log('boop');
-            alert('Make a selection');
-            $create1.modal(createModalProps);
+            alertModal(modalNum);
             break;
         };
     };
 };
 
 function create2Click() {
-    // var img = $('.img-choice');
+    modalNum = 2;
+    console.log(modalNum);
     var userImg = $('.img-choice')
         .css('backgroundImage')
         .split("\"")[1];
@@ -229,15 +314,15 @@ function create2Click() {
 };
 
 var create3Click = function() {
-    // var name = $('#user-name');
+    modalNum = 3;
+    
     var nameInput = 
         $('#user-name')
         .val()
         .toLowerCase();
     console.log(nameInput);
     if (!nameInput) {
-        alert('Enter a name');
-        $create3.modal(createModalProps);
+        alertModal(modalNum);
     } else {
         // format name properly
         var nameSplit = nameInput.split(' ');
@@ -254,22 +339,24 @@ var create3Click = function() {
 };
 
 var create4Click = function() {
-    // var age = $('#user-age');
+    modalNum = 4;
     var userAge =
         $('#user-age')
         .val();
     console.log(userAge);
     if (!userAge) {
-        alert('please select your age');
-        $('create-4').modal(createModalProps);
+        alertModal(modalNum);
     } else {
         userProfileObj.age = userAge;
         clearAgeOpt();
+        minAgeOpts();
+        maxAgeOpts();
         $create5.modal(createModalProps);
     }
 };
 
 var create5Click = function() {
+    modalNum = 5;
     var interestChoice = $("input[name='interest-choice']");
 
     // find which radio button is selected
@@ -277,6 +364,14 @@ var create5Click = function() {
         if (interestChoice[i].checked) {
             var userInterestChoice = interestChoice[i].value;
             userProfileObj.interest = userInterestChoice;
+            var userMinAge = 
+                $('#match-min-age')
+                .val();
+            var userMaxAge =
+                $('#match-max-age')
+                .val();
+            userProfileObj.minAge = userMinAge;
+            userProfileObj.maxAge = userMaxAge;
             console.log(userProfileObj);
 
             // store userProfileObj in localStorage
@@ -284,12 +379,12 @@ var create5Click = function() {
             var radioLength = interestChoice.length;
             deselectRadios(radioLength);
 
-            $.modal.close();
+            profileExists = true;
+            loginProfileCheck();
+            // $.modal.close();
             break;
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
-            alert('Please select an option');
-            console.log('none');
-            $create5.modal(createModalProps);
+            alertModal(modalNum);
             break;
         }
     };
@@ -303,10 +398,12 @@ $createProfileBtn.click(function() {
     //     fadeDuration: 1000,
     //     fadeDelay : 0.5
     // },
-    // createModalProps
+    createModalProps
     );
 });
 
+$alertBtn.click(sendBackTo);
+$loginBtn.click(loginProfileCheck);
 $create1Btn.click(create1Click);
 $create2Btn.click(create2Click);
 $newImgBtn.click(userAnimalCheck);
