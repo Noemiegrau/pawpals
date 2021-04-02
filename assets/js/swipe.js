@@ -140,7 +140,7 @@ class Carousel {
 
         // add first two cards programmatically
         this.push()
-        // this.push()
+        this.push()
 
         // handle gestures
         this.handle()
@@ -383,6 +383,14 @@ class Carousel {
             dogApi().then(() => {
                 cardFrame.style.backgroundImage =
                 "url('" + imgUrl + "')";
+                matchProfileObj = new MatchProfile(
+                    randomName,
+                    randomAge,
+                    randombio,
+                    imgUrl,
+                    loveMatch
+                );
+                console.log(matchProfileObj);
             });
             
             // assign true or false value on their swipe right
@@ -398,6 +406,14 @@ class Carousel {
             catApi().then(()=> {
                 cardFrame.style.backgroundImage =
                 "url('" + imgUrl + "')";
+                matchProfileObj = new MatchProfile(
+                    randomName,
+                    randomAge,
+                    randombio,
+                    imgUrl,
+                    loveMatch
+                );
+                console.log(matchProfileObj);
             });
 
             // assign true or false value on their swipe right
@@ -408,17 +424,6 @@ class Carousel {
             }
             
         }
-
-        // Create match profile object
-        matchProfileObj = new MatchProfile(
-            randomName,
-            randomAge,
-            randombio,
-            imgUrl,
-            loveMatch
-        );
-
-        console.log(matchProfileObj);
 
         this.board.insertBefore(card, this.board.firstChild)
 
