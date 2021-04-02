@@ -390,12 +390,30 @@ class Carousel {
             
         }
 
-        
+        // Create match profile object
+        var matchProfileObj = new MatchProfile(
+            randomName,
+            randomAge,
+            randombio,
+            imgUrl,
+            loveMatch
+        );
+
+        console.log(matchProfileObj);
 
         this.board.insertBefore(card, this.board.firstChild)
 
     }
 
+}
+
+// Match Profile Object Constructor
+function MatchProfile (randomName, randomAge, randombio, imgUrl, loveMatch) {
+    this.name = randomName;
+    this.age = randomAge;
+    this.bio = randombio;
+    this.profileImg = imgUrl;
+    this.match = loveMatch;
 }
 
 function loveAlert () {
