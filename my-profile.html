@@ -28,6 +28,7 @@
     <div class="menu-list">
     <a href="about.html" id="ml-about">ABOUT</a><br>
     <a href="my-profile.html" id="ml-profile">MY PROFILE</a><br>
+    <a href="swipe.html" id="ml-swipe">SWIPE</a><br>
     <a href="matches.html" id="ml-matches">MATCHES</a><br>
     <a href="contact-us.html" id="ml-contact">CONTACT US</a><br>
     </div>
@@ -94,22 +95,39 @@
 
     </div>
 
-    <div class="columns features">
-
-      <div class="column is-4"></div>
-
-      <div class="column is-4 mt-6">
-        <div id="end-buttons" class="buttons is-centered">
-          <!-- <button id="btn-swipe" class="button is-link is-warning">Start swiping</button> -->
-          <!-- <a id="btn-swipe" href="swipe.html" class="button is-link is-warning">Start swiping</a> -->
-        </div>
+    <article id="confirmation-delete-container" class="message is-danger hide">
+      <div class="message-header">
+        <p>Attention!</p>
+        <button id="delete-cross-message" class="delete" aria-label="delete"></button>
       </div>
+      <div class="message-body">
+        <p>Are you sure you want to <strong>delete</strong> your profile information?</p>
+        <p class="control">
+          <button id="delete-btn-message" class="button is-danger">
+            Delete
+          </button>
+        </p>
+        <p class="control">
+          <button id="cancel-btn-message" class="button">
+            Cancel
+          </button>
+        </p>
+      </div>
+    </article>
 
-      <div class="column is-4"></div>
+    <article id="success-delete-container" class="message is-success hide">
+      <div class="message-header">
+        <p>Attention!</p>
+        <button id="second-cross-message" class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        Your profile information have been <strong>deleted successfully</strong>. You will be redirected to the home page.
+      </div>
+    </article>
+
+    
 
   </div>
-
-</div>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
   integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="

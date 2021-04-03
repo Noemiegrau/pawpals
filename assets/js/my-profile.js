@@ -13,10 +13,9 @@ var loadUserData = function() {
     };
     console.log(userProfileObj);
 };
-
 loadUserData();
 
-// Function that displays the user profile info into the profile card
+// Displays the user profile info into the profile card
 function displayProfileObj () {
     document.getElementById("animal-name").innerHTML = userProfileObj.name;
     document.getElementById("animal-age").innerHTML = "Age: " + userProfileObj.age;
@@ -25,20 +24,39 @@ function displayProfileObj () {
     document.getElementById("animal-image").innerHTML = userProfileObj.profileImg;
     document.getElementById("min-max").innerHTML = "Min-Max Age: " + userProfileObj.minAge + " - " + userProfileObj.maxAge;
 };
-
 displayProfileObj();
 
-//Add event listener for delete button
+// Event listener for delete button on profile card
 document.getElementById("delete-btn").addEventListener("click", function() {
-    // document.getElementById("animal-image").innerHTML = "You have no profile";
-	// document.getElementById("animal-name").innerHTML = "You have no profile";
-	// document.getElementById("animal-age").innerHTML = "You have no profile";
-	// document.getElementById("animal-type").innerHTML = "You have no profile";
-	// document.getElementById("animal-interest").innerHTML = "You have no profile";
-	// document.getElementById("min-max").innerHTML = "You have no profile";
-	// document.getElementById("my-profile-container").classList.add("hide");
-    document.getElementById("my-profile-container").remove();
-    document.getElementById("analytics-container").remove();
-    storage.removeItem(userProfileObj);
-
+    document.getElementById("confirmation-delete-container").classList.remove("hide");
 });
+
+// Event listener for cancel button in message box
+document.getElementById("cancel-btn-message").addEventListener("click", function() {
+    document.getElementById("confirmation-delete-container").classList.add("hide");
+});
+
+// Event listener for cross buttons in message box
+document.getElementById("delete-cross-message").addEventListener("click", function() {
+    document.getElementById("confirmation-delete-container").classList.add("hide");
+});
+
+// Event listener for delete button in message box
+document.getElementById("delete-btn-message").addEventListener("click", function() {
+    // Previous message disappears
+    document.getElementById("confirmation-delete-container").classList.add("hide");
+    // Message tells the user that the profile info has been deleted and will be redirected to the landing page
+    document.getElementById("success-delete-container").classList.remove("hide");
+    // Clears the profile info in localStorage
+    localStorage.clear(userProfileObj);
+});
+
+// Event listener for cross button in second message box
+document.getElementById("second-cross-message").addEventListener("click", function() {
+    // Redirects to the home page
+    window.location.replace("index.html");
+    // Hide the second message container
+    document.getElementById("success-delete-container").classList.add("hide");
+});
+
+// Edit function
