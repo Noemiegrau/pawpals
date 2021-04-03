@@ -399,6 +399,11 @@ class Carousel {
 }
 
 function loveAlert () {
+
+    //Heart div
+    var heart = document.createElement('div');
+    heart.classList.add("heart-shape");
+    // heart.setAttribute("src", "https://www.pngarts.com/files/1/Heart-PNG-Image.png")
     
     // Alert div
     var matchAlert = document.createElement('div');
@@ -411,11 +416,13 @@ function loveAlert () {
     matchText.textContent = "It's a Match!";
     matchText.classList.add("match-text");
     matchAlert.appendChild(matchText);
+    heart.appendChild(matchAlert)
     
     var board = document.getElementById("board");
-    board.append(matchAlert);
+    board.append(heart);
+    // board.append(matchAlert);
     setTimeout(function(){
-        $('.alert').remove();
+        $('.heart-shape').remove();
    }, 1500);
 }
 
