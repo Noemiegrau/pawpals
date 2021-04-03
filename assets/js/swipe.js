@@ -434,7 +434,7 @@ function loveAlert () {
     // board.append(matchAlert);
     setTimeout(function(){
         $('.animation').remove();
-   }, 1000000);
+   }, 1000);
 }
 
 
