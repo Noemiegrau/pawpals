@@ -12,10 +12,21 @@ var dogSwipes = 0;
 var totalSwipes = catSwipes + dogSwipes; //number of swipes
 var avgAge = [] //average age of swipes
 
+//**MATCHES VARIABLES**/
+
 // if they swipe right on you
 var love = false;
 // if you swipe right on them
 var loveMatch = false;
+// swipes that end up with a match 
+var catMatch = 0;
+var dogMatch = 0;
+
+// swipes that don't end up with a match
+var catNoMatch = 0;
+var dogNoMatch = 0;
+
+//**PREFERENCES VARIABLES**/
 
 // age range
 var low = 0 ;
@@ -413,6 +424,7 @@ class Carousel {
             // assign true or false value on their swipe right
             if( Math.round(Math.random()) == 0 ) {
                 loveMatch = true;
+                catMatch++;
             } else {
                 loveMatch = false;
             }
@@ -427,6 +439,7 @@ class Carousel {
             // assign true or false value on their swipe right
             if( Math.round(Math.random()) == 0 ) {
                 loveMatch = true;
+                dogMatch++;
             } else {
                 loveMatch = false;
             }
@@ -443,8 +456,10 @@ class Carousel {
                 // assign true or false value on their swipe right
                 if( Math.round(Math.random()) == 0 ) {
                     loveMatch = true;
+                    dogMatch++;
                 } else {
                     loveMatch = false;
+                    dogNoMatch++;
                 }
     
             } else {
@@ -458,8 +473,10 @@ class Carousel {
                 // assign true or false value on their swipe right
                 if( Math.round(Math.random()) == 0 ) {
                     loveMatch = true;
+                    catMatch++;
                 } else {
                     loveMatch = false;
+                    catNoMatch++;
                 }
                 
             }
