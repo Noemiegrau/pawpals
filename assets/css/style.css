@@ -190,6 +190,10 @@ option {
 
 /*************************/
 
+/*****************/
+/* MEDIA QUERIES */
+/*****************/
+
 @media screen and (max-width: 576px) {
   .pawpalsLogo {
     margin-top: 15px;

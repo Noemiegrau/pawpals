@@ -1,34 +1,37 @@
+// Page buttons
 var $createProfileBtn = $('#createProfileBtn');
 var $loginBtn = $('#loginBtn');
-var $alertBtn = $('#alert-btn');
-var $alertSubtext = $('#alert-subtext');
-var $create1Btn = $('#create1Btn');
-var $create2Btn = $('#create2Btn');
-var $create3Btn = $('#create3Btn');
-var $create4Btn = $('#create4Btn');
-var $create5Btn = $('#create5Btn');
 
-var profilesListEl = document.getElementById('profiles-list');
-
+// Modals
 var $create1 = $('#create-1');
 var $create2 = $('#create-2');
 var $create3 = $('#create-3');
 var $create4 = $('#create-4');
 var $create5 = $('#create-5');
 var $modalAlert = $('#modal-alert');
-var $alertText = $('#alert-text');
-var $imgSelect = $('#img-select');
+
+// Modal buttons
+var $create1Btn = $('#create1Btn');
+var $create2Btn = $('#create2Btn');
+var $create3Btn = $('#create3Btn');
+var $create4Btn = $('#create4Btn');
+var $create5Btn = $('#create5Btn');
+var $alertBtn = $('#alert-btn');
 var $newImgBtn = $('#new-img');
-var userProfileObj = {};
-var profileExists = false;
+
+// Modal elements
+var $alertText = $('#alert-text');
+var $alertSubtext = $('#alert-subtext');
+var $imgSelect = $('#img-select');
+
+// Other variables
 var modalNum = 0;
+var profileExists = false;
+var userProfileObj = {};
 var createModalProps = {
     clickClose: false,
     showClose: false
 };
-
-// new Pageable("#container");
-
  
 new Pageable("#container", {
     childSelector: "[data-anchor]", // CSS3 selector string for the pages
@@ -86,8 +89,6 @@ function dogApi() {
             return response.json();
         })
         .then(function(data) {
-            // random dog image URL
-            // console.log(data.message);
             imgUrl = data.message;
             console.log("dog fetched");
             imageSelection(imgUrl);
@@ -133,12 +134,9 @@ if (!storedProfile) {
 
 var alertModal = function(modalNum) {
     console.log(modalNum);
-    // var sendBackTo = $(`create${modalNum}`);
-    // console.log(sendBackTo);
 
     switch(modalNum) {
         case 1:
-            console.log(modalNum);
             $alertText.text('Please make a selection');
             $modalAlert.modal(createModalProps);
             break;
@@ -157,10 +155,14 @@ var alertModal = function(modalNum) {
             $modalAlert.modal(createModalProps);
             break;
         case 6:
-            $alertText.text('No profile found! Please create a profile');
+            $alertText.text('Invalid selection');
             $modalAlert.modal(createModalProps);
             break;
         case 7:
+            $alertText.text('No profile found! Please create a profile');
+            $modalAlert.modal(createModalProps);
+            break;
+        case 8:
             $alertText.text('Profile Complete!');
             $alertSubtext.text("Let's find some furry friends!");
             $modalAlert.modal(createModalProps);
@@ -189,24 +191,21 @@ var sendBackTo = function() {
             $create5.modal(createModalProps);
             break;
         case 6:
-            $.modal.close();
+            $create5.modal(createModalProps);
+            break;
         case 7:
+            $.modal.close();
+        case 8:
             loginProfileCheck();
     };
+};
 
-    // var backToModal = '$' + `create${modalNum}`;
-    // console.log(backToModal);
-    // backToModal.modal(createModalProps);
-
-}
-
-// $create3.modal(createModalProps);
 var loginProfileCheck = function() {
     if (profileExists == true) {
         console.log('yeeee');
         location.href = './swipe.html';
     } else if (profileExists == false) {
-        modalNum = 6;
+        modalNum = 7;
         console.log('boooooo');
         alertModal(modalNum);
     }
@@ -386,11 +385,14 @@ var create5Click = function() {
             var userMaxAge =
                 $('#match-max-age')
                 .val();
-            userProfileObj.minAge = userMinAge;
-            userProfileObj.maxAge = userMaxAge;
-            userProfileObj.matchData = {
-                matches: [],
-            }
+            
+            if (userMinAge < userMaxAge && userMinAge !== null && userMaxAge !== null) {
+                console.log('correct');
+                userProfileObj.minAge = userMinAge;
+                userProfileObj.maxAge = userMaxAge;
+                userProfileObj.matchData = {
+                    matches: [],
+                }
             console.log(userProfileObj);
 
             // store userProfileObj in localStorage
@@ -398,19 +400,21 @@ var create5Click = function() {
             var radioLength = interestChoice.length;
             deselectRadios(radioLength);
 
-            modalNum = 7
-
+            modalNum = 8;
             profileExists = true;
-            // loginProfileCheck();
+
             alertModal(modalNum);
-            // $.modal.close();
             break;
+            } else if (userMinAge > userMaxAge || userMaxAge == null || userMinAge == null) {
+                console.log('invalid');
+                modalNum = 6;
+                alertModal(modalNum);
+            } 
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
             alertModal(modalNum);
             break;
         }
     };
-    // $.modal.close();
 }
 
 // Create profile modal button click handlers
