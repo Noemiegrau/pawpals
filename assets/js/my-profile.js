@@ -18,7 +18,6 @@ loadUserData();
 // Displays the user profile info into the profile card
 function displayProfileObj () {
     document.getElementById("animal-name").innerHTML = userProfileObj.name;
-    // document.getElementById("animal-age").innerHTML = "Age: " + userProfileObj.age;
     document.getElementById("animal-age-text").innerHTML = userProfileObj.age;
     document.getElementById("animal-type-text").innerHTML = userProfileObj.animal;
     document.getElementById("animal-interest-text").innerHTML = userProfileObj.interest;
@@ -92,7 +91,11 @@ function saveEdit() {
     userProfileObj.maxAge = maxTextarea;
     console.log(userProfileObj.maxAge);
 
-    // Save new information to localStorage 
+
+    // HOW TO SET ALL NEW USER INPUT TO LOCALSTORAGE ???????????
+
+
+
 
 
 
@@ -109,16 +112,9 @@ function saveEdit() {
     document.getElementById("animal-interest-text").innerHTML = '<span>' + userProfileObj.interest + '</span>';
     document.getElementById("animal-min-text").innerHTML = '<span>' + userProfileObj.minAge + '</span>';
     document.getElementById("animal-max-text").innerHTML = '<span>' + userProfileObj.maxAge + '</span>';
-
-    // localStorage.setItem('userProfileObj.age', name);
-    // localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
-
-    // If min-max input are not numbers, sends an alert to tell the user
-    // if () {}
-
 };
 
-
+// EVENT LISTENERS FOR MESSAGES BUTTONS
 // Event listener for delete button on profile card
 document.getElementById("delete-btn").addEventListener("click", function() {
     document.getElementById("confirmation-delete-container").classList.remove("hide");
@@ -151,5 +147,3 @@ document.getElementById("second-cross-message").addEventListener("click", functi
     // Hide the second message container
     document.getElementById("success-delete-container").classList.add("hide");
 });
-
-// Edit function
