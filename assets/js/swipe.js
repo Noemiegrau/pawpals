@@ -1,13 +1,16 @@
 var imgUrl;
 
+//**ANALYTICS**//
+
 // match or no match counter
 var match = 0;
 var nomatch = 0;
 
-// # of swipes counter
+// # of swipes counter 
 var catSwipes = 0;
 var dogSwipes = 0;
-var totalSwipes = catSwipes + dogSwipes;
+var totalSwipes = catSwipes + dogSwipes; //number of swipes
+var avgAge = [] //average age of swipes
 
 // if they swipe right on you
 var love = false;
