@@ -10,10 +10,9 @@ var nomatch = 0;
 var catSwipes = 0;
 var dogSwipes = 0;
 var totalSwipes = catSwipes + dogSwipes; //number of swipes
-var avgAge = [] //average age of swipes
+var avgAge = []; //average age of swipes
 
 //**MATCHES VARIABLES**/
-
 // if they swipe right on you
 var love = false;
 // if you swipe right on them
@@ -27,7 +26,6 @@ var catNoMatch = 0;
 var dogNoMatch = 0;
 
 //**PREFERENCES VARIABLES**/
-
 // age range
 var low = 0 ;
 var high = 0;
@@ -534,6 +532,9 @@ function loveAlert (topCard) {
     // save to localStorage
     localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
     console.log(userProfileObj);
+
+    avgAge.push(age);
+    localStorage.setItem("ages", JSON.stringify(avgAge));
     
     var board = document.getElementById("board");
     board.append(matchAlert);
