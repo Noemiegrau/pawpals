@@ -57,13 +57,14 @@
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p id="animal-age" class="subtitle is-6">Age</p>
-                <p id="animal-type" class="subtitle is-6">Type of animal</p>
-                <p id="animal-interest" class="subtitle is-6">Interest</p>
-                <p id="min-max" class="subtitle is-6">Min-Max</p>
-                <p id="min-max" class="subtitle is-6">*click on the fields to edit them</p>
+                <p id="animal-age" class="subtitle is-6">Age: <span id="animal-age-text"></span></p>
+                <p id="animal-type" class="subtitle is-6">Type of animal: <span id="animal-type-text"></span></p>
+                <p id="animal-interest" class="subtitle is-6">Interest: <span id="animal-interest-text"></span></p>
+                <p id="min" class="subtitle is-6">Min age: <span id="animal-min-text"></span></p>
+                <p id="max" class="subtitle is-6">Max age: <span id="animal-max-text"></span></p>
               <div class="buttons is-centered">
-                <!-- <span id="edit-btn" class="button is-link modal-button is-warning" data-target="modal-image2">Edit</span> -->
+                <span id="edit-btn" class="button is-link modal-button is-warning" data-target="modal-image2" onclick="doEdit()">Edit</span>
+                <span id="save-btn" class="button is-link modal-button is-success hide" data-target="modal-image2" onclick="saveEdit()">Save</span>
                 <span id="delete-btn" class="button is-link modal-button is-warning" data-target="modal-image2">Delete</span>
               </div>
               </div>
