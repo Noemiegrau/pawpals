@@ -400,6 +400,14 @@ class Carousel {
 
 function loveAlert () {
 
+    // div
+    // var match = document.createElement('div');
+    // match.classList.add("match")
+
+    //animation container div
+    var animation = document.createElement('div');
+    animation.classList.add("animation");
+
     //Heart div
     var heart = document.createElement('div');
     heart.classList.add("heart-shape");
@@ -415,15 +423,18 @@ function loveAlert () {
     var matchText = document.createElement('p');
     matchText.textContent = "It's a Match!";
     matchText.classList.add("match-text");
+
     matchAlert.appendChild(matchText);
     heart.appendChild(matchAlert)
+    animation.appendChild(heart)
+    // match.appendChild(animation);
     
     var board = document.getElementById("board");
-    board.append(heart);
+    board.append(animation);
     // board.append(matchAlert);
     setTimeout(function(){
-        $('.heart-shape').remove();
-   }, 1500);
+        $('.animation').remove();
+   }, 1000000);
 }
 
 
