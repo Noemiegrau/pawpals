@@ -52,8 +52,8 @@ option {
 #min-max-age {
   padding-top: 20px;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 #min-max-age select {
@@ -67,6 +67,7 @@ option {
 }
 
 .modal {
+  text-align: center;
   height: fit-content;
   font-family: 'Open Sans condensed', sans-serif;
   font-size: 26px;
@@ -77,10 +78,10 @@ option {
   margin-top: 30px;
   background-color: var(--buttons);
   font-family: 'Open Sans condensed', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 900;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 25px;
   border: none;
 }
 
@@ -181,7 +182,7 @@ option {
 
 #slogan p {
   font-family: 'Thasadith', sans-serif;
-  font-size: 50px;
+  font-size: 78px;
   color: whitesmoke;
 }
 
