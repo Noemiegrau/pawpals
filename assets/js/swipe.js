@@ -21,6 +21,11 @@ var loveMatch = false;
 var low = 0 ;
 var high = 0;
 
+// cat, dog, or both
+var interestCats = false;
+var interestDogs = false;
+var interestBoth = false;
+
 // initialize empty matchProfileObj
 var matchProfileObj = {};
 
@@ -52,7 +57,15 @@ var preferences = function(){
     const storedProfile = localStorage.getItem("storedProfile");
     const parsedObj = JSON.parse(storedProfile);
     low = parseInt(parsedObj.minAge);
-    higth = parseInt(parsedObj.maxAge);
+    high = parseInt(parsedObj.maxAge);
+
+    if (parsedObj.interest == "cats") {
+        interestCats = true;
+    } else if (parsedObj.interest == "dogs") {
+        interestDogs = true;
+    } else if (parsedObj.interest == "both") {
+        interestBoth = true;
+    }
 }
 
 preferences();
@@ -389,23 +402,8 @@ class Carousel {
         bio.classList.add('bio');
         nameAge.appendChild(bio);
 
-        if( Math.round(Math.random()) == 0 ) {
-            console.log("Woof");
-            // call Api for background image
-            dogApi().then(() => {
-                cardFrame.style.backgroundImage =
-                "url('" + imgUrl + "')";
-            });
-            
-            // assign true or false value on their swipe right
-            if( Math.round(Math.random()) == 0 ) {
-                loveMatch = true;
-            } else {
-                loveMatch = false;
-            }
-
-        } else {
-            console.log("meow");
+        if (interestCats == true) {
+            console.log("meow only!");
             // call Api for background image
             catApi().then(()=> {
                 cardFrame.style.backgroundImage =
@@ -418,8 +416,58 @@ class Carousel {
             } else {
                 loveMatch = false;
             }
-            
+        } else if (interestDogs == true) {
+            console.log("Woof only!");
+            // call Api for background image
+            dogApi().then(() => {
+                cardFrame.style.backgroundImage =
+                "url('" + imgUrl + "')";
+            });
+
+            // assign true or false value on their swipe right
+            if( Math.round(Math.random()) == 0 ) {
+                loveMatch = true;
+            } else {
+                loveMatch = false;
+            }
+        } else if (interestBoth == true) {
+            console.log("meows and woofs go crazy");
+            if( Math.round(Math.random()) == 0 ) {
+                console.log("Woof");
+                // call Api for background image
+                dogApi().then(() => {
+                    cardFrame.style.backgroundImage =
+                    "url('" + imgUrl + "')";
+                });
+                
+                // assign true or false value on their swipe right
+                if( Math.round(Math.random()) == 0 ) {
+                    loveMatch = true;
+                } else {
+                    loveMatch = false;
+                }
+    
+            } else {
+                console.log("meow");
+                // call Api for background image
+                catApi().then(()=> {
+                    cardFrame.style.backgroundImage =
+                    "url('" + imgUrl + "')";
+                });
+    
+                // assign true or false value on their swipe right
+                if( Math.round(Math.random()) == 0 ) {
+                    loveMatch = true;
+                } else {
+                    loveMatch = false;
+                }
+                
+            }
+
         }
+
+        // both scenario
+        
 
         this.board.insertBefore(card, this.board.firstChild)
 
