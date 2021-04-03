@@ -92,12 +92,8 @@ function saveEdit() {
     console.log(userProfileObj.maxAge);
 
 
-    // HOW TO SET ALL NEW USER INPUT TO LOCALSTORAGE ???????????
-
-
-
-
-
+    // Sets the new values in localStorage
+    localStorage.setItem('storedProfile', JSON.stringify(userProfileObj)); 
 
     // Hide save button
     document.getElementById("save-btn").classList.add("hide");
@@ -112,6 +108,10 @@ function saveEdit() {
     document.getElementById("animal-interest-text").innerHTML = '<span>' + userProfileObj.interest + '</span>';
     document.getElementById("animal-min-text").innerHTML = '<span>' + userProfileObj.minAge + '</span>';
     document.getElementById("animal-max-text").innerHTML = '<span>' + userProfileObj.maxAge + '</span>';
+
+
+    // Make a message appear telling the user the info have been saved
+
 };
 
 // EVENT LISTENERS FOR MESSAGES BUTTONS
@@ -146,4 +146,16 @@ document.getElementById("second-cross-message").addEventListener("click", functi
     window.location.replace("index.html");
     // Hide the second message container
     document.getElementById("success-delete-container").classList.add("hide");
+});
+
+// Event listener for save edit button in message box
+document.getElementById("save-btn").addEventListener("click", function() {
+    // Message tells the user that the profile info has been edited successfully
+    document.getElementById("success-edit-container").classList.remove("hide");
+});
+
+// Event listener for cross in save edit info message box
+document.getElementById("edit-cross-message").addEventListener("click", function() {
+    // Save edits message box disappears
+    document.getElementById("success-edit-container").classList.add("hide");
 });
