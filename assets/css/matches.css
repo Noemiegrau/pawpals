@@ -1,0 +1,29 @@
+:root {
+    --primary: #ffb5a7;
+    --secondary: #fcd5ce;
+    --tertiary: #f8edeb;
+    --quaternary: #f9dcc4;
+    --quinary: #fec89a;
+    }
+
+* {
+  box-sizing: border-box;
+}
+
+#page-1 {
+    background-color: var(--primary) !important;
+}
+
+.pawpalsLogo {
+  margin-top: 30px;
+  margin-left: 40px;
+  position: absolute;
+  width:10em;
+}
+
+
+/*************************/
+
+
+
+/*************************/
