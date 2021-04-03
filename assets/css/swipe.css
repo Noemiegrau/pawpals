@@ -92,7 +92,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  animation: pulse 2s infinite ease-out;
+  animation: pulse 0.5s infinite ease-out;
 }
 
 @keyframes pulse {
