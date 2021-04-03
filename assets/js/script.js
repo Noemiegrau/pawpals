@@ -1,6 +1,7 @@
 var $createProfileBtn = $('#createProfileBtn');
 var $loginBtn = $('#loginBtn');
-var $alertBtn = $('#alert-btn')
+var $alertBtn = $('#alert-btn');
+var $alertSubtext = $('#alert-subtext');
 var $create1Btn = $('#create1Btn');
 var $create2Btn = $('#create2Btn');
 var $create3Btn = $('#create3Btn');
@@ -155,6 +156,15 @@ var alertModal = function(modalNum) {
             $alertText.text('Please make a selection');
             $modalAlert.modal(createModalProps);
             break;
+        case 6:
+            $alertText.text('No profile found! Please create a profile');
+            $modalAlert.modal(createModalProps);
+            break;
+        case 7:
+            $alertText.text('Profile Complete!');
+            $alertSubtext.text("Let's find some furry friends!");
+            $modalAlert.modal(createModalProps);
+            break;
     };
 };
 
@@ -178,6 +188,10 @@ var sendBackTo = function() {
         case 5:
             $create5.modal(createModalProps);
             break;
+        case 6:
+            $.modal.close();
+        case 7:
+            loginProfileCheck();
     };
 
     // var backToModal = '$' + `create${modalNum}`;
@@ -192,7 +206,9 @@ var loginProfileCheck = function() {
         console.log('yeeee');
         location.href = './swipe.html';
     } else if (profileExists == false) {
+        modalNum = 6;
         console.log('boooooo');
+        alertModal(modalNum);
     }
 };
 
@@ -382,8 +398,11 @@ var create5Click = function() {
             var radioLength = interestChoice.length;
             deselectRadios(radioLength);
 
+            modalNum = 7
+
             profileExists = true;
-            loginProfileCheck();
+            // loginProfileCheck();
+            alertModal(modalNum);
             // $.modal.close();
             break;
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
