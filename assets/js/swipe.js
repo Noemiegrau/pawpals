@@ -297,7 +297,7 @@ class Carousel {
                 successful = true
                 // get top border position
                 posY = -(this.board.clientHeight + this.topCard.clientHeight)
-
+                
                 love = false
 
             }
