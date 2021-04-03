@@ -18,8 +18,8 @@ var love = false;
 var loveMatch = false;
 
 // age range
-var low = 1;
-var high = 15;
+var low = 0 ;
+var high = 0;
 
 // initialize empty matchProfileObj
 var matchProfileObj = {};
@@ -47,6 +47,15 @@ var loadUserData = function() {
 };
 
 loadUserData();
+
+var preferences = function(){
+    const storedProfile = localStorage.getItem("storedProfile");
+    const parsedObj = JSON.parse(storedProfile);
+    low = parseInt(parsedObj.minAge);
+    higth = parseInt(parsedObj.maxAge);
+}
+
+preferences();
 
 new Pageable("#container", {
     childSelector: "[data-anchor]", // CSS3 selector string for the pages
