@@ -297,7 +297,7 @@ class Carousel {
                 successful = true
                 // get top border position
                 posY = -(this.board.clientHeight + this.topCard.clientHeight)
-
+                
                 love = false
 
             }
@@ -308,7 +308,7 @@ class Carousel {
                 // send a match alert before the card is removed
                 if (love == true && loveMatch == true) {
                     match++;
-                    loveAlert(matchProfileObj);
+                    loveAlert(this.topCard);
                 } else {
                     nomatch++;
                 }
@@ -393,14 +393,6 @@ class Carousel {
             dogApi().then(() => {
                 cardFrame.style.backgroundImage =
                 "url('" + imgUrl + "')";
-                matchProfileObj = new MatchProfile(
-                    randomName,
-                    randomAge,
-                    randombio,
-                    imgUrl,
-                    loveMatch
-                );
-                console.log(matchProfileObj);
             });
             
             // assign true or false value on their swipe right
@@ -416,14 +408,6 @@ class Carousel {
             catApi().then(()=> {
                 cardFrame.style.backgroundImage =
                 "url('" + imgUrl + "')";
-                matchProfileObj = new MatchProfile(
-                    randomName,
-                    randomAge,
-                    randombio,
-                    imgUrl,
-                    loveMatch
-                );
-                console.log(matchProfileObj);
             });
 
             // assign true or false value on their swipe right
@@ -442,27 +426,40 @@ class Carousel {
 }
 
 // Match Profile Object Constructor
-function MatchProfile (randomName, randomAge, randombio, imgUrl, loveMatch) {
-    this.name = randomName;
-    this.age = randomAge;
-    this.bio = randombio;
-    this.profileImg = imgUrl;
-    this.match = loveMatch;
+function MatchProfile (name, age, bio, matchImg) {
+    this.name = name;
+    this.age = age;
+    this.bio = bio;
+    this.matchImg = matchImg;
 };
 
-function loveAlert () {
+function loveAlert (topCard) {
+    // get match data
+    var name = $(topCard).find('.name').text();
+    var age = $(topCard).find('.age').text();
+    var bio = $(topCard).find('.bio').text();
+    var matchImg = $(topCard).find('.card-frame').css('background-image').split("\"")[1];
+    console.log(matchImg);
     
     // Alert div
     var matchAlert = document.createElement('div');
     matchAlert.classList.add("alert");
     matchAlert.style.backgroundImage =
-    "url('" + imgUrl + "')";
+    "url('" + matchImg + "')";
 
     // Alert text
     var matchText = document.createElement('p');
     matchText.textContent = "It's a Match!";
     matchText.classList.add("match-text");
     matchAlert.appendChild(matchText);
+
+    // construct matchProfileObj
+    matchProfileObj = new MatchProfile (
+        name,
+        age,
+        bio,
+        matchImg
+    );
 
     // add matchProfileObj to matches array in userProfileObj
     userProfileObj.matchData.matches.push(matchProfileObj);
