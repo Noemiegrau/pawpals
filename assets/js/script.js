@@ -372,6 +372,9 @@ var create5Click = function() {
                 .val();
             userProfileObj.minAge = userMinAge;
             userProfileObj.maxAge = userMaxAge;
+            userProfileObj.matchData = {
+                matches: [],
+            }
             console.log(userProfileObj);
 
             // store userProfileObj in localStorage

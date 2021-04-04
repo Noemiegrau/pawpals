@@ -34,7 +34,7 @@
   left: 5px;
   right: 5px;
   height: 2px;
-  background: #02D5FD;
+  background: #fec89a;
 }
 
 .hamburger-menu span:before, .hamburger-menu span:after {
@@ -43,7 +43,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #02D5FD;
+  background-color: #fec89a;
   content: "";
 }
 
@@ -118,9 +118,10 @@ bounce { 0% {
 }
 
 .menu-list a:hover {
-  color: #02D5FD;
+  color: #fec89a;
   /* Pulled from bulma to match my-profile */
-  background-color: #f5f5f5;
+  background-color: #323232;;
+  border-radius: 500px;
 }
 
 .menu-overlay {
