@@ -1,3 +1,11 @@
+:root {
+  --primary: #ffb5a7;
+  --secondary: #fcd5ce;
+  --tertiary: #f8edeb;
+  --quaternary: #f9dcc4;
+  --quinary: #fec89a;
+}
+
 html,
 body {
   width: 100%;
@@ -7,43 +15,40 @@ body {
 }
 
 #page-1 {
-  background-color: salmon !important;
+  background-color: var(--primary) !important;
 }
 
 #board {
   width: 100%;
   height: 100%;
   position: relative;
-  overflow: hidden;
-  /* background-color: rgb(245, 247, 250); */
-  display: flex;
-  align-items:center;
-  justify-content:flex-end;
+  /* overflow: hidden; */
+  /* display: flex; */
 }
 
+
 .card {
-  width: 320px;
-  height: 320px;
+  width: 340px;
+  height: 420px;
   position: absolute;
   top: 50%;
   left: 50%;
   border-radius: 0%;
-  background-color: white;
-  border-top: 10px solid white;
-  border-right: 10px solid white;
-  border-left: 10px solid white;
-  border-bottom: 80px solid white;
+  background-color: var(--tertiary);
   transform: translateX(-50%) translateY(-50%) scale(0.95);
-  background-size: cover;
-  background-position: center;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 3%;
 }
 
 .card-frame {
-  width: 400px;
-  height: 500px;
-  border-radius: 2%;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  width: 320px;
+  height: 320px;
+  border-radius: 3%;
+  background-color: var(--secondary);
+  margin: 10px;
 }
 
 .name-age {
@@ -56,12 +61,11 @@ body {
 }
 
 .name {
-  bottom: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
   font-weight: bold;
-  color: palevioletred;
-  text-shadow: 2px 1px papayawhip;
+  color: var(--primary);
+  text-shadow: 2px 1px var(--tertiary);
   margin-block-start: 0;
   margin-block-end: 0;
   display: flex;
@@ -72,8 +76,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
   font-weight: bold;
-  color: White;
-  text-shadow: 2px 1px palevioletred;
+  color: var(--tertiary);
+  text-shadow: 2px 1px var(--primary);
 }
 
 .bio {
@@ -81,15 +85,81 @@ body {
   width: 90%;
   margin-top: 70px;
   font-size: 13px;
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: pulse 0.5s infinite ease-out;
+}
+
+@keyframes pulse {
+  0% { transform-origin: center; transform: scale(1) rotate(45deg); }
+  50% { transform-origin: center; transform: scale(1.3) rotate(45deg); }
+  100% { transform-origin: center; transform: scale(1) rotate(45deg); }
+}
+
+.heart-shape{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: var(--quinary);
+}
+
+.heart-shape:before,
+.heart-shape:after{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  content: '';
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: var(--quinary);
+}
+
+.heart-shape:before{
+  position: absolute;
+  bottom: 0px;
+  left: -50%;
+}
+.heart-shape:after{
+  position: absolute;
+  top: -50%;
+  right: 0px;
+}
+
 .alert {
-  height: 320px;
-  width: 320px;
-  display: flex;
-  margin-bottom: 250px;
-  font-size: 72px;
-  color: pink;
+  position: relative;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform:  translateX(-60%) translateY(-50%) rotate(-45deg);
+  height: 250px;
+  width: 250px;
+  -moz-border-radius: 125px;
+  -webkit-boder-radius: 125px;
+  border-radius: 125px;
+  border: 5px var(--primary) solid;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items:center;
+  z-index: 9999;
+}
+
+
+
+.match-text {
+  position:relative;
+  font-size: 48px;
+  color: var(--primary);
+  text-shadow: 2px 1px var(--tertiary);
+  text-align: center;
 }
