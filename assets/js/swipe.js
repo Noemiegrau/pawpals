@@ -313,6 +313,13 @@ class Carousel {
                     nomatch++;
                 }
 
+                // if (catMatch == true) {
+                // catSwipe++
+                // }
+                // if (dogMatch == true) {
+                // dogSwipe++
+                //}
+
                 // throw card in the chosen direction
                 this.topCard.style.transform =
                     'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg)'

@@ -45,3 +45,64 @@ new Pageable("#container", {
         // do something when scrolling ends
     },
 });
+
+var matchesProfile = JSON.parse(localStorage.getItem('storedProfile'))
+// console.log(matchesProfile);
+// Print object attributes
+// console.log(matchesProfile);
+// console.log(matchesObj.matchData.matches[0].profileImg)
+
+
+
+for (let i = 0; i < matchesProfile.matchData.matches.length; i++) {
+    //console log objects
+    console.log(matchesProfile.matchData.matches[i].profileImg);
+    console.log(matchesProfile.matchData.matches[i].age);
+    console.log(matchesProfile.matchData.matches[i].name);
+    console.log("this " + matchImg + " is working just fine");
+    // creating a variable to store the match image
+    var matchImg = matchesProfile.matchData.matches[i].profileImg; 
+    var boardEl = document.getElementById('board');
+
+    
+    var imgBlock = document.createElement("div");
+    imgBlock.innerHTML = "<img src=" + matchImg  + ">";
+    boardEl.appendChild(imgBlock);
+
+    // el.innerHTML="<img src=\"http://placehold.it/350x350\" width=\"400px\" height=\"150px\">";
+
+
+    // var boardEl = document.getElementById("board")
+    // var matchImg = matchesProfile.matchData.matches[i].profileImg;
+    // var matchAge = matchesProfile.matchData.matches[i].age;
+    // var matchName = matchesProfile.matchData.matches[i].name;
+    
+    // let cardFrame = document.createElement('div');
+    //     cardFrame.classList.add('card-frame');
+    //     cardFrame.innerHTML = matchImg;
+    //     boardEl.appendChild(matchImg);
+
+    //     // entirety of card
+    //     let card = document.createElement('div');
+    //     let nameAge = document.createElement('div');
+    //     card.classList.add('card')
+
+    //     // text info
+    //     nameAge.classList.add('name-age');
+    //     cardFrame.appendChild(nameAge);
+
+    //     //append frame to card
+    //     card.appendChild(cardFrame);
+
+        
+    //     let name = document.createElement('p');
+    //     name.innerHTML = matchName;
+    //     name.classList.add('name');
+    //     nameAge.appendChild(name);
+
+        
+    //     let age = document.createElement('span');
+    //     age.innerHTML = matchAge;
+    //     age.classList.add('age');
+    //     nameAge.appendChild(age);
+}
