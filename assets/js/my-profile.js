@@ -27,7 +27,7 @@ function displayProfileObj () {
 };
 displayProfileObj();
 
-// Edit function
+// Allow to edit the profile info
 function doEdit() {
 
     console.log("hello");
@@ -38,7 +38,9 @@ function doEdit() {
     document.getElementById("animal-interest-text").innerHTML = '<textarea id="interest-textarea">' + userProfileObj.interest + '</textarea>';
     document.getElementById("animal-min-text").innerHTML = '<textarea id="min-textarea">' + userProfileObj.minAge + '</textarea>';
     document.getElementById("animal-max-text").innerHTML = '<textarea id="max-textarea">' + userProfileObj.maxAge + '</textarea>';
-    // document.getElementById("animal-image").innerHTML = ;
+    
+    // Edit img button appears
+    document.getElementById("edit-img").classList.remove("hide");
 
     // Edit button disappears
     document.getElementById("edit-btn").classList.add("hide");
@@ -47,7 +49,16 @@ function doEdit() {
     document.getElementById("save-btn").classList.remove("hide");
 };
 
-// Save function
+// Allow to edit the profile picture
+function editImg() {
+    // Message box asks to select a picture or change
+    document.getElementById("edit-img-message").classList.remove("hide");
+    // Add blur background
+    document.getElementById("my-profile-container").classList.add("blur");
+    document.getElementById("analytics-container").classList.add("blur");
+}
+
+// Allow to save new changes to profile info
 function saveEdit() {
 
     // Change value of NAME
@@ -92,12 +103,14 @@ function saveEdit() {
     userProfileObj.maxAge = maxTextarea;
     console.log(userProfileObj.maxAge);
 
-
     // Sets the new values in localStorage
     localStorage.setItem('storedProfile', JSON.stringify(userProfileObj)); 
 
     // Hide save button
     document.getElementById("save-btn").classList.add("hide");
+
+    // Hide edit img button
+    document.getElementById("edit-img").classList.add("hide");
 
     // Show edit button
     document.getElementById("edit-btn").classList.remove("hide");
@@ -163,6 +176,26 @@ document.getElementById("save-btn").addEventListener("click", function() {
 document.getElementById("edit-cross-message").addEventListener("click", function() {
     // Save edits message box disappears
     document.getElementById("success-edit-container").classList.add("hide");
+    document.getElementById("my-profile-container").classList.remove("blur");
+    document.getElementById("analytics-container").classList.remove("blur");
+});
+
+// Event listener for cross in save edit image message box
+document.getElementById("edit-cross-img").addEventListener("click", function() {
+    // Message box disappears
+    document.getElementById("edit-img-message").classList.add("hide");
+    // Remove blur background
+    document.getElementById("my-profile-container").classList.remove("blur");
+    document.getElementById("analytics-container").classList.remove("blur");
+});
+
+// Event listener for cross in save edit image message box
+document.getElementById("yes-edit-img").addEventListener("click", function() {
+    // Save picture to localStorage Object
+
+    // Message box disappear
+    document.getElementById("edit-img-message").classList.add("hide");
+    // Remove blur background
     document.getElementById("my-profile-container").classList.remove("blur");
     document.getElementById("analytics-container").classList.remove("blur");
 });

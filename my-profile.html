@@ -47,6 +47,7 @@
           <div class="card-image">
             <figure class="image is-4by3">
               <img src="" alt="your profile picture" id="animal-image">
+              <button id="edit-img" class="button is-warning hide" onclick="editImg()">Edit</button>
             </figure>
           </div>
 
@@ -65,7 +66,7 @@
               <div class="buttons is-centered">
                 <span id="edit-btn" class="button is-link modal-button is-warning" data-target="modal-image2" onclick="doEdit()">Edit</span>
                 <span id="save-btn" class="button is-link modal-button is-success hide" data-target="modal-image2" onclick="saveEdit()">Save</span>
-                <span id="delete-btn" class="button is-link modal-button is-warning" data-target="modal-image2">Delete</span>
+                <span id="delete-btn" class="button is-link modal-button is-danger" data-target="modal-image2">Delete</span>
               </div>
               </div>
             </div>
@@ -86,7 +87,7 @@
                   <div class="card-content">
                       <p class="subtitle is-6 age">Average age of swipe right: <span class="age-number"></span></p>
                       <p class="subtitle is-6 match">Number of matches: <span class="match-number"></span></p>
-                      <p class="subtitle is-6 match">Species which matches the most with that profile: <span class="match-number"></span></p>
+                      <p class="subtitle is-6 match">Species which matches the most with that profile: <span class="species-number"></span></p>
                   </div>
               </div>
           </div>
@@ -133,6 +134,25 @@
       </div>
       <div class="message-body">
         Your profile information have been <strong>updated successfully</strong>.
+      </div>
+    </article>
+
+    <article id="edit-img-message" class="message is-warning hide">
+      <div class="message-header">
+        <p>Select a profile picture</p>
+        <button id="edit-cross-img" class="delete" aria-label="delete"></button>
+      </div>
+      <div>
+        <img src="" alt="animal profile picture" id="animal-image-edit">
+      </div>
+      <div id="select-this-picture">Select this picture?</div>
+      <div id="edit-btns-message">
+        <button id="yes-edit-img" class="button">
+          Yes
+        </button>
+        <button id="nah-edit-img" class="button">
+          Nah, new picture
+        </button>
       </div>
     </article>
 
