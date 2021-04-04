@@ -497,6 +497,7 @@ class Carousel {
 
 }
 
+
 // Match Profile Object Constructor
 function MatchProfile (name, age, bio, matchImg) {
     this.name = name;
@@ -512,6 +513,19 @@ function loveAlert (topCard) {
     var bio = $(topCard).find('.bio').text();
     var matchImg = $(topCard).find('.card-frame').css('background-image').split("\"")[1];
     console.log(matchImg);
+  
+    // div
+    // var match = document.createElement('div');
+    // match.classList.add("match")
+
+    //animation container div
+    var animation = document.createElement('div');
+    animation.classList.add("animation");
+
+    //Heart div
+    var heart = document.createElement('div');
+    heart.classList.add("heart-shape");
+    // heart.setAttribute("src", "https://www.pngarts.com/files/1/Heart-PNG-Image.png")
     
     // Alert div
     var matchAlert = document.createElement('div');
@@ -523,7 +537,11 @@ function loveAlert (topCard) {
     var matchText = document.createElement('p');
     matchText.textContent = "It's a Match!";
     matchText.classList.add("match-text");
+
     matchAlert.appendChild(matchText);
+    heart.appendChild(matchAlert)
+    animation.appendChild(heart)
+    // match.appendChild(animation);
 
     // construct matchProfileObj
     matchProfileObj = new MatchProfile (
@@ -544,10 +562,11 @@ function loveAlert (topCard) {
     localStorage.setItem("ages", JSON.stringify(avgAge));
     
     var board = document.getElementById("board");
-    board.append(matchAlert);
+    board.append(animation);
+    // board.append(matchAlert);
     setTimeout(function(){
-        $('.alert').remove();
-   }, 1500);
+        $('.animation').remove();
+   }, 1000);
 }
 
 
