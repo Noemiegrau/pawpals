@@ -21,7 +21,7 @@ function displayProfileObj () {
     document.getElementById("animal-age-text").innerHTML = userProfileObj.age;
     document.getElementById("animal-type-text").innerHTML = userProfileObj.animal;
     document.getElementById("animal-interest-text").innerHTML = userProfileObj.interest;
-    document.getElementById("animal-image").innerHTML = userProfileObj.profileImg;
+    document.getElementById("animal-image").src = userProfileObj.profileImg;
     document.getElementById("animal-min-text").innerHTML = userProfileObj.minAge;
     document.getElementById("animal-max-text").innerHTML = userProfileObj.maxAge;
 };
