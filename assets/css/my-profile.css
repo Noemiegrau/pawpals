@@ -1,25 +1,29 @@
-/* GENERAL */
+/* CSS DIRECTORY
+	1. =GLOBAL
+	2. =BUTTONS
+  3. =MESSAGES
+  4. =CARDS
+*/
+
+
+/* ===1.GLOBAL=== */
 
 html {
-  overflow: hidden;
+  overflow: auto;
+  background-color: salmon;
 }
 
 body {
   width: 100vw;
   height: 100vh;
-  background-color: salmon;
+  
 }
-
-/* PROFILE SECTION START */
 
 .hide {
   display: none;
 }
 
-.shadow-box:hover {
-  box-shadow: 1px 8px 20px grey;
-  -webkit-transition:  box-shadow .6s ease-in;
-}
+/* ===2.BUTTONS=== */
 
 .btns-delete {
   display: flex;
@@ -35,6 +39,24 @@ body {
   margin-right : 20px;
 }
 
+#edit-btns-message {
+  margin: 20px;
+}
+
+#select-edit-img {
+  margin-right: 8px;
+}
+
+#select-this-picture {
+  margin: 20px
+}
+
+.animal-image-edit {
+  margin: 20px;
+}
+
+/* ===3.MESSAGES=== */
+
 .message {
   position: absolute;
   top: 50%;
@@ -45,6 +67,12 @@ body {
 .blur {
   filter: blur(5px);
 }
+
+.message-body{
+  padding: 5px;
+}  
+
+/* ===4.CARDS=== */
 
 .card-image {
   position: relative;
@@ -57,24 +85,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-#select-this-picture {
-  margin: 20px
+.shadow-box:hover {
+  box-shadow: 1px 8px 20px grey;
+  -webkit-transition:  box-shadow .6s ease-in;
 }
-
-#edit-btns-message {
-  margin: 20px;
-}
-
-#select-edit-img {
-  margin-right: 8px;
-}
-
-.message-body{
-  padding: 5px;
-  }  
-
-.animal-image-edit {
-    margin: 20px;
-  }
-
-/* PROFILE SECTION END */
