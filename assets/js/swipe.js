@@ -2,15 +2,11 @@ var imgUrl;
 
 //**ANALYTICS**//
 
-// match or no match counter
-var match = 0;
-var nomatch = 0;
+// # of swipes right counter
+var swipeRight = 0;
 
-// # of swipes counter 
-var catSwipes = 0;
-var dogSwipes = 0;
-var totalSwipes = catSwipes + dogSwipes; //number of swipes
-var avgAge = []; //average age of swipes
+// all ages of profiles you matched with
+var avgAge = []; 
 
 //**MATCHES VARIABLES**/
 // if they swipe right on you
@@ -20,10 +16,26 @@ var loveMatch = false;
 // swipes that end up with a match 
 var catMatch = 0;
 var dogMatch = 0;
+var totalMatch;
+
+// # of swipes (left and right) counter 
+var catSwipes = 0;
+var dogSwipes = 0;
+var totalSwipes;
+
+// match ratio
+var matchRatio;
+
+
+//**VARIABLES CURRENTLY NOT BEING USED FOR ANAYLTICS */
+// match or no match counter
+var match = 0;
+var nomatch = 0;
 
 // swipes that don't end up with a match
 var catNoMatch = 0;
 var dogNoMatch = 0;
+
 
 //**PREFERENCES VARIABLES**/
 // age range
@@ -314,6 +326,7 @@ class Carousel {
                 posX = this.board.clientWidth
                 
                 love = true
+                swipeRight++
 
             } else if (propX < -0.25 && e.direction == Hammer.DIRECTION_LEFT) {
 
@@ -334,7 +347,6 @@ class Carousel {
             }
 
             if (successful) {
-
                 // if you have swiped right, and they swiped right,
                 // send a match alert before the card is removed
                 if (love == true && loveMatch == true) {
@@ -343,13 +355,6 @@ class Carousel {
                 } else {
                     nomatch++;
                 }
-
-                // if (catMatch == true) {
-                // catSwipe++
-                // }
-                // if (dogMatch == true) {
-                // dogSwipe++
-                //}
 
                 // throw card in the chosen direction
                 this.topCard.style.transform =
@@ -365,6 +370,8 @@ class Carousel {
                     // handle gestures on new top card
                     this.handle()
                 }, 0)
+
+                saveAnalytics();
 
             } else {
 
@@ -418,6 +425,7 @@ class Carousel {
         bio.classList.add('bio');
         nameAge.appendChild(bio);
 
+        //cat only scenario
         if (interestCats == true) {
             console.log("meow only!");
             // call Api for background image
@@ -432,8 +440,11 @@ class Carousel {
                 catMatch++;
             } else {
                 loveMatch = false;
+                catNoMatch++;
             }
-        } else if (interestDogs == true) {
+        }
+        //dog only scenario
+        else if (interestDogs == true) {
             console.log("Woof only!");
             // call Api for background image
             dogApi().then(() => {
@@ -447,8 +458,11 @@ class Carousel {
                 dogMatch++;
             } else {
                 loveMatch = false;
+                dogNoMatch++;
             }
-        } else if (interestBoth == true) {
+        }
+        // both scenario
+        else if (interestBoth == true) {
             console.log("meows and woofs go crazy");
             if( Math.round(Math.random()) == 0 ) {
                 console.log("Woof");
@@ -487,13 +501,14 @@ class Carousel {
             }
 
         }
-
-        // both scenario
         
 
         this.board.insertBefore(card, this.board.firstChild)
+        
 
     }
+
+    
 
 }
 
@@ -558,16 +573,36 @@ function loveAlert (topCard) {
     localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
     console.log(userProfileObj);
 
+    
     avgAge.push(age);
     localStorage.setItem("ages", JSON.stringify(avgAge));
-    
+
     var board = document.getElementById("board");
     board.append(animation);
     // board.append(matchAlert);
     setTimeout(function(){
         $('.animation').remove();
    }, 1000);
+   
 }
+
+function saveAnalytics() {
+    totalSwipes = catSwipes + dogSwipes;
+    totalMatch = catMatch + dogMatch;
+    matchRatio = totalMatch/swipeRight;
+
+    var analyticsObj = {
+        totalSwipes,
+        totalMatch,
+        matchRatio
+    }
+
+    localStorage.setItem('analytics', JSON.stringify(analyticsObj));
+    console.log(analyticsObj);
+    
+}
+
+
 
 
 let board = document.querySelector('#board')
