@@ -10,16 +10,30 @@ var nomatch = 0;
 var catSwipes = 0;
 var dogSwipes = 0;
 var totalSwipes = catSwipes + dogSwipes; //number of swipes
-var avgAge = [] //average age of swipes
+var avgAge = []; //average age of swipes
 
+//**MATCHES VARIABLES**/
 // if they swipe right on you
 var love = false;
 // if you swipe right on them
 var loveMatch = false;
+// swipes that end up with a match 
+var catMatch = 0;
+var dogMatch = 0;
 
+// swipes that don't end up with a match
+var catNoMatch = 0;
+var dogNoMatch = 0;
+
+//**PREFERENCES VARIABLES**/
 // age range
-var low = 1;
-var high = 15;
+var low = 0 ;
+var high = 0;
+
+// cat, dog, or both
+var interestCats = false;
+var interestDogs = false;
+var interestBoth = false;
 
 // initialize empty matchProfileObj
 var matchProfileObj = {};
@@ -47,6 +61,23 @@ var loadUserData = function() {
 };
 
 loadUserData();
+
+var preferences = function(){
+    const storedProfile = localStorage.getItem("storedProfile");
+    const parsedObj = JSON.parse(storedProfile);
+    low = parseInt(parsedObj.minAge);
+    high = parseInt(parsedObj.maxAge);
+
+    if (parsedObj.interest == "cats") {
+        interestCats = true;
+    } else if (parsedObj.interest == "dogs") {
+        interestDogs = true;
+    } else if (parsedObj.interest == "both") {
+        interestBoth = true;
+    }
+}
+
+preferences();
 
 new Pageable("#container", {
     childSelector: "[data-anchor]", // CSS3 selector string for the pages
@@ -313,6 +344,13 @@ class Carousel {
                     nomatch++;
                 }
 
+                // if (catMatch == true) {
+                // catSwipe++
+                // }
+                // if (dogMatch == true) {
+                // dogSwipe++
+                //}
+
                 // throw card in the chosen direction
                 this.topCard.style.transform =
                     'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg)'
@@ -380,23 +418,8 @@ class Carousel {
         bio.classList.add('bio');
         nameAge.appendChild(bio);
 
-        if( Math.round(Math.random()) == 0 ) {
-            console.log("Woof");
-            // call Api for background image
-            dogApi().then(() => {
-                cardFrame.style.backgroundImage =
-                "url('" + imgUrl + "')";
-            });
-            
-            // assign true or false value on their swipe right
-            if( Math.round(Math.random()) == 0 ) {
-                loveMatch = true;
-            } else {
-                loveMatch = false;
-            }
-
-        } else {
-            console.log("meow");
+        if (interestCats == true) {
+            console.log("meow only!");
             // call Api for background image
             catApi().then(()=> {
                 cardFrame.style.backgroundImage =
@@ -406,17 +429,74 @@ class Carousel {
             // assign true or false value on their swipe right
             if( Math.round(Math.random()) == 0 ) {
                 loveMatch = true;
+                catMatch++;
             } else {
                 loveMatch = false;
             }
-            
+        } else if (interestDogs == true) {
+            console.log("Woof only!");
+            // call Api for background image
+            dogApi().then(() => {
+                cardFrame.style.backgroundImage =
+                "url('" + imgUrl + "')";
+            });
+
+            // assign true or false value on their swipe right
+            if( Math.round(Math.random()) == 0 ) {
+                loveMatch = true;
+                dogMatch++;
+            } else {
+                loveMatch = false;
+            }
+        } else if (interestBoth == true) {
+            console.log("meows and woofs go crazy");
+            if( Math.round(Math.random()) == 0 ) {
+                console.log("Woof");
+                // call Api for background image
+                dogApi().then(() => {
+                    cardFrame.style.backgroundImage =
+                    "url('" + imgUrl + "')";
+                });
+                
+                // assign true or false value on their swipe right
+                if( Math.round(Math.random()) == 0 ) {
+                    loveMatch = true;
+                    dogMatch++;
+                } else {
+                    loveMatch = false;
+                    dogNoMatch++;
+                }
+    
+            } else {
+                console.log("meow");
+                // call Api for background image
+                catApi().then(()=> {
+                    cardFrame.style.backgroundImage =
+                    "url('" + imgUrl + "')";
+                });
+    
+                // assign true or false value on their swipe right
+                if( Math.round(Math.random()) == 0 ) {
+                    loveMatch = true;
+                    catMatch++;
+                } else {
+                    loveMatch = false;
+                    catNoMatch++;
+                }
+                
+            }
+
         }
+
+        // both scenario
+        
 
         this.board.insertBefore(card, this.board.firstChild)
 
     }
 
 }
+
 
 // Match Profile Object Constructor
 function MatchProfile (name, age, bio, matchImg) {
@@ -433,6 +513,19 @@ function loveAlert (topCard) {
     var bio = $(topCard).find('.bio').text();
     var matchImg = $(topCard).find('.card-frame').css('background-image').split("\"")[1];
     console.log(matchImg);
+  
+    // div
+    // var match = document.createElement('div');
+    // match.classList.add("match")
+
+    //animation container div
+    var animation = document.createElement('div');
+    animation.classList.add("animation");
+
+    //Heart div
+    var heart = document.createElement('div');
+    heart.classList.add("heart-shape");
+    // heart.setAttribute("src", "https://www.pngarts.com/files/1/Heart-PNG-Image.png")
     
     // Alert div
     var matchAlert = document.createElement('div');
@@ -444,7 +537,11 @@ function loveAlert (topCard) {
     var matchText = document.createElement('p');
     matchText.textContent = "It's a Match!";
     matchText.classList.add("match-text");
+
     matchAlert.appendChild(matchText);
+    heart.appendChild(matchAlert)
+    animation.appendChild(heart)
+    // match.appendChild(animation);
 
     // construct matchProfileObj
     matchProfileObj = new MatchProfile (
@@ -460,12 +557,16 @@ function loveAlert (topCard) {
     // save to localStorage
     localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
     console.log(userProfileObj);
+
+    avgAge.push(age);
+    localStorage.setItem("ages", JSON.stringify(avgAge));
     
     var board = document.getElementById("board");
-    board.append(matchAlert);
+    board.append(animation);
+    // board.append(matchAlert);
     setTimeout(function(){
-        $('.alert').remove();
-   }, 1500);
+        $('.animation').remove();
+   }, 1000);
 }
 
 
