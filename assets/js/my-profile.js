@@ -1,3 +1,46 @@
+// API #1
+function dogApi() {
+    var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
+
+    fetch(dogFetchUrl)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            // random dog image URL
+            // console.log(data.message);
+            imgUrl = data.message;
+            console.log("dog fetched");
+            imageSelection(imgUrl);
+    });
+};
+
+// API #2
+function catApi() {
+    var catApiKey = "6239a053-498a-49cb-ac5c-e7a746598576";
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("x-api-key", catApiKey);
+
+    var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+    };
+    
+    fetch("https://api.thecatapi.com/v1/images/search?format=json", requestOptions)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+            imgUrl = data[0].url;
+            console.log("cat fetched");
+            imageSelection(imgUrl);
+    });
+};
+
 var userProfileObj = {};
 
 // Load user profile
@@ -56,7 +99,20 @@ function editImg() {
     // Add blur background
     document.getElementById("my-profile-container").classList.add("blur");
     document.getElementById("analytics-container").classList.add("blur");
-}
+    // Gets image from API
+        userAnimal = userProfileObj.animal;
+        if (userAnimal === 'cat') {
+            catApi();
+        } else if (userAnimal === 'dog') {
+            dogApi();
+        };
+};
+
+var imageSelection = function(imgUrl) {
+    console.log(imgUrl);
+    // Put the image from API inside message box
+    document.getElementById("animal-image-edit").src = imgUrl;
+};
 
 // Allow to save new changes to profile info
 function saveEdit() {
@@ -191,11 +247,34 @@ document.getElementById("edit-cross-img").addEventListener("click", function() {
 
 // Event listener for cross in save edit image message box
 document.getElementById("yes-edit-img").addEventListener("click", function() {
-    // Save picture to localStorage Object
 
     // Message box disappear
     document.getElementById("edit-img-message").classList.add("hide");
     // Remove blur background
     document.getElementById("my-profile-container").classList.remove("blur");
     document.getElementById("analytics-container").classList.remove("blur");
+});
+
+// Event listener for YES (choosing the new image) button
+document.getElementById("yes-edit-img").addEventListener("click", function() {
+    console.log('hello');
+    // Save image as new image in localStorage
+    var newPicture = document.getElementById("animal-image-edit").src = imgUrl;
+    console.log(imgUrl);
+
+    userProfileObj.profileImg = newPicture;
+    console.log(userProfileObj.profileImg);
+
+    // Add to localStorage
+    localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
+    // Save image as new image on profile card
+    document.getElementById("animal-image").src = imgUrl;
+    
+});
+
+// Event listener for NAH (requesting other image) button
+document.getElementById("nah-edit-img").addEventListener("click", function() {
+    console.log('hello');
+    // Gets new image from APIs
+    editImg();
 });

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link 
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Chango&family=Open+Sans+Condensed:wght@300&family=Thasadith&display=swap"
+  />
+  <link rel="stylesheet" href="assets/css/hamburger.css"/>
+  <link rel="stylesheet" href="assets/css/contact-us.css"/>
+  <link rel="shortcut icon" type="image/png" href="./assets/images/pink_paw.png"/>
+  <title>PawPals/Contact-us</title>
+</head>
+<body>
+
+    <!--Paw Pals logo-->
+    <div>
+        <img src="./assets/images/pawpals.png" alt="paw pals logo" class="pawpalsLogo">
+    </div>
+    
+  <div class="menu">
+    <div class="hamburger-menu-wrapper">
+    <button class="hamburger-menu">
+        <span>toggle menu</span>
+    </button>
+    </div>
+    <div class="menu-list">
+    <a href="about.html" id="ml-about">ABOUT</a><br>
+    <a href="my-profile.html" id="ml-profile">MY PROFILE</a><br>
+    <a href="matches.html" id="ml-matches">MATCHES</a><br>
+    <a href="swipe.html" id="ml-swipe">SWIPE</a><br>
+    </div>
+  </div>
+  <div class="menu-overlay"></div>
+
+  <div id="main-page-container" class="container">
+  <!-- Form -->
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input class="input is-rounded" type="text" placeholder="Who do we have the pleasure of speaking to?">
+    </div>
+  </div>
+  
+  <div class="field">
+    <label class="label">Username</label>
+    <div class="control  has-icons-right"> 
+      <input class="input is-rounded" type="text" placeholder="@YourUsername">
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+    </div>
+    <!-- <p class="help is-success">This username is available</p> -->
+  </div>
+  
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control has-icons-right">
+      <input class="input is-rounded" type="email" placeholder="Email input" value="hello@">
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-exclamation-triangle"></i>
+      </span>
+    </div>
+    <!-- <p class="help is-danger">This email is invalid</p> -->
+  </div>
+  
+  <div class="field">
+    <label class="label">Subject</label>
+    <div class="control">
+      <div class="select is-rounded">
+        <select>
+          <option>Select dropdown</option>
+          <option>Account Issue</option>
+          <option>You want to combine forces</option>
+          <option>Press</option>
+          <option>Technical support</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  <div class="field">
+    <label class="label">Message</label>
+    <div class="control">
+      <textarea class="textarea is-hovered" placeholder="Textarea"></textarea>
+    </div>
+  </div>
+  
+  <div class="field">
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox">
+        I agree to the <a href="#">terms and conditions</a>
+      </label>
+    </div>
+  </div>
+  
+  <div class="field">
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="question">
+        Yes
+      </label>
+      <label class="radio">
+        <input type="radio" name="question">
+        No
+      </label>
+    </div>
+  </div>
+  
+  <div class="field is-grouped">
+    <div class="control">
+      <button id="submit-btn" class="button is-link is-warning is-focused">Submit</button>
+    </div>
+    <div class="control">
+      <button class="button is-link is-danger is-focused">Cancel</button>
+    </div>
+  </div>
+
+</div>
+
+<article id="submitted-container" class="message is-success hide">
+  <div class="message-header">
+    <p>Pawsome!</p>
+    <button id="submitted-cross-message" class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+    We will be in touch soon!
+  </div>
+</article>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous">
+</script>
+<script src="./assets/js/hamburger.js"></script>
+<script src="./assets/js/contact-us.js"></script>
+
+</body>
+</html>
