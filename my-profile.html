@@ -45,7 +45,7 @@
 
           <div class="card-image">
             <figure class="image is-4by3">
-              <img src="https://source.unsplash.com/6Ticnhs1AG0" alt="animal profile picture" id="animal-image" class="modal-button">
+              <img src="" alt="your profile picture" id="animal-image">
             </figure>
           </div>
 
@@ -56,13 +56,14 @@
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p id="animal-age" class="subtitle is-6">Age</p>
-                <p id="animal-type" class="subtitle is-6">Type of animal</p>
-                <p id="animal-interest" class="subtitle is-6">Interest</p>
-                <p id="min-max" class="subtitle is-6">Min-Max</p>
-                <p id="min-max" class="subtitle is-6">*click on the fields to modify them</p>
+                <p id="animal-age" class="subtitle is-6">Age: <span id="animal-age-text"></span></p>
+                <p id="animal-type" class="subtitle is-6">Type of animal: <span id="animal-type-text"></span></p>
+                <p id="animal-interest" class="subtitle is-6">Interest: <span id="animal-interest-text"></span></p>
+                <p id="min" class="subtitle is-6">Min age: <span id="animal-min-text"></span></p>
+                <p id="max" class="subtitle is-6">Max age: <span id="animal-max-text"></span></p>
               <div class="buttons is-centered">
-                <span id="edit-btn" class="button is-link modal-button is-warning" data-target="modal-image2">Edit</span>
+                <span id="edit-btn" class="button is-link modal-button is-warning" data-target="modal-image2" onclick="doEdit()">Edit</span>
+                <span id="save-btn" class="button is-link modal-button is-success hide" data-target="modal-image2" onclick="saveEdit()">Save</span>
                 <span id="delete-btn" class="button is-link modal-button is-warning" data-target="modal-image2">Delete</span>
               </div>
               </div>
@@ -78,7 +79,7 @@
               
               <div id="analytics-list">
                 <header class="card-header">
-                  <h1 class="title is-4 card-header-title is-centered"> Analytics</h1>
+                  <h1 id="analytics" class="title is-4 card-header-title is-centered"> Analytics</h1>
                 </header>
 
                   <div class="card-content">
@@ -94,22 +95,47 @@
 
     </div>
 
-    <div class="columns features">
-
-      <div class="column is-4"></div>
-
-      <div class="column is-4 mt-6">
-        <div id="end-buttons" class="buttons is-centered">
-          <!-- <button id="btn-swipe" class="button is-link is-warning">Start swiping</button> -->
-          <a id="btn-swipe" href="swipe.html" class="button is-link is-warning">Start swiping</a>
-        </div>
+    <article id="confirmation-delete-container" class="message is-danger hide">
+      <div class="message-header">
+        <p>Attention!</p>
+        <button id="delete-cross-message" class="delete" aria-label="delete"></button>
       </div>
+      <div class="message-body btns-delete">
+        <p>Are you sure you want to <strong>delete</strong> your profile information?</p>
+        <p class="control">
+          <button id="delete-btn-message" class="button is-danger">
+            Delete
+          </button>
+        </p>
+        <p class="control">
+          <button id="cancel-btn-message" class="button">
+            Cancel
+          </button>
+        </p>
+      </div>
+    </article>
 
-      <div class="column is-4"></div>
+    <article id="success-delete-container" class="message is-success hide">
+      <div class="message-header">
+        <p>Attention!</p>
+        <button id="second-cross-message" class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        Your profile information have been <strong>deleted successfully</strong>. You will be redirected to the home page.
+      </div>
+    </article>
+
+    <article id="success-edit-container" class="message is-success hide">
+      <div class="message-header">
+        <p>Successful!</p>
+        <button id="edit-cross-message" class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        Your profile information have been <strong>updated successfully</strong>.
+      </div>
+    </article>
 
   </div>
-
-</div>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
   integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="

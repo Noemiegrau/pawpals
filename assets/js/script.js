@@ -7,8 +7,6 @@ var $create3Btn = $('#create3Btn');
 var $create4Btn = $('#create4Btn');
 var $create5Btn = $('#create5Btn');
 
-var profilesListEl = document.getElementById('profiles-list');
-
 var $create1 = $('#create-1');
 var $create2 = $('#create-2');
 var $create3 = $('#create-3');
