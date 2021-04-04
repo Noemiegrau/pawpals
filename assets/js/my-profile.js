@@ -38,6 +38,7 @@ function doEdit() {
     document.getElementById("animal-interest-text").innerHTML = '<textarea id="interest-textarea">' + userProfileObj.interest + '</textarea>';
     document.getElementById("animal-min-text").innerHTML = '<textarea id="min-textarea">' + userProfileObj.minAge + '</textarea>';
     document.getElementById("animal-max-text").innerHTML = '<textarea id="max-textarea">' + userProfileObj.maxAge + '</textarea>';
+    // document.getElementById("animal-image").innerHTML = ;
 
     // Edit button disappears
     document.getElementById("edit-btn").classList.add("hide");
@@ -108,26 +109,28 @@ function saveEdit() {
     document.getElementById("animal-interest-text").innerHTML = '<span>' + userProfileObj.interest + '</span>';
     document.getElementById("animal-min-text").innerHTML = '<span>' + userProfileObj.minAge + '</span>';
     document.getElementById("animal-max-text").innerHTML = '<span>' + userProfileObj.maxAge + '</span>';
-
-
-    // Make a message appear telling the user the info have been saved
-
 };
 
 // EVENT LISTENERS FOR MESSAGES BUTTONS
 // Event listener for delete button on profile card
 document.getElementById("delete-btn").addEventListener("click", function() {
     document.getElementById("confirmation-delete-container").classList.remove("hide");
+    document.getElementById("my-profile-container").classList.add("blur");
+    document.getElementById("analytics-container").classList.add("blur");
 });
 
 // Event listener for cancel button in message box
 document.getElementById("cancel-btn-message").addEventListener("click", function() {
     document.getElementById("confirmation-delete-container").classList.add("hide");
+    document.getElementById("my-profile-container").classList.remove("blur");
+    document.getElementById("analytics-container").classList.remove("blur");
 });
 
 // Event listener for cross buttons in message box
 document.getElementById("delete-cross-message").addEventListener("click", function() {
     document.getElementById("confirmation-delete-container").classList.add("hide");
+    document.getElementById("my-profile-container").classList.remove("blur");
+    document.getElementById("analytics-container").classList.remove("blur");
 });
 
 // Event listener for delete button in message box
@@ -152,10 +155,14 @@ document.getElementById("second-cross-message").addEventListener("click", functi
 document.getElementById("save-btn").addEventListener("click", function() {
     // Message tells the user that the profile info has been edited successfully
     document.getElementById("success-edit-container").classList.remove("hide");
+    document.getElementById("my-profile-container").classList.add("blur");
+    document.getElementById("analytics-container").classList.add("blur");
 });
 
 // Event listener for cross in save edit info message box
 document.getElementById("edit-cross-message").addEventListener("click", function() {
     // Save edits message box disappears
     document.getElementById("success-edit-container").classList.add("hide");
+    document.getElementById("my-profile-container").classList.remove("blur");
+    document.getElementById("analytics-container").classList.remove("blur");
 });
