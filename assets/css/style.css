@@ -30,8 +30,7 @@
 #create-2 .img {
   width: 320px;
   max-height: 320px;
-  /* flex: 40%; */
-  /* padding: 5px; */
+  object-fit: cover;
 }
 
 #create-3 input {
@@ -129,12 +128,12 @@ option {
   background-position: 0 -10px;
 }
 
-#loginBtn:hover, #createProfileBtn:hover {
+/* #loginBtn:hover, #createProfileBtn:hover {
   background-position: 1px -50px;
   color: #323232;
   background-color: var(--quinary);
   border: 1px solid #323232;
-}
+} */
 
 /* MY PROFILE BUTTON ENDS */
 

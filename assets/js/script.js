@@ -419,19 +419,15 @@ var create5Click = function() {
     };
 }
 
-// Create profile modal button click handlers
-$createProfileBtn.click(function() {
-    $create1.modal(
-    //     { 
-    //     fadeDuration: 1000,
-    //     fadeDelay : 0.5
-    // },
-    createModalProps
-    );
-});
+var createClick = function() {
+    $create1.modal(createModalProps);
+}
 
+// Create profile modal button click handlers
+$createProfileBtn.click(createClick);
 $alertBtn.click(sendBackTo);
 $loginBtn.click(loginProfileCheck);
+$newImgBtn.click(userAnimalCheck);
 $create1Btn.click(create1Click);
 $create2Btn.click(create2Click);
 $newImgBtn.click(userAnimalCheck);
