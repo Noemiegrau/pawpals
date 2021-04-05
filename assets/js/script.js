@@ -80,6 +80,10 @@ new Pageable("#container", {
     },
 });
 
+/***************/
+/* API FETCHES */
+/***************/
+
 // API #1
 function dogApi() {
     var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
@@ -120,6 +124,10 @@ function catApi() {
             imageSelection(imgUrl);
     });
 };
+
+/********************/
+/* LOAD USER OBJECT */
+/********************/
 
 // load stored userProfileObj
 var storedProfile = JSON.parse(localStorage.getItem('storedProfile'));
@@ -232,6 +240,10 @@ var sendBackTo = function() {
     };
 };
 
+/**********************************/
+/* CLICK HANDLER HELPER FUNCTIONS */
+/**********************************/
+
 var loginProfileCheck = function() {
     if (profileExists == true) {
         console.log('yeeee');
@@ -243,15 +255,6 @@ var loginProfileCheck = function() {
     }
 };
 
-var imageSelection = function(imgUrl) {
-    console.log(imgUrl);
-    $('.img-choice')
-        .css(
-            'backgroundImage', 
-            "url('" + imgUrl + "')"
-        );
-};
-
 var userAnimalCheck = function() {
     userAnimal = userProfileObj.animal;
 
@@ -261,10 +264,20 @@ var userAnimalCheck = function() {
     } else if (userAnimal === 'dog') {
         dogApi();
     };
-
     // pass to next modal
     $create2.modal(createModalProps);
 };
+
+var imageSelection = function(imgUrl) {
+    console.log(imgUrl);
+    $('.img-choice')
+        .css(
+            'backgroundImage', 
+            "url('" + imgUrl + "')"
+        );
+};
+
+//** SET AGE RANGE OPTIONS */
 
 var ageRangeOpts = function() {
     var $select = $('#user-age');
@@ -296,6 +309,8 @@ var maxAgeOpts = function() {
     };
 };
 
+//** CLEAR INPUTS */
+
 var deselectRadios = function(radioLength) {
     for (i = 0; i < 5; i++) {
         console.log(radioLength);
@@ -306,6 +321,16 @@ var deselectRadios = function(radioLength) {
 var clearAgeOpt = function() {
     $('#user-age, #match-min-age, #match-max-age').prop('selectedIndex', 0);
 };
+
+/*******************/
+/* CLICK FUNCTIONS */
+/*******************/
+
+// create profile btn click handler
+var createClick = function() {
+    // send to first profile creation modal
+    $create1.modal(createModalProps);
+}
 
 // Get users animal (cat or dog) for API fetch
 var create1Click = function() {
@@ -354,6 +379,7 @@ function create2Click() {
     $create3.modal(createModalProps);
 };
 
+// get user name input
 var create3Click = function() {
     // set modalNum for alert switch cases
     modalNum = 3;
@@ -389,6 +415,7 @@ var create3Click = function() {
     };
 };
 
+// get user age input
 var create4Click = function() {
     // set modalNum for alert switch cases
     modalNum = 4;
@@ -418,6 +445,7 @@ var create4Click = function() {
     };
 };
 
+// get interest choice and min-max age range
 var create5Click = function() {
     var interestChoice = $("input[name='interest-choice']");
 
@@ -492,17 +520,13 @@ var create5Click = function() {
     };
 };
 
-// create profile btn click handler
-var createClick = function() {
-    // send to first profile creation modal
-    $create1.modal(createModalProps);
-}
-
-// Create profile modal button click handlers
+/* CLICK HANDLERS */
 $createProfileBtn.click(createClick);
 $alertBtn.click(sendBackTo);
 $loginBtn.click(loginProfileCheck);
 $newImgBtn.click(userAnimalCheck);
+
+// modal next buttons
 $create1Btn.click(create1Click);
 $create2Btn.click(create2Click);
 $create3Btn.click(create3Click);
