@@ -27,12 +27,6 @@
   background-position: center;
 }
 
-#create-2 .img {
-  width: 320px;
-  max-height: 320px;
-  object-fit: cover;
-}
-
 #create-3 input {
   font-size: 26px;
   font-family: 'Open Sans condensed', sans-serif;
@@ -199,6 +193,20 @@ option {
     margin-left: 15px;
     position: absolute;
     width: 11em;
+  }
+
+  #create-2 .img-choice {
+    width: 190px;
+    height: 190px;
+  }
+
+  #create-2 p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  #create-2 button {
+    margin-top: 10px;
   }
 
   #loginBtn {
