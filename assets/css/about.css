@@ -73,6 +73,22 @@ body {
   background-color: gray;
 }
 
+.photo {
+  width: 300px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+}
+
+#member1 {
+  background-image: url("https://i.redd.it/ipa9hrvqenwy.jpg");
+}
+
+#member2 {
+  object-fit: cover;
+  
+}
+
 @media (max-width: 576px) {
 
   .content h1,.content h2 {
