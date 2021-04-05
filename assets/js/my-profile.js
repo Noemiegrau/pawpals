@@ -341,6 +341,5 @@ document.getElementById("iscats").addEventListener("click", function() {
 
     userProfileObj.animal = typeTextarea;
     console.log(userProfileObj.animal);
-    
 });
 
