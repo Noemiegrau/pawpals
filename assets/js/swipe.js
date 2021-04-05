@@ -155,6 +155,10 @@ new Pageable("#container", {
     },
 });
 
+/***************/
+/* API FETCHES */
+/***************/
+
 function dogApi() {
     var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
     
@@ -194,6 +198,10 @@ function catApi() {
       catSwipes++;
     });
 };
+
+/************/
+/* CAROUSEL */
+/************/
 
 class Carousel {
     constructor(element) {
