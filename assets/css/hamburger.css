@@ -2,7 +2,7 @@
   margin-top: 30px;
   margin-left: 35px;
   position: absolute;
-  width: 13em;
+  width: 208px;
 }
 /******************/
 /* hamburger menu */
@@ -150,7 +150,7 @@ bounce { 0% {
   .pawpalsLogo {
     margin-top: 15px;
     margin-left: 15px;
-    width: 11em;
+    width: 176px;
   }
 
   .hamburger-menu-wrapper {
