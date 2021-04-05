@@ -23,6 +23,35 @@ body {
   display: none;
 }
 
+#animal-interest {
+  margin-bottom: 20px;
+}
+
+#interest-secret-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#type-secret-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#age-select {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#min-select {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#max-select {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* ===2.BUTTONS=== */
 
 .btns-delete {

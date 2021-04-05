@@ -41,6 +41,7 @@ function catApi() {
     });
 };
 
+// Empty user Profile Object
 var userProfileObj = {};
 
 // Load user profile
@@ -77,8 +78,13 @@ function doEdit() {
     // Makes the field a textarea on click on edit button
     document.getElementById("animal-name").innerHTML = '<textarea id="name-textarea">' + userProfileObj.name + '</textarea>';
     document.getElementById("animal-age-text").innerHTML = '<textarea id="age-textarea">' + userProfileObj.age + '</textarea>';
-    document.getElementById("animal-type-text").innerHTML = '<textarea id="type-textarea">' + userProfileObj.animal + '</textarea>';
-    document.getElementById("animal-interest-text").innerHTML = '<textarea id="interest-textarea">' + userProfileObj.interest + '</textarea>';
+    // document.getElementById("animal-type-text").innerHTML = '<textarea id="type-textarea">' + userProfileObj.animal + '</textarea>';
+    document.getElementById("type-secret-container").classList.remove('hide');
+    document.getElementById("animal-type-text").innerHTML = '';
+    // document.getElementById("animal-interest-text").innerHTML = '<textarea id="interest-textarea">' + userProfileObj.interest + '</textarea>';
+    // document.getElementById("animal-interest-text").className.add('hide');
+    document.getElementById("interest-secret-container").classList.remove('hide');
+    document.getElementById("animal-interest-text").innerHTML = '';
     document.getElementById("animal-min-text").innerHTML = '<textarea id="min-textarea">' + userProfileObj.minAge + '</textarea>';
     document.getElementById("animal-max-text").innerHTML = '<textarea id="max-textarea">' + userProfileObj.maxAge + '</textarea>';
     
@@ -99,7 +105,7 @@ function editImg() {
     // Add blur background
     document.getElementById("my-profile-container").classList.add("blur");
     document.getElementById("analytics-container").classList.add("blur");
-    // Gets image from API
+    // Gets random image from API
         userAnimal = userProfileObj.animal;
         if (userAnimal === 'cat') {
             catApi();
@@ -108,14 +114,20 @@ function editImg() {
         };
 };
 
+// Puts the image from API inside message box
 var imageSelection = function(imgUrl) {
     console.log(imgUrl);
-    // Put the image from API inside message box
     document.getElementById("animal-image-edit").src = imgUrl;
 };
 
 // Allow to save new changes to profile info
 function saveEdit() {
+
+    // Hide Type Checkboxes
+    document.getElementById("type-secret-container").classList.add('hide');
+
+    // Hide Interest Checkboxes
+    document.getElementById("interest-secret-container").classList.add('hide');
 
     // Change value of NAME
     var nameTextarea = document.getElementById("name-textarea").value;
@@ -132,18 +144,14 @@ function saveEdit() {
     console.log(userProfileObj.age);
 
     // Change value of TYPE
-    var typeTextarea = document.getElementById("type-textarea").value;
-    console.log(typeTextarea);
+    // var typeTextarea = document.getElementById("type-textarea").value;
+    // console.log(typeTextarea);
 
-    userProfileObj.animal = typeTextarea;
-    console.log(userProfileObj.animal);
+    // userProfileObj.animal = typeTextarea;
+    // console.log(userProfileObj.animal);
 
     // Change value of INTEREST
-    var interestTextarea = document.getElementById("interest-textarea").value;
-    console.log(interestTextarea);
-
-    userProfileObj.interest = interestTextarea;
-    console.log(userProfileObj.interest);
+    // userProfileObj.interest = userProfileObj.interest;
 
     // Change value of MIN
     var minTextarea = document.getElementById("min-textarea").value;
@@ -247,7 +255,6 @@ document.getElementById("edit-cross-img").addEventListener("click", function() {
 
 // Event listener for cross in save edit image message box
 document.getElementById("yes-edit-img").addEventListener("click", function() {
-
     // Message box disappear
     document.getElementById("edit-img-message").classList.add("hide");
     // Remove blur background
@@ -261,7 +268,7 @@ document.getElementById("yes-edit-img").addEventListener("click", function() {
     // Save image as new image in localStorage
     var newPicture = document.getElementById("animal-image-edit").src = imgUrl;
     console.log(imgUrl);
-
+    // Change value of image
     userProfileObj.profileImg = newPicture;
     console.log(userProfileObj.profileImg);
 
@@ -278,3 +285,62 @@ document.getElementById("nah-edit-img").addEventListener("click", function() {
     // Gets new image from APIs
     editImg();
 });
+
+// Event listener for Interest Checkboxes DOGS
+document.getElementById("dogs").addEventListener("click", function() {
+    console.log('hello2');
+    // Change value for interest in user Profile Obj
+    var interestTextarea = document.getElementById("doggos").innerText;
+    console.log(interestTextarea);
+
+    userProfileObj.interest = interestTextarea;
+    console.log(userProfileObj.interest);
+});
+
+// Event listener for Interest Checkboxes CATS
+document.getElementById("cats").addEventListener("click", function() {
+    console.log('hello2');
+    // Change value for interest in user Profile Obj
+    var interestTextarea = document.getElementById("catsCats").innerText;
+    console.log(interestTextarea);
+
+    userProfileObj.interest = interestTextarea;
+    console.log(userProfileObj.interest);
+    
+});
+
+// Event listener for Interest Checkboxes BOTH
+document.getElementById("both").addEventListener("click", function() {
+    console.log('hello2');
+    // Change value for interest in user Profile Obj
+    var interestTextarea = document.getElementById("catsDogs").innerText;
+    console.log(interestTextarea);
+
+    userProfileObj.interest = interestTextarea;
+    console.log(userProfileObj.interest);
+    
+});
+
+// Event listener for TYPE Checkboxes DOG
+document.getElementById("isdogs").addEventListener("click", function() {
+    console.log('hello2');
+    // Change value for interest in user Profile Obj
+    var typeTextarea = document.getElementById("isdoggos").innerText;
+    console.log(typeTextarea);
+
+    userProfileObj.animal = typeTextarea;
+    console.log(userProfileObj.animal);
+});
+
+// Event listener for TYPE Checkboxes CAT
+document.getElementById("iscats").addEventListener("click", function() {
+    console.log('hello2');
+    // Change value for interest in user Profile Obj
+    var typeTextarea = document.getElementById("iscatsCats").innerText;
+    console.log(typeTextarea);
+
+    userProfileObj.animal = typeTextarea;
+    console.log(userProfileObj.animal);
+    
+});
+
