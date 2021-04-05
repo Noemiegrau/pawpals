@@ -19,7 +19,8 @@ Project is created using:
 ## **_Mockup_**
 <img width="1143" alt="Mockup-Pawpals" src="https://user-images.githubusercontent.com/78329298/113557122-5ce28b00-95b2-11eb-903a-19a7bcb70707.png">
 
-
+## **_Link URL to Trello Board_**
+https://trello.com/invite/b/rtTqV55k/53fc6fe106fd4d67c41c14ccd43ac4c7/paws
 
 ## **_Link URL to deployed app on GitHub_**
 https://noemiegrau.github.io/project-1-group-4/
