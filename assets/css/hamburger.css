@@ -1,8 +1,15 @@
 .pawpalsLogo {
   margin-top: 30px;
   margin-left: 35px;
-  position: absolute;
+  float: left;
   width: 208px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: var(--primary);
+  overflow: visible;
 }
 /******************/
 /* hamburger menu */
@@ -15,6 +22,7 @@
   padding: 10px;
   display: inline-block;
   border-radius: 6px;
+  z-index: 1111;
 }
 
 .hamburger-menu-wrapper.bounce-effect { animation: bounce 0.3s ease 1; }
