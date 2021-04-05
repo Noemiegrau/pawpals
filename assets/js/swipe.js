@@ -594,7 +594,10 @@ function saveAnalytics() {
     var analyticsObj = {
         totalSwipes,
         totalMatch,
-        matchRatio
+        matchRatio,
+        catSwipes,
+        dogSwipes,
+        swipeRight
     }
 
     localStorage.setItem('analytics', JSON.stringify(analyticsObj));
