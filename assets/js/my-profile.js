@@ -1,3 +1,47 @@
+// API #1
+function dogApi() {
+    var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
+
+    fetch(dogFetchUrl)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            // random dog image URL
+            // console.log(data.message);
+            imgUrl = data.message;
+            console.log("dog fetched");
+            imageSelection(imgUrl);
+    });
+};
+
+// API #2
+function catApi() {
+    var catApiKey = "6239a053-498a-49cb-ac5c-e7a746598576";
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("x-api-key", catApiKey);
+
+    var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+    };
+    
+    fetch("https://api.thecatapi.com/v1/images/search?format=json", requestOptions)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+            imgUrl = data[0].url;
+            console.log("cat fetched");
+            imageSelection(imgUrl);
+    });
+};
+
+// Empty user Profile Object
 var userProfileObj = {};
 
 // Load user profile
@@ -27,18 +71,25 @@ function displayProfileObj () {
 };
 displayProfileObj();
 
-// Edit function
+// Allow to edit the profile info
 function doEdit() {
 
     console.log("hello");
     // Makes the field a textarea on click on edit button
     document.getElementById("animal-name").innerHTML = '<textarea id="name-textarea">' + userProfileObj.name + '</textarea>';
     document.getElementById("animal-age-text").innerHTML = '<textarea id="age-textarea">' + userProfileObj.age + '</textarea>';
-    document.getElementById("animal-type-text").innerHTML = '<textarea id="type-textarea">' + userProfileObj.animal + '</textarea>';
-    document.getElementById("animal-interest-text").innerHTML = '<textarea id="interest-textarea">' + userProfileObj.interest + '</textarea>';
+    // document.getElementById("animal-type-text").innerHTML = '<textarea id="type-textarea">' + userProfileObj.animal + '</textarea>';
+    document.getElementById("type-secret-container").classList.remove('hide');
+    document.getElementById("animal-type-text").innerHTML = '';
+    // document.getElementById("animal-interest-text").innerHTML = '<textarea id="interest-textarea">' + userProfileObj.interest + '</textarea>';
+    // document.getElementById("animal-interest-text").className.add('hide');
+    document.getElementById("interest-secret-container").classList.remove('hide');
+    document.getElementById("animal-interest-text").innerHTML = '';
     document.getElementById("animal-min-text").innerHTML = '<textarea id="min-textarea">' + userProfileObj.minAge + '</textarea>';
     document.getElementById("animal-max-text").innerHTML = '<textarea id="max-textarea">' + userProfileObj.maxAge + '</textarea>';
-    // document.getElementById("animal-image").innerHTML = ;
+    
+    // Edit img button appears
+    document.getElementById("edit-img").classList.remove("hide");
 
     // Edit button disappears
     document.getElementById("edit-btn").classList.add("hide");
@@ -47,8 +98,36 @@ function doEdit() {
     document.getElementById("save-btn").classList.remove("hide");
 };
 
-// Save function
+// Allow to edit the profile picture
+function editImg() {
+    // Message box asks to select a picture or change
+    document.getElementById("edit-img-message").classList.remove("hide");
+    // Add blur background
+    document.getElementById("my-profile-container").classList.add("blur");
+    document.getElementById("analytics-container").classList.add("blur");
+    // Gets random image from API
+        userAnimal = userProfileObj.animal;
+        if (userAnimal === 'cat') {
+            catApi();
+        } else if (userAnimal === 'dog') {
+            dogApi();
+        };
+};
+
+// Puts the image from API inside message box
+var imageSelection = function(imgUrl) {
+    console.log(imgUrl);
+    document.getElementById("animal-image-edit").src = imgUrl;
+};
+
+// Allow to save new changes to profile info
 function saveEdit() {
+
+    // Hide Type Checkboxes
+    document.getElementById("type-secret-container").classList.add('hide');
+
+    // Hide Interest Checkboxes
+    document.getElementById("interest-secret-container").classList.add('hide');
 
     // Change value of NAME
     var nameTextarea = document.getElementById("name-textarea").value;
@@ -65,18 +144,14 @@ function saveEdit() {
     console.log(userProfileObj.age);
 
     // Change value of TYPE
-    var typeTextarea = document.getElementById("type-textarea").value;
-    console.log(typeTextarea);
+    // var typeTextarea = document.getElementById("type-textarea").value;
+    // console.log(typeTextarea);
 
-    userProfileObj.animal = typeTextarea;
-    console.log(userProfileObj.animal);
+    // userProfileObj.animal = typeTextarea;
+    // console.log(userProfileObj.animal);
 
     // Change value of INTEREST
-    var interestTextarea = document.getElementById("interest-textarea").value;
-    console.log(interestTextarea);
-
-    userProfileObj.interest = interestTextarea;
-    console.log(userProfileObj.interest);
+    // userProfileObj.interest = userProfileObj.interest;
 
     // Change value of MIN
     var minTextarea = document.getElementById("min-textarea").value;
@@ -92,12 +167,14 @@ function saveEdit() {
     userProfileObj.maxAge = maxTextarea;
     console.log(userProfileObj.maxAge);
 
-
     // Sets the new values in localStorage
     localStorage.setItem('storedProfile', JSON.stringify(userProfileObj)); 
 
     // Hide save button
     document.getElementById("save-btn").classList.add("hide");
+
+    // Hide edit img button
+    document.getElementById("edit-img").classList.add("hide");
 
     // Show edit button
     document.getElementById("edit-btn").classList.remove("hide");
@@ -166,3 +243,127 @@ document.getElementById("edit-cross-message").addEventListener("click", function
     document.getElementById("my-profile-container").classList.remove("blur");
     document.getElementById("analytics-container").classList.remove("blur");
 });
+
+// Event listener for cross in save edit image message box
+document.getElementById("edit-cross-img").addEventListener("click", function() {
+    // Message box disappears
+    document.getElementById("edit-img-message").classList.add("hide");
+    // Remove blur background
+    document.getElementById("my-profile-container").classList.remove("blur");
+    document.getElementById("analytics-container").classList.remove("blur");
+});
+
+// Event listener for cross in save edit image message box
+document.getElementById("yes-edit-img").addEventListener("click", function() {
+    // Message box disappear
+    document.getElementById("edit-img-message").classList.add("hide");
+    // Remove blur background
+    document.getElementById("my-profile-container").classList.remove("blur");
+    document.getElementById("analytics-container").classList.remove("blur");
+});
+
+// Event listener for YES (choosing the new image) button
+document.getElementById("yes-edit-img").addEventListener("click", function() {
+    console.log('hello');
+    // Save image as new image in localStorage
+    var newPicture = document.getElementById("animal-image-edit").src = imgUrl;
+    console.log(imgUrl);
+    // Change value of image
+    userProfileObj.profileImg = newPicture;
+    console.log(userProfileObj.profileImg);
+
+    // Add to localStorage
+    localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
+    // Save image as new image on profile card
+    document.getElementById("animal-image").src = imgUrl;
+    
+});
+
+// Event listener for NAH (requesting other image) button
+document.getElementById("nah-edit-img").addEventListener("click", function() {
+    console.log('hello');
+    // Gets new image from APIs
+    editImg();
+});
+
+// Event listener for Interest Checkboxes DOGS
+document.getElementById("dogs").addEventListener("click", function() {
+    console.log('hello2');
+    // Change value for interest in user Profile Obj
+    var interestTextarea = document.getElementById("doggos").innerText;
+    console.log(interestTextarea);
+
+    userProfileObj.interest = interestTextarea;
+    console.log(userProfileObj.interest);
+});
+
+// Event listener for Interest Checkboxes CATS
+document.getElementById("cats").addEventListener("click", function() {
+    console.log('hello2');
+    // Change value for interest in user Profile Obj
+    var interestTextarea = document.getElementById("catsCats").innerText;
+    console.log(interestTextarea);
+
+    userProfileObj.interest = interestTextarea;
+    console.log(userProfileObj.interest);
+    
+});
+
+// Event listener for Interest Checkboxes BOTH
+document.getElementById("both").addEventListener("click", function() {
+    console.log('hello2');
+    // Change value for interest in user Profile Obj
+    var interestTextarea = document.getElementById("catsDogs").innerText;
+    console.log(interestTextarea);
+
+    userProfileObj.interest = interestTextarea;
+    console.log(userProfileObj.interest);
+    
+});
+
+// Event listener for TYPE Checkboxes DOG
+document.getElementById("isdogs").addEventListener("click", function() {
+    console.log('hello2');
+    // Change value for interest in user Profile Obj
+    var typeTextarea = document.getElementById("isdoggos").innerText;
+    console.log(typeTextarea);
+
+    userProfileObj.animal = typeTextarea;
+    console.log(userProfileObj.animal);
+});
+
+// Event listener for TYPE Checkboxes CAT
+document.getElementById("iscats").addEventListener("click", function() {
+    console.log('hello2');
+    // Change value for interest in user Profile Obj
+    var typeTextarea = document.getElementById("iscatsCats").innerText;
+    console.log(typeTextarea);
+
+    userProfileObj.animal = typeTextarea;
+    console.log(userProfileObj.animal);
+});
+
+const analyticsObj = localStorage.getItem("analytics");
+console.log(analyticsObj);
+const parsedAnalyticsObj = JSON.parse(analyticsObj);
+var totalSwipes = parseFloat(parsedAnalyticsObj.totalSwipes);
+var totalMatch = parseFloat(parsedAnalyticsObj.totalMatch);
+var matchRatio = parseFloat(parsedAnalyticsObj.matchRatio);
+// console.log(totalSwipes);
+// console.log(totalMatch);
+// console.log(matchRatio);
+// average ages calculations
+var str = localStorage.getItem("ages");
+var ages = JSON.parse(str);
+var avg;
+function makeInt() {
+    let denominator = ages.length;
+    let sum = 0;
+    for (var i=0;i <ages.length; i++) {
+        sum += parseInt(ages[i]);
+        console.log(sum);
+    }
+    avg = sum / denominator;
+    console.log(avg);
+}
+makeInt();

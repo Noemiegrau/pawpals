@@ -29,7 +29,7 @@
     <div class="hamburger-menu-wrapper">
     <button class="hamburger-menu">
         <span>toggle menu</span>
-    </button>
+    </button> 
     </div>
     <div class="menu-list">
     <a href="about.html" id="ml-about">ABOUT</a><br>
@@ -40,7 +40,7 @@
   </div>
   <div class="menu-overlay"></div>
 
-  <div class="container">
+  <div id="main-page-container" class="container">
   <!-- Form -->
   <div class="field">
     <label class="label">Name</label>
@@ -85,8 +85,8 @@
           <option>Select dropdown</option>
           <option>Account Issue</option>
           <option>You want to combine forces</option>
-          <option>press</option>
-          <option>technical support</option>
+          <option>Press</option>
+          <option>Technical support</option>
           <option>Other</option>
         </select>
       </div>
@@ -124,19 +124,32 @@
   
   <div class="field is-grouped">
     <div class="control">
-      <button class="button is-link is-warning is-focused">Submit</button>
+      <button id="submit-btn" class="button is-link is-warning is-focused">Submit</button>
     </div>
     <div class="control">
       <button class="button is-link is-danger is-focused">Cancel</button>
     </div>
   </div>
+
 </div>
+
+<article id="submitted-container" class="message is-success hide">
+  <div class="message-header">
+    <p>Pawsome!</p>
+    <button id="submitted-cross-message" class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+    We will be in touch soon!
+  </div>
+</article>
+
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
   integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
   crossorigin="anonymous">
 </script>
 <script src="./assets/js/hamburger.js"></script>
+<script src="./assets/js/contact-us.js"></script>
 
 </body>
 </html>
