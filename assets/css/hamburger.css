@@ -1,5 +1,6 @@
 .hamburger-menu-wrapper {
-  margin-top: 40px;
+  margin-top: 30px;
+  margin-right: 35px;
   background: #323232;
   padding: 10px;
   display: inline-block;
@@ -93,7 +94,6 @@ bounce { 0% {
   position: relative;
   min-width: 220px;
   text-align: right;
-  margin-right: 50px;
 }
 
 .menu-list {
