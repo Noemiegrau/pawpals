@@ -91,6 +91,23 @@ var preferences = function(){
 
 preferences();
 
+// hamburger menu touch events
+$('#ml-about').on('touchend', function() {
+    location.href = 'about.html';
+});
+
+$('#ml-profile').on('touchend', function() {
+    location.href = 'my-profile.html';
+});
+
+$('#ml-matches').on('touchend', function() {
+    location.href = 'matches.html';
+});
+
+$('#ml-contact').on('touchend', function() {
+    location.href = 'contact-us.html';
+});
+
 new Pageable("#container", {
     childSelector: "[data-anchor]", // CSS3 selector string for the pages
     anchors: [], // define the page anchors
@@ -584,7 +601,7 @@ function loveAlert (topCard) {
         $('.animation').remove();
    }, 1000);
    
-}
+};
 
 function saveAnalytics() {
     totalSwipes = catSwipes + dogSwipes;
@@ -600,10 +617,7 @@ function saveAnalytics() {
     localStorage.setItem('analytics', JSON.stringify(analyticsObj));
     console.log(analyticsObj);
     
-}
-
-
-
+};
 
 let board = document.querySelector('#board')
 
