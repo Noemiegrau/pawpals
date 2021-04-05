@@ -108,7 +108,6 @@ select {
 #loginBtn {
   background-color: lightgoldenrodyellow;
   border-radius: 9px;
-<<<<<<< HEAD
   /* font-family: 'Chango', cursive*/
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 20px;
@@ -120,25 +119,12 @@ select {
   position: relative;
   float: right;
   background-image: linear-gradient(180deg, #ffe48b 0%, #da7d1afe 100%);
-=======
-  padding: 12px 20px;
-  width: fit-content;
-  margin-right: 35px;
-  margin-top: 30px;
-  border: none;
-  float: right;
-  position: relative;
-  font-size: 18px;
-  color: var(--quinary);
-  background-color: #323232;
->>>>>>> 564a687f55b20875d151274c40ad8610e2c9ba01
   transition:all .5s ease-out;
   background-size: 1px 100px;
   background-position: 0 -10px;
   border: none;
 }
 
-<<<<<<< HEAD
 #loginBtn:hover {
   background-position: 1px -50px;
   /* color:black; */
@@ -146,8 +132,6 @@ select {
 
 /* MY PROFILE BUTTON ENDS */
 
-=======
->>>>>>> 564a687f55b20875d151274c40ad8610e2c9ba01
 /*************************/
 /* CREATE PROFILE BUTTON */
 /*************************/
