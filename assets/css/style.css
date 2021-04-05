@@ -106,34 +106,48 @@ select {
 /**********************/
 
 #loginBtn {
-  background-color: white;
+  background-color: lightgoldenrodyellow;
   border-radius: 9px;
-  padding: 12px 20px;
+  /* font-family: 'Chango', cursive*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+  /* font-family: 'Thasadith', sans-serif; */
+  padding: 10px 30px;
   width: fit-content;
-  margin-right: 35px;
-  margin-top: 30px;
-  border: none;
-  float: right;
+  margin-top: 3%;
+  margin-right: 3%;
   position: relative;
-  font-size: 18px;
-  color: var(--quinary);
-  background-color: #323232;
+  float: right;
+  background-image: linear-gradient(180deg, #ffe48b 0%, #da7d1afe 100%);
   transition:all .5s ease-out;
+  background-size: 1px 100px;
   background-position: 0 -10px;
+  border: none;
 }
+
+#loginBtn:hover {
+  background-position: 1px -50px;
+  /* color:black; */
+}
+
+/* MY PROFILE BUTTON ENDS */
 
 /*************************/
 /* CREATE PROFILE BUTTON */
 /*************************/
 
 #createProfileBtn {
+  background-color: lightgoldenrodyellow;
   border-radius: 9px;
-  font-size: 20px;
+  /* font-family: 'Chango', cursive; */
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 25px;
+  /* font-family: 'Thasadith', sans-serif; */
   padding: 10px 30px;
   width: fit-content;
-  background-color: #323232;
-  color: var(--quinary);
-  transition:all .5s ease-out;
+  /* position: relative; */
+  background-image: linear-gradient(180deg, #ffe48b 0%, #da7d1afe 100%);
+  transition: all .5s ease-out;
   background-size: 1px 100px;
   background-position: 0 -10px;
   border: none;
