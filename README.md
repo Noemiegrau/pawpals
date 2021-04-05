@@ -4,6 +4,7 @@
 * [Description of the project](#description-of-the-project)
 * [Technologies used](#technologies-used)
 * [Mockup](#mockup)
+* [Link URL to Trello Board](#link-URL-to-Trello-Board)
 * [Link URL to deployed app on GitHub](#link-URL-to-deployed-app-on-GitHub)
 * [Link URL to GitHub Repository](#link-URL-to-GitHub-repository)
 
