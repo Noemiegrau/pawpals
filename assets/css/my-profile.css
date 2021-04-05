@@ -123,5 +123,48 @@ body {
 
 .shadow-box:hover {
   box-shadow: 1px 8px 20px grey;
-  -webkit-transition:  box-shadow .6s ease-in;
+  --webkit-transition:  box-shadow .6s ease-in;
+}
+
+#analyticsProf p {
+  text-align: center;
+  font-family: 'Open Sans condensed', sans-serif;
+}
+
+.card-content {
+  background-color: floralwhite;
+  padding: 1.5rem;
+}
+
+.card-header {
+  background-color: lightsalmon;
+}
+
+.card-header-title {
+  color: bisque;
+}
+
+.avgAgeSwipes {
+  color:cadetblue;
+  font-size: 90px;
+}
+
+.numberSwipes {
+  color:mediumslateblue;
+  font-size: 90px;
+}
+
+.numberMatches {
+  color:tomato;
+  font-size: 90px;
+}
+
+.matchRatio {
+  color:salmon;
+  font-size: 90px;
+}
+
+.no-bottom {
+  margin-bottom: 0 !important;
+  padding-bottom: 4px;
 }
