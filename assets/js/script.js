@@ -195,8 +195,10 @@ var sendBackTo = function() {
             break;
         case 7:
             $.modal.close();
+            break;
         case 8:
             loginProfileCheck();
+            break;
     };
 };
 
