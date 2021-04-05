@@ -343,8 +343,35 @@ document.getElementById("iscats").addEventListener("click", function() {
     console.log(userProfileObj.animal);
 });
 
+// const analyticsObj = localStorage.getItem("analytics");
+// console.log(analyticsObj);
+// const parsedAnalyticsObj = JSON.parse(analyticsObj);
+// var totalSwipes = parseFloat(parsedAnalyticsObj.totalSwipes);
+// var totalMatch = parseFloat(parsedAnalyticsObj.totalMatch);
+// var matchRatio = parseFloat(parsedAnalyticsObj.matchRatio);
+// // console.log(totalSwipes);
+// // console.log(totalMatch);
+// // console.log(matchRatio);
+// // average ages calculations
+// var str = localStorage.getItem("ages");
+// var ages = JSON.parse(str);
+// var avg;
+// function makeInt() {
+//     let denominator = ages.length;
+//     let sum = 0;
+//     for (var i=0;i <ages.length; i++) {
+//         sum += parseInt(ages[i]);
+//         console.log(sum);
+//     }
+//     avg = sum / denominator;
+//     console.log(avg);
+// }
+// makeInt();
+
+
+// Loads Analytics Object
 const analyticsObj = localStorage.getItem("analytics");
-console.log(analyticsObj);
+// console.log(analyticsObj);
 const parsedAnalyticsObj = JSON.parse(analyticsObj);
 var totalSwipes = parseFloat(parsedAnalyticsObj.totalSwipes);
 var totalMatch = parseFloat(parsedAnalyticsObj.totalMatch);
@@ -352,10 +379,12 @@ var matchRatio = parseFloat(parsedAnalyticsObj.matchRatio);
 // console.log(totalSwipes);
 // console.log(totalMatch);
 // console.log(matchRatio);
-// average ages calculations
+
+// Average Ages Calculations
 var str = localStorage.getItem("ages");
 var ages = JSON.parse(str);
 var avg;
+
 function makeInt() {
     let denominator = ages.length;
     let sum = 0;
@@ -367,3 +396,10 @@ function makeInt() {
     console.log(avg);
 }
 makeInt();
+
+
+// Displays the analytics info into the analytics card
+// document.getElementById("avgAgeSwipes").innerHTML = avg;
+document.getElementById("numberSwipes").innerHTML = parsedAnalyticsObj.totalSwipes;
+document.getElementById("numberMatches").innerHTML = parsedAnalyticsObj.totalMatch;
+document.getElementById("matchRatio").innerHTML = parsedAnalyticsObj.matchRatio;
