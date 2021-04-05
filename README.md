@@ -17,6 +17,8 @@ Project is created using:
 * JavaScript
 
 ## **_Mockup_**
+<img width="1143" alt="Mockup-Pawpals" src="https://user-images.githubusercontent.com/78329298/113557122-5ce28b00-95b2-11eb-903a-19a7bcb70707.png">
+
 
 
 ## **_Link URL to deployed app on GitHub_**
