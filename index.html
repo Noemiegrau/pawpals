@@ -23,17 +23,17 @@
                 </div>
 
                 <!-- button to Login -->
-                <button type="button" id="loginBtn"> 
+                <button type="button" id="loginBtn" ontouchend="loginProfileCheck()"> 
                     LOGIN
                 </button>
                 <!-- container to center these items -->
                 <div class="slogan-button-flexbox">
                     <!-- slogan section-->
                     <div id="slogan">
-                        <p>THERE GOES THE NEIGHBORHOOD</p>
+                        <p>OH! THE <span style="color:black;font-family:'Open Sans condensed';font-weight: bolder;">PAW</span>SSIBILITIES</p>
                     </div>
                     <!-- button to create profile -->
-                    <button type="button" id="createProfileBtn"> 
+                    <button type="button" id="createProfileBtn" ontouchend="createClick()"> 
                         CREATE A PROFILE
                     </button>
                 </div>
@@ -54,10 +54,6 @@
                 <p>Select a profile picture</p>
                 <div class="img-select">
                     <div class="img-choice"></div>
-                    <!-- <div class="img-choice" id="img-choice-2"></div>
-                    <div class="img-choice" id="img-choice-3"></div>
-                    <div class="img-choice" id="img-choice-4"></div>
-                    <div class="img-choice" id="img-choice-5"></div> -->
                 </div>
                 <p>Select this picture?</p>
                 <button type="submit" id="create2Btn">Yes</button>
@@ -104,6 +100,7 @@
             </div>
             <div id="modal-alert" class="modal">
                 <p id="alert-text"></p>
+                <p id="alert-subtext"></p>
                 <button type="submit" id="alert-btn">Okay</button>
             </div>
         </div>

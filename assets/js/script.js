@@ -1,31 +1,37 @@
+// Page buttons
 var $createProfileBtn = $('#createProfileBtn');
 var $loginBtn = $('#loginBtn');
-var $alertBtn = $('#alert-btn')
-var $create1Btn = $('#create1Btn');
-var $create2Btn = $('#create2Btn');
-var $create3Btn = $('#create3Btn');
-var $create4Btn = $('#create4Btn');
-var $create5Btn = $('#create5Btn');
 
+// Modals
 var $create1 = $('#create-1');
 var $create2 = $('#create-2');
 var $create3 = $('#create-3');
 var $create4 = $('#create-4');
 var $create5 = $('#create-5');
 var $modalAlert = $('#modal-alert');
-var $alertText = $('#alert-text');
-var $imgSelect = $('#img-select');
+
+// Modal buttons
+var $create1Btn = $('#create1Btn');
+var $create2Btn = $('#create2Btn');
+var $create3Btn = $('#create3Btn');
+var $create4Btn = $('#create4Btn');
+var $create5Btn = $('#create5Btn');
+var $alertBtn = $('#alert-btn');
 var $newImgBtn = $('#new-img');
-var userProfileObj = {};
-var profileExists = false;
+
+// Modal elements
+var $alertText = $('#alert-text');
+var $alertSubtext = $('#alert-subtext');
+var $imgSelect = $('#img-select');
+
+// Other variables
 var modalNum = 0;
+var profileExists = false;
+var userProfileObj = {};
 var createModalProps = {
     clickClose: false,
     showClose: false
 };
-
-// new Pageable("#container");
-
  
 new Pageable("#container", {
     childSelector: "[data-anchor]", // CSS3 selector string for the pages
@@ -83,8 +89,6 @@ function dogApi() {
             return response.json();
         })
         .then(function(data) {
-            // random dog image URL
-            // console.log(data.message);
             imgUrl = data.message;
             console.log("dog fetched");
             imageSelection(imgUrl);
@@ -130,12 +134,9 @@ if (!storedProfile) {
 
 var alertModal = function(modalNum) {
     console.log(modalNum);
-    // var sendBackTo = $(`create${modalNum}`);
-    // console.log(sendBackTo);
 
     switch(modalNum) {
         case 1:
-            console.log(modalNum);
             $alertText.text('Please make a selection');
             $modalAlert.modal(createModalProps);
             break;
@@ -151,6 +152,19 @@ var alertModal = function(modalNum) {
             break;
         case 5:
             $alertText.text('Please make a selection');
+            $modalAlert.modal(createModalProps);
+            break;
+        case 6:
+            $alertText.text('Invalid selection');
+            $modalAlert.modal(createModalProps);
+            break;
+        case 7:
+            $alertText.text('No profile found! Please create a profile');
+            $modalAlert.modal(createModalProps);
+            break;
+        case 8:
+            $alertText.text('Profile Complete!');
+            $alertSubtext.text("Let's find some furry friends!");
             $modalAlert.modal(createModalProps);
             break;
     };
@@ -176,21 +190,26 @@ var sendBackTo = function() {
         case 5:
             $create5.modal(createModalProps);
             break;
+        case 6:
+            $create5.modal(createModalProps);
+            break;
+        case 7:
+            $.modal.close();
+            break;
+        case 8:
+            loginProfileCheck();
+            break;
     };
+};
 
-    // var backToModal = '$' + `create${modalNum}`;
-    // console.log(backToModal);
-    // backToModal.modal(createModalProps);
-
-}
-
-// $create3.modal(createModalProps);
 var loginProfileCheck = function() {
     if (profileExists == true) {
         console.log('yeeee');
         location.href = './swipe.html';
     } else if (profileExists == false) {
+        modalNum = 7;
         console.log('boooooo');
+        alertModal(modalNum);
     }
 };
 
@@ -267,7 +286,14 @@ var deselectRadios = function(radioLength) {
 
 var clearAgeOpt = function() {
     var ageSelect = $('#user-age');
-    ageSelect.prop('selectedIndex', 0)
+    ageSelect.prop('selectedIndex', 0);
+}
+
+var clearAgeRangeOpt = function() {
+    var $min = $('#match-min-age');
+    var $max = $('#match-max-age');
+    $min.prop('selectedIndex', 0);
+    $max.prop('selectedIndex', 0);
 }
 
 var create1Click = function() {
@@ -368,11 +394,14 @@ var create5Click = function() {
             var userMaxAge =
                 $('#match-max-age')
                 .val();
-            userProfileObj.minAge = userMinAge;
-            userProfileObj.maxAge = userMaxAge;
-            userProfileObj.matchData = {
-                matches: [],
-            }
+            
+            if (userMinAge < userMaxAge && userMinAge !== null && userMaxAge !== null) {
+                console.log('correct');
+                userProfileObj.minAge = userMinAge;
+                userProfileObj.maxAge = userMaxAge;
+                userProfileObj.matchData = {
+                    matches: [],
+                }
             console.log(userProfileObj);
 
             // store userProfileObj in localStorage
@@ -380,31 +409,32 @@ var create5Click = function() {
             var radioLength = interestChoice.length;
             deselectRadios(radioLength);
 
+            modalNum = 8;
             profileExists = true;
-            loginProfileCheck();
-            // $.modal.close();
+            clearAgeRangeOpt();
+            alertModal(modalNum);
             break;
+            } else if (userMinAge > userMaxAge || userMaxAge == null || userMinAge == null) {
+                console.log('invalid');
+                modalNum = 6;
+                alertModal(modalNum);
+            } 
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
             alertModal(modalNum);
             break;
         }
     };
-    // $.modal.close();
+}
+
+var createClick = function() {
+    $create1.modal(createModalProps);
 }
 
 // Create profile modal button click handlers
-$createProfileBtn.click(function() {
-    $create1.modal(
-    //     { 
-    //     fadeDuration: 1000,
-    //     fadeDelay : 0.5
-    // },
-    createModalProps
-    );
-});
-
+$createProfileBtn.click(createClick);
 $alertBtn.click(sendBackTo);
 $loginBtn.click(loginProfileCheck);
+$newImgBtn.click(userAnimalCheck);
 $create1Btn.click(create1Click);
 $create2Btn.click(create2Click);
 $newImgBtn.click(userAnimalCheck);
