@@ -1,0 +1,68 @@
+:root {
+    --primary: #ffb5a7;
+    --secondary: #fcd5ce;
+    --tertiary: #f8edeb;
+    --quaternary: #f9dcc4;
+    --quinary: #fec89a;
+    }
+
+* {
+  box-sizing: border-box;
+}
+html {
+    overflow: auto;
+    background-color: var(--quaternary);
+  }
+  
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--quaternary);
+  }
+
+.pawpalsLogo {
+  margin-top: 30px;
+  margin-left: 40px;
+  position: absolute;
+  width:10em;
+}
+
+.content h1,.content h2 {
+    text-align: center;
+    font-family: 'Thasadith', sans-serif;
+    font-size: 80px;
+}
+
+.content p {
+    text-align: center;
+}
+
+.cat-dog {
+  background-repeat: no-repeat !important; 
+  background-attachment: fixed !important;
+  background-position: left bottom !important;
+  
+}
+
+.team-profiles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 10%;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0% 0% 15% 0%;
+}
+
+.member-name {
+  padding: 10px 0;
+  color: white;
+  font-weight:normal;
+  font-size: larger;
+  background-color: gray;
+}
