@@ -16,9 +16,16 @@
   <link rel="stylesheet" href="assets/css/hamburger.css"/>
   <link rel="stylesheet" href="assets/css/my-profile.css"/>
   <link rel="shortcut icon" type="image/png" href="./assets/images/pink_paw.png"/>
-  <title>My Profile</title>
+  <title>PawPals/My Profile</title>
 </head>
 <body>
+
+<header>
+  <div>
+    <img src="./assets/images/pawpals.png" alt="paw pals logo" class="pawpalsLogo">
+  </div>
+</header>
+
   <div class="menu">
     <div class="hamburger-menu-wrapper">
     <button class="hamburger-menu">
@@ -37,15 +44,16 @@
 
     <div class="columns features">
 
-      <div class="column is-3"></div>
+      <div id="column-one" class="column is-3"></div>
 
-      <div class="column is-3">
+      <div id="column-two" class="column is-3">
 
         <div id="my-profile-container" class="card shadow-box">
 
           <div class="card-image">
             <figure class="image is-4by3">
               <img src="" alt="your profile picture" id="animal-image">
+              <button id="edit-img" class="button is-warning hide" onclick="editImg()">Edit</button>
             </figure>
           </div>
 
@@ -58,13 +66,42 @@
               <div class="media-content">
                 <p id="animal-age" class="subtitle is-6">Age: <span id="animal-age-text"></span></p>
                 <p id="animal-type" class="subtitle is-6">Type of animal: <span id="animal-type-text"></span></p>
+
+                <div id ="type-secret-container" class="control hide">
+                  <label class="radio">
+                    <input id="isdogs" type="radio" class="click" name="answer">
+                    <span id="isdoggos"> Dog</span>
+                  </label>
+                  <label class="radio">
+                    <input id="iscats" type="radio" class="click" name="answer">
+                    <span  id="iscatsCats"> Cat</span>
+                  </label>
+                </div>
+
                 <p id="animal-interest" class="subtitle is-6">Interest: <span id="animal-interest-text"></span></p>
+                
+                <div id ="interest-secret-container" class="control hide">
+                  <label class="radio">
+                    <input id="dogs" type="radio" class="click" name="answer">
+                    <span id="doggos"> Dogs</span>
+                  </label>
+                  <label class="radio">
+                    <input id="cats" type="radio" class="click" name="answer">
+                    <span  id="catsCats"> Cats</span>
+                  </label>
+                  <label class="radio">
+                    <input id="both" type="radio" class="click" name="answer">
+                    <span  id="catsDogs"> Both</span>
+                  </label>
+                </div>
+
                 <p id="min" class="subtitle is-6">Min age: <span id="animal-min-text"></span></p>
                 <p id="max" class="subtitle is-6">Max age: <span id="animal-max-text"></span></p>
+
               <div class="buttons is-centered">
                 <span id="edit-btn" class="button is-link modal-button is-warning" data-target="modal-image2" onclick="doEdit()">Edit</span>
                 <span id="save-btn" class="button is-link modal-button is-success hide" data-target="modal-image2" onclick="saveEdit()">Save</span>
-                <span id="delete-btn" class="button is-link modal-button is-warning" data-target="modal-image2">Delete</span>
+                <span id="delete-btn" class="button is-link modal-button is-danger" data-target="modal-image2">Delete</span>
               </div>
               </div>
             </div>
@@ -73,7 +110,7 @@
 
       </div>
 
-      <div class="column is-3">
+      <div id="column-three" class="column is-3">
 
           <div id="analytics-container" class="card shadow-box">
               
@@ -82,16 +119,16 @@
                   <h1 id="analytics" class="title is-4 card-header-title is-centered"> Analytics</h1>
                 </header>
 
-                  <div class="card-content">
-                      <p class="subtitle is-6 age">Average age of swipe right: <span class="age-number"></span></p>
+                  <div class="card-content is-align-items-center">
+                      <p class="subtitle is-6 age is-align-items-center">Average age of swipe right: <span class="age-number"></span></p>
                       <p class="subtitle is-6 match">Number of matches: <span class="match-number"></span></p>
-                      <p class="subtitle is-6 match">Species which matches the most with that profile: <span class="match-number"></span></p>
+                      <p class="subtitle is-6 match">Species which matches the most with that profile: <span class="species-number"></span></p>
                   </div>
               </div>
           </div>
       </div>
 
-      <div class="column is-3"></div>
+      <div id="column-four" class="column is-3"></div>
 
     </div>
 
@@ -127,11 +164,30 @@
 
     <article id="success-edit-container" class="message is-success hide">
       <div class="message-header">
-        <p>Successful!</p>
+        <p>Pawsome!</p>
         <button id="edit-cross-message" class="delete" aria-label="delete"></button>
       </div>
       <div class="message-body">
         Your profile information have been <strong>updated successfully</strong>.
+      </div>
+    </article>
+
+    <article id="edit-img-message" class="message is-warning hide">
+      <div class="message-header">
+        <p>Select a profile picture</p>
+        <button id="edit-cross-img" class="delete" aria-label="delete"></button>
+      </div>
+      <div>
+        <img src="" alt="animal profile picture" id="animal-image-edit">
+      </div>
+      <div id="select-this-picture">Select this picture?</div>
+      <div id="edit-btns-message">
+        <button id="yes-edit-img" class="button" type="submit">
+          Yes
+        </button>
+        <button id="nah-edit-img" class="button" type="button">
+          Nah, new picture
+        </button>
       </div>
     </article>
 
