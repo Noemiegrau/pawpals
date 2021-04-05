@@ -1,5 +1,5 @@
 :root {
-  --primary: #ffb5a7;
+  --primary: salmon;
   --secondary: #fcd5ce;
   --tertiary: #f8edeb;
   --quaternary: #f9dcc4;
@@ -26,6 +26,12 @@ body {
   /* display: flex; */
 }
 
+.pawpalsLogo {
+  margin-top: 30px;
+  margin-left: 40px;
+  position: absolute;
+  width:10em;
+}
 
 .card {
   width: 340px;
