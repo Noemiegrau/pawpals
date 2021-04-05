@@ -214,26 +214,12 @@ var loginProfileCheck = function() {
 };
 
 var imageSelection = function(imgUrl) {
-    // console.log($choice.children().length);
-    // if ($('#img-choice-1').children().length > 0) {
-    //     $('#img-choice-1').empty();
-    // }
-    // if ($('img-choice-1').attr('backgroundImage'))
     console.log(imgUrl);
     $('.img-choice')
         .css(
             'backgroundImage', 
             "url('" + imgUrl + "')"
-            );
-    // var $choice = $(`#img-choice-1`);
-    // console.log($choice);
-    // var $image = $('<img>')
-    //     .attr('width', '100%')
-    //     .attr('src', imgUrl);
-    // $choice.append($image);
-    // $imgSelect.append($choice);
-
-    // console.log(i);
+        );
 };
 
 var userAnimalCheck = function() {
@@ -253,8 +239,8 @@ var ageRangeOpts = function() {
             .val(i)
             .text(i);
         $select.append($userAgeOpt);
-    }
-}
+    };
+};
 
 var minAgeOpts = function() {
     var $select = $('#match-min-age');
@@ -279,22 +265,23 @@ var maxAgeOpts = function() {
 var deselectRadios = function(radioLength) {
     for (i = 0; i < 5; i++) {
         console.log(radioLength);
-        var radios = $("input[type='radio']");
-        radios[i].checked = false;
+        // var radios = $("input[type='radio']");
+        // radios[i].checked = false;
+        $("input[type='radio']")[i].checked = false;
     };
 };
 
 var clearAgeOpt = function() {
     var ageSelect = $('#user-age');
     ageSelect.prop('selectedIndex', 0);
-}
+};
 
 var clearAgeRangeOpt = function() {
     var $min = $('#match-min-age');
     var $max = $('#match-max-age');
     $min.prop('selectedIndex', 0);
     $max.prop('selectedIndex', 0);
-}
+};
 
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
@@ -310,14 +297,6 @@ var create1Click = function() {
             userAnimalCheck();
             var radioLength = animalChoice.length;
             deselectRadios(radioLength);
-            // for (i = 0; i < 5; i++) {
-            //     console.log(userProfileObj.animal);
-                // if (userAnimal === 'cat') {
-                //     catApi();
-                // } else if (userAnimal === 'dog') {
-                //     dogApi();
-                // }
-            // }
         } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
             alertModal(modalNum);
             break;
@@ -418,13 +397,13 @@ var create5Click = function() {
                 console.log('invalid');
                 modalNum = 6;
                 alertModal(modalNum);
-            } 
+            }; 
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
             alertModal(modalNum);
             break;
-        }
+        };
     };
-}
+};
 
 var createClick = function() {
     $create1.modal(createModalProps);
@@ -437,7 +416,6 @@ $loginBtn.click(loginProfileCheck);
 $newImgBtn.click(userAnimalCheck);
 $create1Btn.click(create1Click);
 $create2Btn.click(create2Click);
-$newImgBtn.click(userAnimalCheck);
 $create3Btn.click(create3Click);
 $create4Btn.click(create4Click);
 $create5Btn.click(create5Click);
