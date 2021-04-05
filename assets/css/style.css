@@ -1,5 +1,5 @@
 :root {
-  --primary: #ffb5a7;
+  --primary: salmon;
   --secondary: #fcd5ce;
   --tertiary: #f8edeb;
   --quaternary: #f9dcc4;
@@ -137,17 +137,20 @@ select {
 /*************************/
 
 #createProfileBtn {
+  background-color: lightgoldenrodyellow;
   border-radius: 9px;
-  font-size: 20px;
+  /* font-family: 'Chango', cursive; */
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 25px;
+  /* font-family: 'Thasadith', sans-serif; */
   padding: 10px 30px;
   width: fit-content;
-  background-color: #323232;
-  color: var(--quinary);
-  transition:all .5s ease-out;
+  /* position: relative; */
+  background-image: linear-gradient(180deg, #ffe48b 0%, #da7d1afe 100%);
+  transition: all .5s ease-out;
   background-size: 1px 100px;
   background-position: 0 -10px;
   border: none;
-  
 }
 
 #createProfileBtn:hover {
