@@ -33,7 +33,7 @@ body {
   position: absolute;
   display: flex;
   justify-content: center;
-  top: 50%;
+  top: 40%;
   left: 50%;
   border-radius: 0%;
   background-color: var(--tertiary);
@@ -170,33 +170,6 @@ body {
 /*****************/
 
 @media screen and (max-width: 576px) {
-  .pawpalsLogo {
-    margin-top: 15px;
-    margin-left: 15px;
-    width: 11em;
-  }
-
-  .hamburger-menu-wrapper {
-    margin-top: 12px;
-    margin-right: 12px;
-    padding: 5px;
-  }
-
-  .hamburger-menu {
-    width: 30px;
-    height: 30px;
-  }
-
-  .hamburger-menu span {
-    display: block;
-    position: absolute;
-    top: 14px;
-    left: 5px;
-    right: 5px;
-    height: 2px;
-    background: #fec89a;
-  }
-
   .card {
     width: 225px;
     height: 350px;
