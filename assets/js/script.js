@@ -174,7 +174,7 @@ var alertModal = function(modalNum) {
 
             // if min-max aren't valid or min > max
         case 6:
-            $alertText.text('Invalid selection');
+            $alertText.text('Please enter a valid age range');
             $modalAlert.modal(createModalProps);
             break;
 
