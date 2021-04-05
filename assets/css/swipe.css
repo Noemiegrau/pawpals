@@ -18,13 +18,6 @@ body {
   background-color: var(--primary) !important;
 }
 
-.pawpalsLogo {
-  margin-top: 30px;
-  margin-left: 35px;
-  position: absolute;
-  width: 13em;
-}
-
 #board {
   width: 100%;
   height: 100%;
