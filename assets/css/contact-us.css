@@ -26,7 +26,7 @@ body {
 
 .container {
   margin-top: 200px;
-
+}
 /* MESSAGE BOX */
 
 .hide {
@@ -43,3 +43,4 @@ body {
 .blur {
   filter: blur(5px);
 }
+

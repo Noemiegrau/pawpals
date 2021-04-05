@@ -123,5 +123,5 @@ body {
 
 .shadow-box:hover {
   box-shadow: 1px 8px 20px grey;
-  -webkit-transition:  box-shadow .6s ease-in;
+  --webkit-transition:  box-shadow .6s ease-in;
 }
