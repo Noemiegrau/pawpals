@@ -30,6 +30,10 @@ Project is created using:
 * jQuery Modal
 
 ## **_Mockup_**
+![image](https://user-images.githubusercontent.com/76669899/113545927-ec327300-959f-11eb-915a-92aaa3e3c282.png)
+![image](https://user-images.githubusercontent.com/76669899/113546996-f6ee0780-95a1-11eb-9df7-51d51d0c330b.png)
+
+
 
 
 ## **_Link URL to deployed app on GitHub_**
