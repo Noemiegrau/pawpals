@@ -136,32 +136,47 @@ var alertModal = function(modalNum) {
     console.log(modalNum);
 
     switch(modalNum) {
+            // if no user animal was selected
         case 1:
             $alertText.text('Please make a selection');
             $modalAlert.modal(createModalProps);
             break;
+
+            // image select
         case 2:
             break;
+
+            // if no name is entered
         case 3:
             $alertText.text('Please enter your name');
             $modalAlert.modal(createModalProps);
             break;
+
+            // if no age is entered
         case 4:
             $alertText.text('Please enter your age');
             $modalAlert.modal(createModalProps);
             break;
+
+            // if no interest choice is selected
         case 5:
             $alertText.text('Please make a selection');
             $modalAlert.modal(createModalProps);
             break;
+
+            // if min-max aren't valid or min > max
         case 6:
             $alertText.text('Invalid selection');
             $modalAlert.modal(createModalProps);
             break;
+
+            // login clicked, no profile
         case 7:
             $alertText.text('No profile found! Please create a profile');
             $modalAlert.modal(createModalProps);
             break;
+
+            // profile finished
         case 8:
             $alertText.text('Profile Complete!');
             $alertSubtext.text("Let's find some furry friends!");
@@ -175,27 +190,42 @@ var sendBackTo = function() {
     console.log(modalNum);
 
     switch(modalNum) {
+            // send to animal selection
         case 1:
             $create1.modal(createModalProps);
             break;
+
+            // send to image selection
         case 2:
             $create2.modal(createModalProps);
             break;
+
+            // send to name input
         case 3:
             $create3.modal(createModalProps);
             break;
+
+            // send to age input
         case 4:
             $create4.modal(createModalProps);
             break;
+
+            // send to interest choice and age-range selection
         case 5:
             $create5.modal(createModalProps);
             break;
+
+            // send to interest choice and age-range selection
         case 6:
             $create5.modal(createModalProps);
             break;
+
+            // close no profile alert from login btn
         case 7:
             $.modal.close();
             break;
+
+            // send to login check, then to ./swipe.html
         case 8:
             loginProfileCheck();
             break;
@@ -224,11 +254,15 @@ var imageSelection = function(imgUrl) {
 
 var userAnimalCheck = function() {
     userAnimal = userProfileObj.animal;
+
+    // check for which fetch request to run
     if (userAnimal === 'cat') {
         catApi();
     } else if (userAnimal === 'dog') {
         dogApi();
     };
+
+    // pass to next modal
     $create2.modal(createModalProps);
 };
 
@@ -273,90 +307,134 @@ var clearAgeOpt = function() {
     $('#user-age, #match-min-age, #match-max-age').prop('selectedIndex', 0);
 };
 
+// Get users animal (cat or dog) for API fetch
 var create1Click = function() {
     var animalChoice = $("input[name='animal-choice']");
+    // set modalNum for alert switch cases
     modalNum = 1;
 
     // find which is selected
     for (i = 0; i < animalChoice.length; i++) {
         if (animalChoice[i].checked) {
+            // store to user object
             var userAnimal = animalChoice[i].value;
             userProfileObj.animal = userAnimal;
 
-            //send to check for image fetching
+            // send to animal check for image fetching,
+            // pass to next modal
             userAnimalCheck();
+
+            // clear radio buttons
             var radioLength = animalChoice.length;
             deselectRadios(radioLength);
+            
+            // if neither are checked
         } else if (!animalChoice[0].checked && !animalChoice[1].checked) {
+            // send for alert modal
             alertModal(modalNum);
             break;
         };
     };
 };
 
+// Get user image selection
 function create2Click() {
+    // set modalNum for alert switch cases
     modalNum = 2;
-    console.log(modalNum);
+
+    // get image URL and store to user object
     var userImg = $('.img-choice')
         .css('backgroundImage')
         .split("\"")[1];
     userProfileObj.profileImg = userImg;
     
+    // clear name input on next modal
     $('#user-name').val('');
+    // pass to next modal
     $create3.modal(createModalProps);
 };
 
 var create3Click = function() {
+    // set modalNum for alert switch cases
     modalNum = 3;
-    
+
+    // get and format to lowercase
     var nameInput = 
         $('#user-name')
         .val()
         .toLowerCase();
     console.log(nameInput);
+
+    // check for input
     if (!nameInput) {
+        // send for alert modal
         alertModal(modalNum);
     } else {
-        // format name properly
+        // format name properly (capitalized first letter)
         var nameSplit = nameInput.split(' ');
         for (var i = 0; i < nameSplit.length; i++) {
-              nameSplit[i] = nameSplit[i][0].toUpperCase() + nameSplit[i].substr(1);
-        }
-         var userName = nameSplit.join(' ');
-         console.log(userName);
+            nameSplit[i] = nameSplit[i][0].toUpperCase() + nameSplit[i].substr(1);
+        };
+        // recombine if more than one word
+        var userName = nameSplit.join(' ');
+        console.log(userName);
 
+        // store name to user object
         userProfileObj.name = userName;
+
+        // clear age input on next modal
         ageRangeOpts();
+        // pass to next modal
         $create4.modal(createModalProps);
     };
 };
 
 var create4Click = function() {
+    // set modalNum for alert switch cases
     modalNum = 4;
+
+    // get user age input
     var userAge =
         $('#user-age')
         .val();
     console.log(userAge);
+
+    // check for input
     if (!userAge) {
+        // send for alert modal
         alertModal(modalNum);
     } else {
+        // store age to user object
         userProfileObj.age = userAge;
+
+        // clear age inputs for next modal
         clearAgeOpt();
+        // initiate options for <select> on next modal
         minAgeOpts();
         maxAgeOpts();
+
+        // pass to next modal
         $create5.modal(createModalProps);
-    }
+    };
 };
 
 var create5Click = function() {
-    modalNum = 5;
     var interestChoice = $("input[name='interest-choice']");
+
+    // set modalNum for alert switch cases
+    modalNum = 5;
 
     // find which radio button is selected
     for (i = 0; i < interestChoice.length; i++) {
+
+        // if one is selected
         if (interestChoice[i].checked) {
+
+            // store user interest to user object
             var userInterestChoice = interestChoice[i].value;
             userProfileObj.interest = userInterestChoice;
+
+            // get user min-max ages
             var userMinAge = 
                 $('#match-min-age')
                 .val();
@@ -364,38 +442,59 @@ var create5Click = function() {
                 $('#match-max-age')
                 .val();
             
+            // if min < max and both are numbers
             if (userMinAge < userMaxAge && userMinAge !== null && userMaxAge !== null) {
                 console.log('correct');
+
+                // store user min-max ages to user object
                 userProfileObj.minAge = userMinAge;
                 userProfileObj.maxAge = userMaxAge;
+
+                // initialize matchData object in user object
                 userProfileObj.matchData = {
                     matches: [],
                 }
-            console.log(userProfileObj);
+                console.log(userProfileObj);
 
-            // store userProfileObj in localStorage
-            localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
-            var radioLength = interestChoice.length;
-            deselectRadios(radioLength);
+                // store userProfileObj in localStorage
+                localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
 
-            modalNum = 8;
-            profileExists = true;
-            clearAgeOpt();
-            alertModal(modalNum);
-            break;
+                // clear radio buttons
+                var radioLength = interestChoice.length;
+                deselectRadios(radioLength);
+
+                // set to true for loginProfileCheck
+                profileExists = true;
+                // clear age inputs
+                clearAgeOpt();
+
+                // set modalNum for and send to profile complete confirmation
+                modalNum = 8;
+                alertModal(modalNum);
+                break;
+
+                // if min > max or either have not been selected
             } else if (userMinAge > userMaxAge || userMaxAge == null || userMinAge == null) {
                 console.log('invalid');
+
+                // set modalNum for alert switch cases
                 modalNum = 6;
+                // send for modal alert
                 alertModal(modalNum);
-            }; 
+            };
+
+            // if no interest choice has been selected
         } else if (!interestChoice[0].checked && !interestChoice[1].checked && !interestChoice[2].checked) {
+            // send for modal alert
             alertModal(modalNum);
             break;
         };
     };
 };
 
+// create profile btn click handler
 var createClick = function() {
+    // send to first profile creation modal
     $create1.modal(createModalProps);
 }
 
