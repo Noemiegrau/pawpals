@@ -286,7 +286,14 @@ var deselectRadios = function(radioLength) {
 
 var clearAgeOpt = function() {
     var ageSelect = $('#user-age');
-    ageSelect.prop('selectedIndex', 0)
+    ageSelect.prop('selectedIndex', 0);
+}
+
+var clearAgeRangeOpt = function() {
+    var $min = $('#match-min-age');
+    var $max = $('#match-max-age');
+    $min.prop('selectedIndex', 0);
+    $max.prop('selectedIndex', 0);
 }
 
 var create1Click = function() {
@@ -404,7 +411,7 @@ var create5Click = function() {
 
             modalNum = 8;
             profileExists = true;
-
+            clearAgeRangeOpt();
             alertModal(modalNum);
             break;
             } else if (userMinAge > userMaxAge || userMaxAge == null || userMinAge == null) {

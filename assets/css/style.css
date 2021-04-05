@@ -10,9 +10,16 @@
 * {
   overflow: hidden;
   box-sizing: border-box;
+  font-family: 'Open Sans condensed', sans-serif;
 }
 
-/* Create-profile modal classes */
+#page-1 {
+  background-color: var(--primary);
+}
+
+/********************************/
+/* CREATE-PROFILE MODAL CLASSES */
+/********************************/
 
 #create-2 .img-select {
   display: flex;
@@ -29,17 +36,11 @@
 
 #create-3 input {
   font-size: 26px;
-  font-family: 'Open Sans condensed', sans-serif;
 }
 
 select {
-  font-family: 'Open Sans condensed', sans-serif;
   font-size: 20px;
   height: auto;
-}
-
-option {
-  font-family: 'Open Sans condensed', sans-serif;
 }
 
 #min-max-age {
@@ -49,20 +50,13 @@ option {
   align-items: center;
 }
 
-#min-max-age select {
-  font-family: 'Open Sans condensed', sans-serif;
-  font-size: 20px;
-}
-
 #min-max-age p {
   margin: 0px 15px;
-  /* margin: 0px; */
 }
 
 .modal {
   text-align: center;
   height: fit-content;
-  font-family: 'Open Sans condensed', sans-serif;
   font-size: 26px;
   background-color: var(--secondary);
 }
@@ -70,7 +64,6 @@ option {
 .modal button {
   margin-top: 30px;
   background-color: var(--buttons);
-  font-family: 'Open Sans condensed', sans-serif;
   font-size: 18px;
   font-weight: 900;
   border-radius: 5px;
@@ -78,15 +71,25 @@ option {
   border: none;
 }
 
-#page-1 {
-  background-color: var(--primary);
-}
+/******************/
+/* LOGO AND SLOGAN */
+/******************/
 
 .pawpalsLogo {
   margin-top: 30px;
   margin-left: 35px;
   position: absolute;
   width: 13em;
+}
+
+#slogan {
+  text-align: center;
+}
+
+#slogan p {
+  font-family: 'Thasadith', sans-serif;
+  font-size: 78px;
+  color: whitesmoke;
 }
 
 .slogan-button-flexbox {
@@ -98,16 +101,13 @@ option {
   margin-top: 35vh;
 }
  
-/*************************/
-
-/* MY PROFILE BUTTON START */
+/**********************/
+/* MY PROFILE BUTTON */
+/**********************/
 
 #loginBtn {
   background-color: white;
   border-radius: 9px;
-  /* font-family: 'Chango', cursive*/
-  font-family: 'Open Sans Condensed', sans-serif;
-  /* font-family: 'Thasadith', sans-serif; */
   padding: 12px 20px;
   width: fit-content;
   margin-right: 35px;
@@ -122,32 +122,15 @@ option {
   background-position: 0 -10px;
 }
 
-/* #loginBtn:hover, #createProfileBtn:hover {
-  background-position: 1px -50px;
-  color: #323232;
-  background-color: var(--quinary);
-  border: 1px solid #323232;
-} */
-
-/* MY PROFILE BUTTON ENDS */
-
+/*************************/
+/* CREATE PROFILE BUTTON */
 /*************************/
 
-/* CREATE PROFILE BUTTON START */
-
 #createProfileBtn {
-  /* background-color: lightgoldenrodyellow; */
   border-radius: 9px;
-  /* font-family: 'Chango', cursive*/
-  font-family: 'Open Sans Condensed', sans-serif;
   font-size: 20px;
-  /* font-family: 'Thasadith', sans-serif; */
   padding: 10px 30px;
   width: fit-content;
-  /* margin-top: 750px;
-  margin-left: 43%; */
-  /* position: relative; */
-  /* background-image: linear-gradient(180deg, #ffe48b 0%, #da7d1afe 100%); */
   background-color: #323232;
   color: var(--quinary);
   transition:all .5s ease-out;
@@ -160,29 +143,6 @@ option {
   background-position: 1px -50px;
 }
 
-/* CREATE PROFILE BUTTON END */
-
-/*************************/
-
-/* SLOGAN START */
-
-#slogan {
-  text-align: center;
-  /* margin-left: 1000px;
-  margin-right: 500px;
-  margin-top: -350px; */
-}
-
-#slogan p {
-  font-family: 'Thasadith', sans-serif;
-  font-size: 78px;
-  color: whitesmoke;
-}
-
-/* SLOGAN END */
-
-/*************************/
-
 /*****************/
 /* MEDIA QUERIES */
 /*****************/
@@ -193,6 +153,10 @@ option {
     margin-left: 15px;
     position: absolute;
     width: 11em;
+  }
+
+  .modal {
+    font-size: 24px;
   }
 
   #create-2 .img-choice {
@@ -209,21 +173,27 @@ option {
     margin-top: 10px;
   }
 
+  #create-3 input {
+    font-size: 24px;
+  }
+
+  #min-max-age {
+    display: block;
+  }
+
+  #slogan p {
+    font-size: 40px;
+  }
+
+  .slogan-button-flexbox {
+    margin-top: 30vh;
+  }
+
   #loginBtn {
     padding: 10px 20px;
     margin-right: 15px;
     margin-top: 15px;
     font-size: 15px;
-  }
-
-  #slogan p {
-    font-family: 'Thasadith', sans-serif;
-    font-size: 40px;
-    color: whitesmoke;
-  }
-
-  .slogan-button-flexbox {
-    margin-top: 30vh;
   }
 
   #createProfileBtn {
