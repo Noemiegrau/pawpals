@@ -1,5 +1,5 @@
 :root {
-    --primary: #ffb5a7;
+    --primary: salmon;
     --secondary: #fcd5ce;
     --tertiary: #f8edeb;
     --quaternary: #f9dcc4;
@@ -9,16 +9,16 @@
 * {
   box-sizing: border-box;
 }
+
 html {
     overflow: auto;
-    background-color: var(--quaternary);
+    background-color: var(--primary);
   }
   
-
 body {
     width: 100vw;
     height: 100vh;
-    background-color: var(--quaternary);
+    background-color: var(--primary);
   }
 
 .pawpalsLogo {
