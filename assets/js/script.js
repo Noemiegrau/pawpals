@@ -265,22 +265,12 @@ var maxAgeOpts = function() {
 var deselectRadios = function(radioLength) {
     for (i = 0; i < 5; i++) {
         console.log(radioLength);
-        // var radios = $("input[type='radio']");
-        // radios[i].checked = false;
         $("input[type='radio']")[i].checked = false;
     };
 };
 
 var clearAgeOpt = function() {
-    var ageSelect = $('#user-age');
-    ageSelect.prop('selectedIndex', 0);
-};
-
-var clearAgeRangeOpt = function() {
-    var $min = $('#match-min-age');
-    var $max = $('#match-max-age');
-    $min.prop('selectedIndex', 0);
-    $max.prop('selectedIndex', 0);
+    $('#user-age, #match-min-age, #match-max-age').prop('selectedIndex', 0);
 };
 
 var create1Click = function() {
@@ -312,7 +302,7 @@ function create2Click() {
         .split("\"")[1];
     userProfileObj.profileImg = userImg;
     
-    var name = $('#user-name').val('');
+    $('#user-name').val('');
     $create3.modal(createModalProps);
 };
 
@@ -390,7 +380,7 @@ var create5Click = function() {
 
             modalNum = 8;
             profileExists = true;
-            clearAgeRangeOpt();
+            clearAgeOpt();
             alertModal(modalNum);
             break;
             } else if (userMinAge > userMaxAge || userMaxAge == null || userMinAge == null) {
