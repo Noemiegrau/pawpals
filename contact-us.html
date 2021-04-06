@@ -25,9 +25,9 @@
       <img src="./assets/images/pawpals.png" alt="paw pals logo" class="pawpalsLogo">
     </div>
     <div class="hamburger-menu-wrapper">
-    <button class="hamburger-menu">
+      <button class="hamburger-menu">
         <span>toggle menu</span>
-    </button> 
+      </button> 
     </div>
     <div class="menu-list">
       <a href="swipe.html" id="ml-swipe">SWIPE</a><br>
@@ -39,8 +39,9 @@
   <div class="menu-overlay"></div>
 
   <div id="main-page-container" class="container">
+    <h1 class="contact-title">Contact Us</h1>
   <!-- Form -->
-    <form action="contact-us">
+    <form class="contact-us-form" action="contact-us">
       <div class="field">
         <label class="label">Name</label>
         <div class="control">
@@ -81,7 +82,7 @@
         <div class="control">
           <div class="select is-rounded">
             <select>
-              <option>Select dropdown</option>
+              <option disabled selected>Select dropdown</option>
               <option>Account Issue</option>
               <option>You want to combine forces</option>
               <option>Press</option>
@@ -132,23 +133,23 @@
     </form>
   </div>
 
-<article id="submitted-container" class="message is-success hide">
-  <div class="message-header">
-    <p>Pawsome!</p>
-    <button id="submitted-cross-message" class="delete" aria-label="delete"></button>
-  </div>
-  <div class="message-body">
-    We will be in touch soon!
-  </div>
-</article>
+  <article id="submitted-container" class="message is-success hide">
+    <div class="message-header">
+      <p>Pawsome!</p>
+      <button id="submitted-cross-message" class="delete" aria-label="delete"></button>
+    </div>
+    <div class="message-body">
+      We will be in touch soon!
+    </div>
+  </article>
 
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-  crossorigin="anonymous">
-</script>
-<script src="./assets/js/hamburger.js"></script>
-<script src="./assets/js/contact-us.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous">
+  </script>
+  <script src="./assets/js/hamburger.js"></script>
+  <script src="./assets/js/contact-us.js"></script>
 
 </body>
 </html>

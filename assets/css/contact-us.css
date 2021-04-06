@@ -1,10 +1,10 @@
 :root {
-    --primary: salmon;
-    --secondary: #fcd5ce;
-    --tertiary: #f8edeb;
-    --quaternary: #f9dcc4;
-    --quinary: #fec89a;
-    }
+  --primary: salmon;
+  --secondary: #fcd5ce;
+  --tertiary: #f8edeb;
+  --quaternary: #f9dcc4;
+  --quinary: #fec89a;
+}
 
 * {
   box-sizing: border-box;
@@ -21,7 +21,33 @@ body {
   overflow-y: auto;
 }
 
+/*******************/
+/* CONTACT US FORM */
+/*******************/
+
+.container {
+  margin: 20px 0px;
+}
+
+.contact-title {
+  text-align: center;
+  font-family: 'Thasadith', sans-serif;
+  color: whitesmoke;
+  font-size: 68px;
+  margin-bottom: 20px
+}
+
+.contact-us-form {
+  background-color: var(--tertiary);
+  border-radius: 25px;
+  padding: 30px;
+  width: 70%;
+  margin: auto;
+}
+
+/***************/
 /* MESSAGE BOX */
+/***************/
 
 .hide {
   display: none;
@@ -36,4 +62,21 @@ body {
 
 .blur {
   filter: blur(5px);
+}
+
+/*****************/
+/* MEDIA QUERIES */
+/*****************/
+
+@media screen and (max-width: 576px) {
+  .contact-title {
+    font-size: 64px;
+  }
+
+  .contact-us-form {
+    border-radius: 25px;
+    padding: 15px;
+    width: 90%;
+    margin: auto;
+  }
 }
