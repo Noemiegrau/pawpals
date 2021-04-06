@@ -51,6 +51,7 @@ var loadUserData = function() {
 
     if (!storedProfile) {
         console.log('no profile found');
+        location.href = './index.html';
     } else {
         console.log('profile found');
         userProfileObj = storedProfile;

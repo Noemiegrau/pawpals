@@ -1,6 +1,9 @@
 // get the storedProfile from local storage
 var matchesProfile = JSON.parse(localStorage.getItem('storedProfile'))
 
+if (!matchesProfile) {
+    location.href = './index.html';
+};
 
 for (let i = 0; i <= matchesProfile.matchData.matches.length; i++) {
 
