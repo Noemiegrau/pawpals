@@ -209,7 +209,7 @@ class Carousel {
 
         // add first two cards programmatically
         this.push()
-        this.push()
+        // this.push()
 
         // handle gestures
         this.handle()
@@ -584,8 +584,12 @@ function saveAnalytics() {
     var analyticsObj = {
         totalSwipes,
         totalMatch,
-        matchRatio
-    };
+        matchRatio,
+        catSwipes,
+        dogSwipes,
+        swipeRight
+    }
+
 
     localStorage.setItem('analytics', JSON.stringify(analyticsObj));
     console.log(analyticsObj);   
