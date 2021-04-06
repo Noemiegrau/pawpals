@@ -86,10 +86,27 @@ var preferences = function(){
         interestDogs = true;
     } else if (parsedObj.interest == "both") {
         interestBoth = true;
-    }
-}
+    };
+};
 
 preferences();
+
+// hamburger menu touch events
+$('#ml-about').on('touchend', function() {
+    location.href = 'about.html';
+});
+
+$('#ml-profile').on('touchend', function() {
+    location.href = 'my-profile.html';
+});
+
+$('#ml-matches').on('touchend', function() {
+    location.href = 'matches.html';
+});
+
+$('#ml-contact').on('touchend', function() {
+    location.href = 'contact-us.html';
+});
 
 new Pageable("#container", {
     childSelector: "[data-anchor]", // CSS3 selector string for the pages
@@ -138,6 +155,10 @@ new Pageable("#container", {
     },
 });
 
+/***************/
+/* API FETCHES */
+/***************/
+
 function dogApi() {
     var dogFetchUrl = "https://dog.ceo/api/breeds/image/random";
     
@@ -152,7 +173,7 @@ function dogApi() {
         console.log("dog fetched");
         dogSwipes++;
     });
-}
+};
 
 function catApi() {
     var catApiKey = "6239a053-498a-49cb-ac5c-e7a746598576";
@@ -176,12 +197,14 @@ function catApi() {
       console.log("cat fetched");
       catSwipes++;
     });
-}
+};
+
+/************/
+/* CAROUSEL */
+/************/
 
 class Carousel {
-
     constructor(element) {
-
         this.board = element
 
         // add first two cards programmatically
@@ -190,161 +213,149 @@ class Carousel {
 
         // handle gestures
         this.handle()
-
-    }
+    };
 
     handle() {
-
         // list all cards
-        this.cards = this.board.querySelectorAll('.card')
+        this.cards = this.board.querySelectorAll('.card');
 
         // get top card
-        this.topCard = this.cards[this.cards.length - 1]
+        this.topCard = this.cards[this.cards.length - 1];
 
         // get next card
-        this.nextCard = this.cards[this.cards.length - 2]
+        this.nextCard = this.cards[this.cards.length - 2];
 
         // if at least one card is present
         if (this.cards.length > 0) {
 
             // set default top card position and scale
             this.topCard.style.transform =
-                'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)'
+                'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)';
 
             // destroy previous Hammer instance, if present
-            if (this.hammer) this.hammer.destroy()
+            if (this.hammer) this.hammer.destroy();
 
             // listen for tap and pan gestures on top card
-            this.hammer = new Hammer(this.topCard)
-            this.hammer.add(new Hammer.Tap())
+            this.hammer = new Hammer(this.topCard);
+            this.hammer.add(new Hammer.Tap());
             this.hammer.add(new Hammer.Pan({
                 position: Hammer.position_ALL,
                 threshold: 0
-            }))
+            }));
 
             // pass events data to custom callbacks
             this.hammer.on('tap', (e) => {
-                this.onTap(e)
-            })
+                this.onTap(e);
+            });
             this.hammer.on('pan', (e) => {
-                this.onPan(e)
-            })
-
-        }
-
-    }
+                this.onPan(e);
+            });
+        };
+    };
 
     onTap(e) {
-
         // get finger position on top card
-        let propX = (e.center.x - e.target.getBoundingClientRect().left) / e.target.clientWidth
+        let propX = (e.center.x - e.target.getBoundingClientRect().left) / e.target.clientWidth;
 
         // get rotation degrees around Y axis (+/- 15) based on finger position
-        let rotateY = 15 * (propX < 0.05 ? -1 : 1)
+        let rotateY = 15 * (propX < 0.05 ? -1 : 1);
 
         // enable transform transition
-        this.topCard.style.transition = 'transform 100ms ease-out'
+        this.topCard.style.transition = 'transform 100ms ease-out';
 
         // apply rotation around Y axis
         this.topCard.style.transform =
-            'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(' + rotateY + 'deg) scale(1)'
+            'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(' + rotateY + 'deg) scale(1)';
 
         // wait for transition end
         setTimeout(() => {
             // reset transform properties
             this.topCard.style.transform =
                 'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)'
-        }, 100)
-
-    }
+        }, 100);
+    };
 
     onPan(e) {
-
         if (!this.isPanning) {
-
-            this.isPanning = true
+            this.isPanning = true;
 
             // remove transition properties
-            this.topCard.style.transition = null
-            if (this.nextCard) this.nextCard.style.transition = null
+            this.topCard.style.transition = null;
+            if (this.nextCard) this.nextCard.style.transition = null;
 
             // get top card coordinates in pixels
-            let style = window.getComputedStyle(this.topCard)
-            let mx = style.transform.match(/^matrix\((.+)\)$/)
-            this.startPosX = mx ? parseFloat(mx[1].split(', ')[4]) : 0
-            this.startPosY = mx ? parseFloat(mx[1].split(', ')[5]) : 0
+            let style = window.getComputedStyle(this.topCard);
+            let mx = style.transform.match(/^matrix\((.+)\)$/);
+            this.startPosX = mx ? parseFloat(mx[1].split(', ')[4]) : 0;
+            this.startPosY = mx ? parseFloat(mx[1].split(', ')[5]) : 0;
 
             // get top card bounds
-            let bounds = this.topCard.getBoundingClientRect()
+            let bounds = this.topCard.getBoundingClientRect();
 
             // get finger position on top card, top (1) or bottom (-1)
             this.isDraggingFrom =
-                (e.center.y - bounds.top) > this.topCard.clientHeight / 2 ? -1 : 1
-
-        }
+                (e.center.y - bounds.top) > this.topCard.clientHeight / 2 ? -1 : 1;
+        };
 
         // get new coordinates
-        let posX = e.deltaX + this.startPosX
-        let posY = e.deltaY + this.startPosY
+        let posX = e.deltaX + this.startPosX;
+        let posY = e.deltaY + this.startPosY;
 
         // get ratio between swiped pixels and the axes
-        let propX = e.deltaX / this.board.clientWidth
-        let propY = e.deltaY / this.board.clientHeight
+        let propX = e.deltaX / this.board.clientWidth;
+        let propY = e.deltaY / this.board.clientHeight;
 
         // get swipe direction, left (-1) or right (1)
-        let dirX = e.deltaX < 0 ? -1 : 1
+        let dirX = e.deltaX < 0 ? -1 : 1;
 
         // get degrees of rotation, between 0 and +/- 45
-        let deg = this.isDraggingFrom * dirX * Math.abs(propX) * 45
+        let deg = this.isDraggingFrom * dirX * Math.abs(propX) * 45;
 
         // get scale ratio, between .95 and 1
-        let scale = (95 + (5 * Math.abs(propX))) / 100
+        let scale = (95 + (5 * Math.abs(propX))) / 100;
 
         // move and rotate top card
         this.topCard.style.transform =
-            'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg) rotateY(0deg) scale(1)'
+            'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg) rotateY(0deg) scale(1)';
 
         // scale up next card
         if (this.nextCard) this.nextCard.style.transform =
-            'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(' + scale + ')'
+            'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(' + scale + ')';
 
         if (e.isFinal) {
-
-            this.isPanning = false
-
-            let successful = false
+            this.isPanning = false;
+            let successful = false;
 
             // set back transition properties
-            this.topCard.style.transition = 'transform 200ms ease-out'
-            if (this.nextCard) this.nextCard.style.transition = 'transform 100ms linear'
+            this.topCard.style.transition = 'transform 200ms ease-out';
+            if (this.nextCard) this.nextCard.style.transition = 'transform 100ms linear';
 
             // check threshold and movement direction
             if (propX > 0.25 && e.direction == Hammer.DIRECTION_RIGHT) {
 
-                successful = true
+                successful = true;
                 // get right border position
-                posX = this.board.clientWidth
+                posX = this.board.clientWidth;
                 
-                love = true
-                swipeRight++
+                love = true;
+                swipeRight++;
 
             } else if (propX < -0.25 && e.direction == Hammer.DIRECTION_LEFT) {
 
-                successful = true
+                successful = true;
                 // get left border position
-                posX = -(this.board.clientWidth + this.topCard.clientWidth)
+                posX = -(this.board.clientWidth + this.topCard.clientWidth);
 
-                love = false
+                love = false;
 
             } else if (propY < -0.25 && e.direction == Hammer.DIRECTION_UP) {
 
-                successful = true
+                successful = true;
                 // get top border position
-                posY = -(this.board.clientHeight + this.topCard.clientHeight)
+                posY = -(this.board.clientHeight + this.topCard.clientHeight);
                 
-                love = false
-
-            }
+                love = false;
+            };
 
             if (successful) {
                 // if you have swiped right, and they swiped right,
@@ -354,48 +365,45 @@ class Carousel {
                     loveAlert(this.topCard);
                 } else {
                     nomatch++;
-                }
+                };
 
                 // throw card in the chosen direction
                 this.topCard.style.transform =
-                    'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg)'
+                    'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg)';
 
                 // wait transition end
                 setTimeout(() => {
                     // remove swiped card
-                    this.board.removeChild(this.topCard)
+                    this.board.removeChild(this.topCard);
 
                     // add new card
-                    this.push()
+                    this.push();
+
                     // handle gestures on new top card
-                    this.handle()
-                }, 0)
+                    this.handle();
+                }, 0);
 
                 saveAnalytics();
-
             } else {
 
                 // reset cards position and size
                 this.topCard.style.transform =
-                    'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)'
+                    'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)';
                 if (this.nextCard) this.nextCard.style.transform =
-                    'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(0.95)'
-
-            }
-
-        }
-
-    }
+                    'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(0.95)';
+            };
+        };
+    };
 
     push() {
         // Make frame for background photo to append
         let cardFrame = document.createElement('div');
-        cardFrame.classList.add('card-frame')
+        cardFrame.classList.add('card-frame');
 
         // entirety of card
         let card = document.createElement('div');
         let nameAge = document.createElement('div');
-        card.classList.add('card')
+        card.classList.add('card');
 
         // text info
         nameAge.classList.add('name-age');
@@ -441,10 +449,10 @@ class Carousel {
             } else {
                 loveMatch = false;
                 catNoMatch++;
-            }
-        }
-        //dog only scenario
-        else if (interestDogs == true) {
+            };
+
+            // dog only senario
+        } else if (interestDogs == true) {
             console.log("Woof only!");
             // call Api for background image
             dogApi().then(() => {
@@ -459,10 +467,10 @@ class Carousel {
             } else {
                 loveMatch = false;
                 dogNoMatch++;
-            }
-        }
-        // both scenario
-        else if (interestBoth == true) {
+            };
+
+            // both scenario
+        } else if (interestBoth == true) {
             console.log("meows and woofs go crazy");
             if( Math.round(Math.random()) == 0 ) {
                 console.log("Woof");
@@ -479,8 +487,8 @@ class Carousel {
                 } else {
                     loveMatch = false;
                     dogNoMatch++;
-                }
-    
+                };
+
             } else {
                 console.log("meow");
                 // call Api for background image
@@ -496,22 +504,13 @@ class Carousel {
                 } else {
                     loveMatch = false;
                     catNoMatch++;
-                }
-                
-            }
-
-        }
-        
+                }; 
+            };
+        };
 
         this.board.insertBefore(card, this.board.firstChild)
-        
-
-    }
-
-    
-
-}
-
+    };
+};
 
 // Match Profile Object Constructor
 function MatchProfile (name, age, bio, matchImg) {
@@ -528,10 +527,6 @@ function loveAlert (topCard) {
     var bio = $(topCard).find('.bio').text();
     var matchImg = $(topCard).find('.card-frame').css('background-image').split("\"")[1];
     console.log(matchImg);
-  
-    // div
-    // var match = document.createElement('div');
-    // match.classList.add("match")
 
     //animation container div
     var animation = document.createElement('div');
@@ -540,7 +535,6 @@ function loveAlert (topCard) {
     //Heart div
     var heart = document.createElement('div');
     heart.classList.add("heart-shape");
-    // heart.setAttribute("src", "https://www.pngarts.com/files/1/Heart-PNG-Image.png")
     
     // Alert div
     var matchAlert = document.createElement('div');
@@ -554,9 +548,8 @@ function loveAlert (topCard) {
     matchText.classList.add("match-text");
 
     matchAlert.appendChild(matchText);
-    heart.appendChild(matchAlert)
-    animation.appendChild(heart)
-    // match.appendChild(animation);
+    heart.appendChild(matchAlert);
+    animation.appendChild(heart);
 
     // construct matchProfileObj
     matchProfileObj = new MatchProfile (
@@ -573,18 +566,15 @@ function loveAlert (topCard) {
     localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
     console.log(userProfileObj);
 
-    
     avgAge.push(age);
     localStorage.setItem("ages", JSON.stringify(avgAge));
 
     var board = document.getElementById("board");
     board.append(animation);
-    // board.append(matchAlert);
     setTimeout(function(){
         $('.animation').remove();
    }, 1000);
-   
-}
+};
 
 function saveAnalytics() {
     totalSwipes = catSwipes + dogSwipes;
@@ -600,14 +590,10 @@ function saveAnalytics() {
         swipeRight
     }
 
+
     localStorage.setItem('analytics', JSON.stringify(analyticsObj));
-    console.log(analyticsObj);
-    
-}
+    console.log(analyticsObj);   
+};
 
-
-
-
-let board = document.querySelector('#board')
-
-let carousel = new Carousel(board)
+let board = document.querySelector('#board');
+let carousel = new Carousel(board);
