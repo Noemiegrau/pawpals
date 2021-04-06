@@ -1,13 +1,19 @@
 // get the storedProfile from local storage
-var matchesProfile = JSON.parse(localStorage.getItem('storedProfile'))
+var userProfileObj = JSON.parse(localStorage.getItem('storedProfile'));
+var matchesArr = userProfileObj.matchData.matches;
+console.log(matchesArr);
+
+if (!userProfileObj) {
+    location.href = './index.html';
+};
 
 
-for (let i = 0; i <= matchesProfile.matchData.matches.length; i++) {
+for (let i = 0; i < matchesArr.length; i++) {
 
     // creating variables to get the match image, age, and name from storedProfile
-    var matchImage = matchesProfile.matchData.matches[i].matchImg; 
-    var matchAge = matchesProfile.matchData.matches[i].age;
-    var matchName = matchesProfile.matchData.matches[i].name;
+    var matchImage = matchesArr[i].matchImg; 
+    var matchAge = matchesArr[i].age;
+    var matchName = matchesArr[i].name;
 
     // create variable to get the Match "columns" Card div container in match html
     var columnsContainerEl = document.getElementsByClassName('columns')[0];

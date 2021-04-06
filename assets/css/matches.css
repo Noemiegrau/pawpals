@@ -117,3 +117,13 @@ h1 {
   object-fit: cover;
   display: inline-block;
 } */
+
+@media screen and (width:576px) {
+  h1 {
+    font-size: 40px !important;
+  }
+
+  .card {
+    max-width: 70%;
+  }
+}

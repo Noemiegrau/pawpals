@@ -65,6 +65,7 @@ var loadUserData = function() {
 
     if (!storedProfile) {
         console.log('no profile found');
+        location.href = './index.html';
     } else {
         console.log('profile found');
         userProfileObj = storedProfile;
@@ -72,7 +73,32 @@ var loadUserData = function() {
     console.log(userProfileObj);
 };
 
+// load match data
+var loadMatchData = function() {
+    // load stored data
+    var analytics = JSON.parse(localStorage.getItem('analytics'));
+    if (!analytics) {
+        console.log('no match data found');
+    } else {
+        console.log('match data found');
+        analyticsObj = analytics;
+        catMatch = analyticsObj.catMatch;
+        dogMatch = analyticsObj.dogMatch;
+        catSwipes = analyticsObj.catSwipes;
+        dogSwipes = analyticsObj.dogSwipes;
+        totalSwipes = analyticsObj.totalSwipes;
+        swipeRight = analyticsObj.swipeRight;
+        
+        totalSwipes = catSwipes + dogSwipes;
+        totalMatch = catMatch + dogMatch;
+        matchRatio = totalMatch/swipeRight;
+
+    };
+    console.log(userProfileObj);
+}
+
 loadUserData();
+loadMatchData();
 
 var preferences = function(){
     const storedProfile = localStorage.getItem("storedProfile");
@@ -171,7 +197,7 @@ function dogApi() {
         // console.log(data.message);
         imgUrl = data.message;
         console.log("dog fetched");
-        dogSwipes++;
+        // dogSwipes++;
     });
 };
 
@@ -195,7 +221,7 @@ function catApi() {
     .then(function(data) {
       imgUrl = data[0].url;
       console.log("cat fetched");
-      catSwipes++;
+    //   catSwipes++;
     });
 };
 
@@ -209,7 +235,7 @@ class Carousel {
 
         // add first two cards programmatically
         this.push()
-        // this.push()
+        this.push()
 
         // handle gestures
         this.handle()
@@ -367,6 +393,9 @@ class Carousel {
                     nomatch++;
                 };
 
+                // check which to increment, catSwipes or dogSwipes
+                incrementCatDogSwipes(this.topCard);
+
                 // throw card in the chosen direction
                 this.topCard.style.transform =
                     'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg)';
@@ -520,6 +549,19 @@ function MatchProfile (name, age, bio, matchImg) {
     this.matchImg = matchImg;
 };
 
+function incrementCatDogSwipes(topCard) {
+    var matchesImg = $(topCard).find('.card-frame').css('background-image');
+    console.log(matchesImg);
+
+    if (matchesImg.includes('dog')) {
+        console.log('bark bark');
+        dogSwipes++;
+    } else if(matchesImg.includes('cat')) {
+        console.log('meow meow');
+        catSwipes++;
+    };
+}
+
 function loveAlert (topCard) {
     // get match data
     var name = $(topCard).find('.name').text();
@@ -582,6 +624,8 @@ function saveAnalytics() {
     matchRatio = totalMatch/swipeRight;
 
     var analyticsObj = {
+        catMatch,
+        dogMatch,
         totalSwipes,
         totalMatch,
         matchRatio,
@@ -590,9 +634,10 @@ function saveAnalytics() {
         swipeRight
     }
 
-
-    localStorage.setItem('analytics', JSON.stringify(analyticsObj));
-    console.log(analyticsObj);   
+    userProfileObj.matchData.analytics = analyticsObj;
+    localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
+    // localStorage.setItem('analytics', JSON.stringify(analyticsObj));
+    console.log(userProfileObj);   
 };
 
 let board = document.querySelector('#board');
