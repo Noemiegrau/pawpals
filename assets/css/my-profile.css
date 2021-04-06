@@ -52,6 +52,10 @@ body {
   margin-bottom: 20px;
 }
 
+#my-profile-page {
+  margin-top: 40px;
+}
+
 /* ===2.BUTTONS=== */
 
 .btns-delete {
