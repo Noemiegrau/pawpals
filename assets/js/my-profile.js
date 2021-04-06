@@ -394,13 +394,14 @@ function makeInt() {
         console.log(sum);
     }
     avg = sum / denominator;
+    avg = Number(avg.toFixed(2));
     console.log(avg);
 }
 makeInt();
-
+console.log(avg);
 
 // Displays the analytics info into the analytics card
-// document.getElementById("avgAgeSwipes").innerHTML = avg;
+document.getElementById("avgAgeSwipes").innerHTML = avg;
 document.getElementById("numberSwipes").innerHTML = parsedAnalyticsObj.totalSwipes;
 document.getElementById("numberMatches").innerHTML = parsedAnalyticsObj.totalMatch;
 document.getElementById("matchRatio").innerHTML = parsedAnalyticsObj.matchRatio;
