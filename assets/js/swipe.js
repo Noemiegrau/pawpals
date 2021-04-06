@@ -209,7 +209,7 @@ class Carousel {
 
         // add first two cards programmatically
         this.push()
-        this.push()
+        // this.push()
 
         // handle gestures
         this.handle()
