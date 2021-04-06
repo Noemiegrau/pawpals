@@ -426,9 +426,10 @@ var create4Click = function() {
     modalNum = 4;
 
     // get user age input
-    var userAge =
+    var userAge = Number(
         $('#user-age')
-        .val();
+            .val()
+    );
     console.log(userAge);
 
     // check for input
@@ -468,13 +469,15 @@ var create5Click = function() {
             userProfileObj.interest = userInterestChoice;
 
             // get user min-max ages
-            var userMinAge = 
+            var userMinAge = Number(
                 $('#match-min-age')
-                .val();
-            var userMaxAge =
+                    .val()
+            );
+            var userMaxAge = Number(
                 $('#match-max-age')
-                .val();
-            
+                    .val()
+            );
+            console.log(userMaxAge, userMinAge);
             // if min < max and both are numbers
             if (userMinAge < userMaxAge && userMinAge !== null && userMaxAge !== null) {
                 console.log('correct');
