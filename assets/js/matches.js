@@ -5,7 +5,7 @@ if (!matchesProfile) {
     location.href = './index.html';
 };
 
-for (let i = 0; i <= matchesProfile.matchData.matches.length; i++) {
+for (let i = 0; i < matchesProfile.matchData.matches.length; i++) {
 
     // creating variables to get the match image, age, and name from storedProfile
     var matchImage = matchesProfile.matchData.matches[i].matchImg; 
