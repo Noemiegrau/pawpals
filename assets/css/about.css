@@ -10,22 +10,15 @@
   box-sizing: border-box;
 }
 
-html {
+html, body {
+    width: 100%;
+    height: 100%;
     overflow: auto;
     background-color: var(--primary);
   }
-  
-body {
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--primary);
-  }
 
-.pawpalsLogo {
-  margin-top: 30px;
-  margin-left: 40px;
-  position: absolute;
-  width:10em;
+.content h1 {
+  padding-top: 20px;
 }
 
 .content h1,.content h2 {
@@ -54,6 +47,7 @@ body {
 .team-profiles {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin: 0 20%;
 }
@@ -92,7 +86,12 @@ body {
   background-image: url("https://fsb.zobj.net/crop.php?r=_B1r1qf0g8qGyMHPeAUnkapEF_eUrzjSQ-TJodDLqaacV-PxPe6HXHeGXJf1p4fCH_O1_Lmq7A1EhjxNVybOxXUpBWI6ciqJfpxgw0L_zngCSOq5Hljhzy_TP6e2g6oRzDyH3zNZLJIB8rOs");
 }
 
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
+
+  .photo {
+    width: 192px;
+    height: 192px;
+  }
 
   .content h1,.content h2 {
     font-size: 40px;

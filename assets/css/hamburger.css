@@ -2,7 +2,12 @@
   margin-top: 30px;
   margin-left: 35px;
   position: absolute;
-  width: 13em;
+  width: 208px;
+}
+
+.logo {
+  text-align: left;
+  position: relative;
 }
 /******************/
 /* hamburger menu */
@@ -15,6 +20,7 @@
   padding: 10px;
   display: inline-block;
   border-radius: 6px;
+  z-index: 1111;
 }
 
 .hamburger-menu-wrapper.bounce-effect { animation: bounce 0.3s ease 1; }
@@ -109,7 +115,7 @@ bounce { 0% {
 .menu-list {
   display: none;
   position: absolute;
-  /* top: calc(100% + 40px); */
+  top: calc(100% + 40px);
   width: 100%;
   text-align: center;
   z-index: 9999;
@@ -150,7 +156,7 @@ bounce { 0% {
   .pawpalsLogo {
     margin-top: 15px;
     margin-left: 15px;
-    width: 11em;
+    width: 176px;
   }
 
   .hamburger-menu-wrapper {

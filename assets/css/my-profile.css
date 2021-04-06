@@ -8,15 +8,15 @@
 
 /* ===1.GLOBAL=== */
 
-html {
-  overflow: auto;
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   background-color: salmon;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  
+  overflow-y: auto;
 }
 
 .hide {
@@ -50,13 +50,6 @@ body {
 #max-select {
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-.pawpalsLogo {
-  margin-top: 30px;
-  margin-left: 40px;
-  position: absolute;
-  width:10em;
 }
 
 /* ===2.BUTTONS=== */
