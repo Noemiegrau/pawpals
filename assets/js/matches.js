@@ -3,8 +3,12 @@ var userProfileObj = JSON.parse(localStorage.getItem('storedProfile'));
 var matchesArr = userProfileObj.matchData.matches;
 console.log(matchesArr);
 
+if (!matchesProfile) {
+    location.href = './index.html';
+};
 
-for (let i = 0; i <= matchesArr.length; i++) {
+
+for (let i = 0; i < matchesArr.length; i++) {
 
     // creating variables to get the match image, age, and name from storedProfile
     var matchImage = matchesArr[i].matchImg; 

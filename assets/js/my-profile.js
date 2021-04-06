@@ -404,7 +404,6 @@ function makeInt() {
 }
 makeInt();
 
-
 // Displays the analytics info into the analytics card
 document.getElementById("avgAgeSwipes").innerHTML = avgAge;
 document.getElementById("numberSwipes").innerHTML = totalSwipes;
