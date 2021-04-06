@@ -41,8 +41,10 @@ function catApi() {
     });
 };
 
-// Empty user Profile Object
+// Empty user Profile Object and analytics object
 var userProfileObj = {};
+var analyticsObj = {};
+var matchesArr = [];
 
 // Load user profile
 var loadUserData = function() {
@@ -55,8 +57,12 @@ var loadUserData = function() {
     } else {
         console.log('profile found');
         userProfileObj = storedProfile;
+        analyticsObj = userProfileObj.matchData.analytics;
+        matchesArr = userProfileObj.matchData.matches;
     };
     console.log(userProfileObj);
+    console.log(analyticsObj);
+    console.log(matchesArr);
 };
 loadUserData();
 
@@ -371,37 +377,35 @@ document.getElementById("iscats").addEventListener("click", function() {
 
 
 // Loads Analytics Object
-const analyticsObj = localStorage.getItem("analytics");
+// const analyticsObj = localStorage.getItem("analytics");
 // console.log(analyticsObj);
-const parsedAnalyticsObj = JSON.parse(analyticsObj);
-var totalSwipes = parseFloat(parsedAnalyticsObj.totalSwipes);
-var totalMatch = parseFloat(parsedAnalyticsObj.totalMatch);
-var matchRatio = parseFloat(parsedAnalyticsObj.matchRatio);
+// const parsedAnalyticsObj = JSON.parse(analyticsObj);
+var totalSwipes = analyticsObj.totalSwipes;
+var totalMatch = analyticsObj.totalMatch;
+var matchRatio = analyticsObj.matchRatio;
 // console.log(totalSwipes);
 // console.log(totalMatch);
 // console.log(matchRatio);
 
 // Average Ages Calculations
-var str = localStorage.getItem("ages");
-var ages = JSON.parse(str);
-var avg;
+// var str = localStorage.getItem("ages");
+// var ages = JSON.parse(str);
+var avgAge;
 
 function makeInt() {
-    let denominator = ages.length;
+    let denominator = matchesArr.length;
     let sum = 0;
-    for (var i=0;i <ages.length; i++) {
-        sum += parseInt(ages[i]);
+    for (var i = 0; i < matchesArr.length; i++) {
+        sum += parseInt(matchesArr[i].age);
         console.log(sum);
     }
-    avg = sum / denominator;
-    avg = Number(avg.toFixed(2));
-    console.log(avg);
+    avgAge = sum / denominator;
+    console.log(avgAge);
 }
 makeInt();
-console.log(avg);
 
 // Displays the analytics info into the analytics card
-document.getElementById("avgAgeSwipes").innerHTML = avg;
-document.getElementById("numberSwipes").innerHTML = parsedAnalyticsObj.totalSwipes;
-document.getElementById("numberMatches").innerHTML = parsedAnalyticsObj.totalMatch;
-document.getElementById("matchRatio").innerHTML = parsedAnalyticsObj.matchRatio;
+document.getElementById("avgAgeSwipes").innerHTML = avgAge;
+document.getElementById("numberSwipes").innerHTML = totalSwipes;
+document.getElementById("numberMatches").innerHTML = totalMatch;
+document.getElementById("matchRatio").innerHTML = matchRatio;
