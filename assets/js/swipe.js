@@ -633,9 +633,10 @@ function saveAnalytics() {
         swipeRight
     }
 
-
-    localStorage.setItem('analytics', JSON.stringify(analyticsObj));
-    console.log(analyticsObj);   
+    userProfileObj.matchData.analytics = analyticsObj;
+    localStorage.setItem('storedProfile', JSON.stringify(userProfileObj));
+    // localStorage.setItem('analytics', JSON.stringify(analyticsObj));
+    console.log(userProfileObj);   
 };
 
 let board = document.querySelector('#board');
