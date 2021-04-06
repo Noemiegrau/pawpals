@@ -25,9 +25,9 @@
       <img src="./assets/images/pawpals.png" alt="paw pals logo" class="pawpalsLogo">
     </div>
     <div class="hamburger-menu-wrapper">
-    <button class="hamburger-menu">
+      <button class="hamburger-menu">
         <span>toggle menu</span>
-    </button> 
+      </button> 
     </div>
     <div class="menu-list">
       <a href="swipe.html" id="ml-swipe">SWIPE</a><br>
@@ -39,115 +39,117 @@
   <div class="menu-overlay"></div>
 
   <div id="main-page-container" class="container">
+    <h1 class="contact-title">Contact Us</h1>
   <!-- Form -->
-  <div class="field">
-    <label class="label">Name</label>
-    <div class="control">
-      <input class="input is-rounded" type="text" placeholder="Who do we have the pleasure of speaking to?">
-    </div>
-  </div>
-  
-  <div class="field">
-    <label class="label">Username</label>
-    <div class="control  has-icons-right"> 
-      <input class="input is-rounded" type="text" placeholder="@YourUsername">
-      <span class="icon is-small is-left">
-        <i class="fas fa-user"></i>
-      </span>
-      <span class="icon is-small is-right">
-        <i class="fas fa-check"></i>
-      </span>
-    </div>
-    <!-- <p class="help is-success">This username is available</p> -->
-  </div>
-  
-  <div class="field">
-    <label class="label">Email</label>
-    <div class="control has-icons-right">
-      <input class="input is-rounded" type="email" placeholder="Email input" value="hello@">
-      <span class="icon is-small is-left">
-        <i class="fas fa-envelope"></i>
-      </span>
-      <span class="icon is-small is-right">
-        <i class="fas fa-exclamation-triangle"></i>
-      </span>
-    </div>
-    <!-- <p class="help is-danger">This email is invalid</p> -->
-  </div>
-  
-  <div class="field">
-    <label class="label">Subject</label>
-    <div class="control">
-      <div class="select is-rounded">
-        <select>
-          <option>Select dropdown</option>
-          <option>Account Issue</option>
-          <option>You want to combine forces</option>
-          <option>Press</option>
-          <option>Technical support</option>
-          <option>Other</option>
-        </select>
+    <form class="contact-us-form" action="contact-us">
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+          <input class="input is-rounded" type="text" placeholder="Who do we have the pleasure of speaking to?">
+        </div>
       </div>
-    </div>
-  </div>
-  
-  <div class="field">
-    <label class="label">Message</label>
-    <div class="control">
-      <textarea class="textarea is-hovered" placeholder="Textarea"></textarea>
-    </div>
-  </div>
-  
-  <div class="field">
-    <div class="control">
-      <label class="checkbox">
-        <input type="checkbox">
-        I agree to the <a href="#">terms and conditions</a>
-      </label>
-    </div>
-  </div>
-  
-  <div class="field">
-    <div class="control">
-      <label class="radio">
-        <input type="radio" name="question">
-        Yes
-      </label>
-      <label class="radio">
-        <input type="radio" name="question">
-        No
-      </label>
-    </div>
-  </div>
-  
-  <div class="field is-grouped">
-    <div class="control">
-      <button id="submit-btn" class="button is-link is-warning is-focused">Submit</button>
-    </div>
-    <div class="control">
-      <button class="button is-link is-danger is-focused">Cancel</button>
-    </div>
+    
+      <div class="field">
+        <label class="label">Username</label>
+        <div class="control  has-icons-right"> 
+          <input class="input is-rounded" type="text" placeholder="@YourUsername">
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+        <!-- <p class="help is-success">This username is available</p> -->
+      </div>
+    
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control has-icons-right">
+          <input class="input is-rounded" type="email" placeholder="Email input" value="hello@">
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <!-- <p class="help is-danger">This email is invalid</p> -->
+      </div>
+    
+      <div class="field">
+        <label class="label">Subject</label>
+        <div class="control">
+          <div class="select is-rounded">
+            <select>
+              <option disabled selected>Select dropdown</option>
+              <option>Account Issue</option>
+              <option>You want to combine forces</option>
+              <option>Press</option>
+              <option>Technical support</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    
+      <div class="field">
+        <label class="label">Message</label>
+        <div class="control">
+          <textarea class="textarea is-hovered" placeholder="Textarea"></textarea>
+        </div>
+      </div>
+    
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox">
+            I agree to the <a href="#">terms and conditions</a>
+          </label>
+        </div>
+      </div>
+    
+      <div class="field">
+        <div class="control">
+          <label class="radio">
+            <input type="radio" name="question">
+            Yes
+          </label>
+          <label class="radio">
+            <input type="radio" name="question">
+            No
+          </label>
+        </div>
+      </div>
+    
+      <div class="field is-grouped">
+        <div class="control">
+          <button id="submit-btn" class="button is-link is-warning is-focused">Submit</button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-danger is-focused">Cancel</button>
+        </div>
+      </div>
+    </form>
   </div>
 
-</div>
+  <article id="submitted-container" class="message is-success hide">
+    <div class="message-header">
+      <p>Pawsome!</p>
+      <button id="submitted-cross-message" class="delete" aria-label="delete"></button>
+    </div>
+    <div class="message-body">
+      We will be in touch soon!
+    </div>
+  </article>
 
-<article id="submitted-container" class="message is-success hide">
-  <div class="message-header">
-    <p>Pawsome!</p>
-    <button id="submitted-cross-message" class="delete" aria-label="delete"></button>
-  </div>
-  <div class="message-body">
-    We will be in touch soon!
-  </div>
-</article>
-
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-  crossorigin="anonymous">
-</script>
-<script src="./assets/js/hamburger.js"></script>
-<script src="./assets/js/contact-us.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous">
+  </script>
+  <script src="./assets/js/hamburger.js"></script>
+  <script src="./assets/js/contact-us.js"></script>
 
 </body>
 </html>
