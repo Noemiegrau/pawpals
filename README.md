@@ -13,11 +13,11 @@ A social website for cats and dogs to find friendship and love.
 * Index: The front page where you can create a profile or log in. To create a profile, you must provide your species, name, age, a profile photo, and preferences on species and age range. Once you have created your profile or log in, you are redirected to Swipe page.
 
 You can click the hamburger icon to visit the following pages.
-* About Us: Introduction to PetPals.
+* About Us: Introduction to PawPals.
 * My Profile: View your profile information and match analytics.
 * Swipe: Swipe through other users' profiles and match with them.
 * Matches: View all profiles that you have previously matched with.
-* Contact Us: Submit a form to contact the team at PetPals.
+* Contact Us: Submit a form to contact the team at PawPals.
 
 ## **_Technologies used_**
 Project is created using:
