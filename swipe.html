@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://unpkg.com/pageable@latest/dist/pageable.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chango&family=Open+Sans+Condensed:wght@300&family=Thasadith&display=swap"/>
+        <link rel="stylesheet" href="./assets/css/hamburger.css">
+        <link rel="stylesheet" href="./assets/css/swipe.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="shortcut icon" type="image/png" href="./assets/images/pink_paw.png"/>
+        <title>Pawpals/Swipe</title>
+    </head>
+
+    <body>
+
+        <!-- <header>
+            <div>
+              <img src="./assets/images/pawpals.png" alt="paw pals logo" class="pawpalsLogo">
+            </div>
+        </header> -->
+
+        <div class="pg-wrapper">
+            <div id="container" class="pg-container">
+                <!-- pages -->
+                <div data-anchor="page-1" id="page-1" class="pg-page pg-active">
+                    <!-- hamburger dropdown -->
+                    <div class="menu">
+                        <div class="logo">
+                            <img src="./assets/images/pawpals.png" alt="paw pals logo" class="pawpalsLogo">
+                        </div>
+                        <div class="hamburger-menu-wrapper">
+                        <button class="hamburger-menu">
+                            <span>toggle menu</span>
+                        </button>
+                        </div>
+                        <div class="menu-list">
+                        <a href="about.html" id="ml-about">ABOUT</a><br>
+                        <a href="my-profile.html" id="ml-profile">MY PROFILE</a><br>
+                        <a href="matches.html" id="ml-matches">MATCHES</a><br>
+                        <a href="contact-us.html" id="ml-contact">CONTACT US</a><br>
+                        </div>
+                    </div>
+                    <div class="menu-overlay"></div>
+                    <div id="board"></div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous">
+        </script>
+        <script src="https://unpkg.com/pageable@latest/dist/pageable.min.js"></script>
+        <script src="./assets/js/hamburger.js"></script>
+        <script src="./assets/js/swipe.js"></script>
+    </body>
+
+</html>

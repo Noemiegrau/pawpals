@@ -1,0 +1,163 @@
+/* CSS DIRECTORY
+	1. =GLOBAL
+	2. =BUTTONS
+  3. =MESSAGES
+  4. =CARDS
+*/
+
+
+/* ===1.GLOBAL=== */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: salmon;
+}
+
+body {
+  overflow-y: auto;
+}
+
+.hide {
+  display: none;
+}
+
+#animal-interest {
+  margin-bottom: 20px;
+}
+
+#interest-secret-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#type-secret-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#age-select {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#min-select {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#max-select {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* ===2.BUTTONS=== */
+
+.btns-delete {
+  display: flex;
+  justify-content: start;
+}
+
+#delete-btn-message {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#cancel-btn-message {
+  margin-right : 20px;
+}
+
+#edit-btns-message {
+  margin: 20px;
+}
+
+#select-edit-img {
+  margin-right: 8px;
+}
+
+#select-this-picture {
+  margin: 20px
+}
+
+.animal-image-edit {
+  margin: 20px;
+}
+
+/* ===3.MESSAGES=== */
+
+.message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blur {
+  filter: blur(5px);
+}
+
+.message-body{
+  padding: 5px;
+}  
+
+/* ===4.CARDS=== */
+
+.card-image {
+  position: relative;
+}
+
+.card-image #edit-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shadow-box:hover {
+  box-shadow: 1px 8px 20px grey;
+  --webkit-transition:  box-shadow .6s ease-in;
+}
+
+#analyticsProf p {
+  text-align: center;
+  font-family: 'Open Sans condensed', sans-serif;
+}
+
+.card-content {
+  background-color: floralwhite;
+  padding: 1.5rem;
+}
+
+.card-header {
+  background-color: lightsalmon;
+}
+
+.card-header-title {
+  color: bisque;
+}
+
+.avgAgeSwipes {
+  color:cadetblue;
+  font-size: 90px;
+}
+
+.numberSwipes {
+  color:mediumslateblue;
+  font-size: 90px;
+}
+
+.numberMatches {
+  color:tomato;
+  font-size: 90px;
+}
+
+.matchRatio {
+  color:salmon;
+  font-size: 90px;
+}
+
+.no-bottom {
+  margin-bottom: 0 !important;
+  padding-bottom: 4px;
+}

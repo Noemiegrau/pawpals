@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link 
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Chango&family=Open+Sans+Condensed:wght@300&family=Thasadith&display=swap"
+  />
+  <link rel="stylesheet" href="assets/css/hamburger.css"/>
+  <link rel="stylesheet" href="assets/css/my-profile.css"/>
+  <link rel="shortcut icon" type="image/png" href="./assets/images/pink_paw.png"/>
+  <title>PawPals/My Profile</title>
+</head>
+<body>
+
+<!-- <header>
+  <div>
+    <img src="./assets/images/pawpals.png" alt="paw pals logo" class="pawpalsLogo">
+  </div>
+</header> -->
+
+  <div class="menu">
+    <div class="logo">
+      <img src="./assets/images/pawpals.png" alt="paw pals logo" class="pawpalsLogo">
+    </div>
+    <div class="hamburger-menu-wrapper">
+    <button class="hamburger-menu">
+        <span>toggle menu</span>
+    </button>
+    </div>
+    <div class="menu-list">
+      <a href="swipe.html" id="ml-swipe">SWIPE</a><br>
+      <a href="about.html" id="ml-about">ABOUT</a><br>
+      <a href="matches.html" id="ml-matches">MATCHES</a><br>
+      <a href="contact-us.html" id="ml-contact">CONTACT US</a><br>
+    </div>
+  </div>
+  <div class="menu-overlay"></div>
+
+  <div id="my-profile-page" class="bulma">
+
+    <div class="columns features">
+
+      <div id="column-one" class="column is-3"></div>
+
+      <div id="column-two" class="column is-3">
+
+        <div id="my-profile-container" class="card shadow-box">
+
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="" alt="your profile picture" id="animal-image">
+              <button id="edit-img" class="button is-warning hide" onclick="editImg()">Edit</button>
+            </figure>
+          </div>
+
+          <header class="card-header">
+              <p id="animal-name" class="title is-4 card-header-title is-centered">Animal Name</p>
+          </header>
+
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p id="animal-age" class="subtitle is-6">Age: <span id="animal-age-text"></span></p>
+                <p id="animal-type" class="subtitle is-6">Type of animal: <span id="animal-type-text"></span></p>
+
+                <div id ="type-secret-container" class="control hide">
+                  <label class="radio">
+                    <input id="isdogs" type="radio" class="click" name="answer">
+                    <span id="isdoggos"> Dog</span>
+                  </label>
+                  <label class="radio">
+                    <input id="iscats" type="radio" class="click" name="answer">
+                    <span  id="iscatsCats"> Cat</span>
+                  </label>
+                </div>
+
+                <p id="animal-interest" class="subtitle is-6">Interest: <span id="animal-interest-text"></span></p>
+                
+                <div id ="interest-secret-container" class="control hide">
+                  <label class="radio">
+                    <input id="dogs" type="radio" class="click" name="answer">
+                    <span id="doggos"> Dogs</span>
+                  </label>
+                  <label class="radio">
+                    <input id="cats" type="radio" class="click" name="answer">
+                    <span  id="catsCats"> Cats</span>
+                  </label>
+                  <label class="radio">
+                    <input id="both" type="radio" class="click" name="answer">
+                    <span  id="catsDogs"> Both</span>
+                  </label>
+                </div>
+
+                <p id="min" class="subtitle is-6">Min age: <span id="animal-min-text"></span></p>
+                <p id="max" class="subtitle is-6">Max age: <span id="animal-max-text"></span></p>
+
+              <div class="buttons is-centered">
+                <span id="edit-btn" class="button is-link modal-button is-warning" data-target="modal-image2" onclick="doEdit()">Edit</span>
+                <span id="save-btn" class="button is-link modal-button is-success hide" data-target="modal-image2" onclick="saveEdit()">Save</span>
+                <span id="delete-btn" class="button is-link modal-button is-danger" data-target="modal-image2">Delete</span>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="column-three" class="column is-3">
+
+          <div id="analytics-container" class="card shadow-box">
+              
+              <div id="analytics-list">
+                <header class="card-header">
+                  <h1 id="analytics" class="title is-4 card-header-title is-centered"> Analytics</h1>
+                </header>
+
+                  <div class="card-content is-align-items-center" id="analyticsProf">
+                      <p class="subtitle is-6 no-bottom">Average Age of Swipes<span></span></p>
+                      <p class="avgAgeSwipes">28</p>
+
+                      <p class="subtitle is-6 no-bottom">Number of swipes <span></span></p>
+                      <p id="numberSwipes" class="numberSwipes"></p>
+
+                      <p class="subtitle is-6 no-bottom">Number of Matches <span></span></p>
+                      <p id="numberMatches" class="numberMatches"></p>
+
+                      <p class="subtitle is-6 no-bottom">Match Ratio <span></span></p>
+                      <p id="matchRatio" class="matchRatio"></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div id="column-four" class="column is-3"></div>
+
+    </div>
+
+    <article id="confirmation-delete-container" class="message is-danger hide">
+      <div class="message-header">
+        <p>Attention!</p>
+        <button id="delete-cross-message" class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body btns-delete">
+        <p>Are you sure you want to <strong>delete</strong> your profile information?</p>
+        <p class="control">
+          <button id="delete-btn-message" class="button is-danger">
+            Delete
+          </button>
+        </p>
+        <p class="control">
+          <button id="cancel-btn-message" class="button">
+            Cancel
+          </button>
+        </p>
+      </div>
+    </article>
+
+    <article id="success-delete-container" class="message is-success hide">
+      <div class="message-header">
+        <p>Attention!</p>
+        <button id="second-cross-message" class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        Your profile information have been <strong>deleted successfully</strong>. You will be redirected to the home page.
+      </div>
+    </article>
+
+    <article id="success-edit-container" class="message is-success hide">
+      <div class="message-header">
+        <p>Pawsome!</p>
+        <button id="edit-cross-message" class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        Your profile information have been <strong>updated successfully</strong>.
+      </div>
+    </article>
+
+    <article id="edit-img-message" class="message is-warning hide">
+      <div class="message-header">
+        <p>Select a profile picture</p>
+        <button id="edit-cross-img" class="delete" aria-label="delete"></button>
+      </div>
+      <div>
+        <img src="" alt="animal profile picture" id="animal-image-edit">
+      </div>
+      <div id="select-this-picture">Select this picture?</div>
+      <div id="edit-btns-message">
+        <button id="yes-edit-img" class="button" type="submit">
+          Yes
+        </button>
+        <button id="nah-edit-img" class="button" type="button">
+          Nah, new picture
+        </button>
+      </div>
+    </article>
+
+  </div>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous">
+</script>
+<script src="./assets/js/hamburger.js"></script>
+<script src="./assets/js/my-profile.js"></script>
+</body>
+</html>

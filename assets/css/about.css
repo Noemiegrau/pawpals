@@ -1,0 +1,150 @@
+:root {
+    --primary: salmon;
+    --secondary: #fcd5ce;
+    --tertiary: #f8edeb;
+    --quaternary: #f9dcc4;
+    --quinary: #fec89a;
+    }
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--primary);
+  }
+
+.content h1 {
+  padding-top: 20px;
+}
+
+.content h1,.content h2 {
+    text-align: center;
+    font-family: 'Thasadith', sans-serif;
+    font-size: 80px;
+}
+
+.content h2:not(:first-child){
+  margin-top: 0;
+}
+
+.content p {
+    text-align: justify;
+    font-size: 22px;
+    margin: 0 20%;
+}
+
+.cat-dog {
+  background-repeat: no-repeat !important; 
+  background-attachment: fixed !important;
+  background-position: left bottom !important;
+  
+}
+
+.team-profiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 20%;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0% 0% 20% 0%;
+}
+
+.member-name {
+  padding: 10px 0;
+  color: white;
+  font-weight:normal;
+  font-size: larger;
+  background-color: gray;
+}
+
+.photo {
+  width: 300px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+}
+
+#member1 {
+  background-image: url("https://i.redd.it/ipa9hrvqenwy.jpg");
+}
+
+#member2 {
+  object-fit: cover;
+}
+
+#member4 {
+  background-image: url("https://fsb.zobj.net/crop.php?r=_B1r1qf0g8qGyMHPeAUnkapEF_eUrzjSQ-TJodDLqaacV-PxPe6HXHeGXJf1p4fCH_O1_Lmq7A1EhjxNVybOxXUpBWI6ciqJfpxgw0L_zngCSOq5Hljhzy_TP6e2g6oRzDyH3zNZLJIB8rOs");
+}
+
+@media screen and (max-width: 576px) {
+
+  .photo {
+    width: 192px;
+    height: 192px;
+  }
+
+  .content h1,.content h2 {
+    font-size: 40px;
+}
+
+  .content p {
+    font-size: 18px;
+    margin: 0 10%;
+}
+  .team-profiles {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+
+@media (min-width: 576px) and (max-width: 768px) {
+
+  .content h1,.content h2 {
+    font-size: 50px;
+}
+
+  .content p {
+    text-align: justify;
+    font-size: 22px;
+    margin: 0 10%;
+}
+  .team-profiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 10%;
+  }
+}
+
+@media (min-width: 768px) {
+  .content h1,.content h2 {
+    text-align: center;
+    font-family: 'Thasadith', sans-serif;
+    font-size: 80px;
+  }
+
+  .content p {
+    text-align: justify;
+    font-size: 22px;
+    margin: 0 20%;
+}
+
+.team-profiles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 20%;
+}
+}

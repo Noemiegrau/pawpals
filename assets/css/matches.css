@@ -1,0 +1,119 @@
+:root {
+    --primary: salmon;
+    --secondary: #fcd5ce;
+    --tertiary: #f8edeb;
+    --quaternary: #f9dcc4;
+    --quinary: #fec89a;
+    }
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: salmon;
+}
+
+body {
+  overflow-y: auto;
+}
+
+/* MATCH CARD START */
+
+/* #board {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+} */
+
+/* .card {
+  width: 340px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 0%;
+  background-color: var(--tertiary);
+  transform: translateX(-50%) translateY(-50%) scale(0.95);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 3%;
+} */
+
+.columns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.column {
+  margin-left: 30%;
+}
+
+.card {
+  max-width: 40%;
+  position: relative;
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 6rem !important;
+  text-align: center;
+}
+
+
+
+/* 
+.card-frame {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  width: 320px;
+  height: 320px;
+  border-radius: 3%;
+  background-color: var(--secondary);
+  margin: 10px;
+}
+
+.name-age {
+  position:absolute;
+  margin-left: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--primary);
+  text-shadow: 2px 1px var(--tertiary);
+  margin-block-start: 0;
+  margin-block-end: 0;
+  display: flex;
+}
+
+.age {
+  margin-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--tertiary);
+  text-shadow: 2px 1px var(--primary); 
+} */
+
+/* MATCH CARD END */
+
+/* .columns img {
+  width:  300px;
+  height: 300px;
+  object-fit: cover;
+  display: inline-block;
+} */
