@@ -3,7 +3,7 @@ var userProfileObj = JSON.parse(localStorage.getItem('storedProfile'));
 var matchesArr = userProfileObj.matchData.matches;
 console.log(matchesArr);
 
-if (!matchesProfile) {
+if (!userProfileObj) {
     location.href = './index.html';
 };
 
