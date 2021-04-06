@@ -196,7 +196,7 @@ function dogApi() {
         // console.log(data.message);
         imgUrl = data.message;
         console.log("dog fetched");
-        dogSwipes++;
+        // dogSwipes++;
     });
 };
 
@@ -220,7 +220,7 @@ function catApi() {
     .then(function(data) {
       imgUrl = data[0].url;
       console.log("cat fetched");
-      catSwipes++;
+    //   catSwipes++;
     });
 };
 
@@ -234,7 +234,7 @@ class Carousel {
 
         // add first two cards programmatically
         this.push()
-        // this.push()
+        this.push()
 
         // handle gestures
         this.handle()
@@ -392,6 +392,9 @@ class Carousel {
                     nomatch++;
                 };
 
+                // check which to increment, catSwipes or dogSwipes
+                incrementCatDogSwipes(this.topCard);
+
                 // throw card in the chosen direction
                 this.topCard.style.transform =
                     'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg)';
@@ -544,6 +547,19 @@ function MatchProfile (name, age, bio, matchImg) {
     this.bio = bio;
     this.matchImg = matchImg;
 };
+
+function incrementCatDogSwipes(topCard) {
+    var matchesImg = $(topCard).find('.card-frame').css('background-image');
+    console.log(matchesImg);
+
+    if (matchesImg.includes('dog')) {
+        console.log('bark bark');
+        dogSwipes++;
+    } else if(matchesImg.includes('cat')) {
+        console.log('meow meow');
+        catSwipes++;
+    };
+}
 
 function loveAlert (topCard) {
     // get match data
