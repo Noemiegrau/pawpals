@@ -1,15 +1,13 @@
 .pawpalsLogo {
   margin-top: 30px;
   margin-left: 35px;
-  float: left;
+  position: absolute;
   width: 208px;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  background-color: var(--primary);
-  overflow: visible;
+.logo {
+  text-align: left;
+  position: relative;
 }
 /******************/
 /* hamburger menu */
@@ -117,7 +115,7 @@ bounce { 0% {
 .menu-list {
   display: none;
   position: absolute;
-  /* top: calc(100% + 40px); */
+  top: calc(100% + 40px);
   width: 100%;
   text-align: center;
   z-index: 9999;

@@ -10,15 +10,15 @@
   box-sizing: border-box;
 }
 
-html {
-  overflow: auto;
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   background-color: salmon;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  background-color: salmon;
+  overflow-y: auto;
 }
 
 /* MATCH CARD START */
