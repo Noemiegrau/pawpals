@@ -383,6 +383,7 @@ document.getElementById("iscats").addEventListener("click", function() {
 var totalSwipes = analyticsObj.totalSwipes;
 var totalMatch = analyticsObj.totalMatch;
 var matchRatio = analyticsObj.matchRatio;
+var matchRatio = matchRatio.toFixed(3);
 // console.log(totalSwipes);
 // console.log(totalMatch);
 // console.log(matchRatio);
@@ -400,6 +401,7 @@ function makeInt() {
         console.log(sum);
     }
     avgAge = sum / denominator;
+    avgAge = avgAge.toFixed(2);
     console.log(avgAge);
 }
 makeInt();
