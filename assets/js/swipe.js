@@ -72,7 +72,32 @@ var loadUserData = function() {
     console.log(userProfileObj);
 };
 
+// load match data
+var loadMatchData = function() {
+    // load stored data
+    var analytics = JSON.parse(localStorage.getItem('analytics'));
+    if (!analytics) {
+        console.log('no match data found');
+    } else {
+        console.log('match data found');
+        analyticsObj = analytics;
+        catMatch = analyticsObj.catMatch;
+        dogMatch = analyticsObj.dogMatch;
+        catSwipes = analyticsObj.catSwipes;
+        dogSwipes = analyticsObj.dogSwipes;
+        totalSwipes = analyticsObj.totalSwipes;
+        swipeRight = analyticsObj.swipeRight;
+        
+        totalSwipes = catSwipes + dogSwipes;
+        totalMatch = catMatch + dogMatch;
+        matchRatio = totalMatch/swipeRight;
+
+    };
+    console.log(userProfileObj);
+}
+
 loadUserData();
+loadMatchData();
 
 var preferences = function(){
     const storedProfile = localStorage.getItem("storedProfile");
@@ -582,6 +607,8 @@ function saveAnalytics() {
     matchRatio = totalMatch/swipeRight;
 
     var analyticsObj = {
+        catMatch,
+        dogMatch,
         totalSwipes,
         totalMatch,
         matchRatio,
