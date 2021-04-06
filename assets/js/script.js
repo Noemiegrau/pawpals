@@ -140,8 +140,13 @@ if (!storedProfile) {
     userProfileObj = storedProfile;
 };
 
+/************************/
+/* ALERT MODAL FUNCTION */
+/************************/
+
 var alertModal = function(modalNum) {
     console.log(modalNum);
+    $alertSubtext.text("");
 
     switch(modalNum) {
             // if no user animal was selected
