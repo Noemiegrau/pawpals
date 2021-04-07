@@ -300,7 +300,7 @@ document.getElementById("dogs").addEventListener("click", function() {
     var interestTextarea = document.getElementById("doggos").innerText;
     console.log(interestTextarea);
 
-    userProfileObj.interest = interestTextarea;
+    userProfileObj.interest = 'dogs';
     console.log(userProfileObj.interest);
 });
 
@@ -311,7 +311,7 @@ document.getElementById("cats").addEventListener("click", function() {
     var interestTextarea = document.getElementById("catsCats").innerText;
     console.log(interestTextarea);
 
-    userProfileObj.interest = interestTextarea;
+    userProfileObj.interest = 'cats';
     console.log(userProfileObj.interest);
     
 });
@@ -323,7 +323,7 @@ document.getElementById("both").addEventListener("click", function() {
     var interestTextarea = document.getElementById("catsDogs").innerText;
     console.log(interestTextarea);
 
-    userProfileObj.interest = interestTextarea;
+    userProfileObj.interest = 'both';
     console.log(userProfileObj.interest);
     
 });
