@@ -4,6 +4,7 @@
 * [Description of the project](#description-of-the-project)
 * [Technologies used](#technologies-used)
 * [Mockup](#mockup)
+* [Installation](#installation)
 * [Link URL to Trello Board](#link-URL-to-Trello-Board)
 * [Link URL to deployed app on GitHub](#link-URL-to-deployed-app-on-GitHub)
 * [Link URL to GitHub Repository](#link-URL-to-GitHub-repository)
@@ -34,14 +35,23 @@ Project is created using:
 ## **_Mockup_**
 <img width="1143" alt="Mockup-Pawpals" src="https://user-images.githubusercontent.com/78329298/113557122-5ce28b00-95b2-11eb-903a-19a7bcb70707.png">
 
+## **_Installation_**
+Here are some guidelines for installing the project on your local machine:
+
+1. Clone or download the repository to your own local machine.
+
+2. Open the HTML file in your browser.
+
+3. Enjoy and don't hesitate to contribute! 🙂
+
 ## **_Link URL to Trello Board_**
 https://trello.com/invite/b/rtTqV55k/53fc6fe106fd4d67c41c14ccd43ac4c7/paws
 
 ## **_Link URL to deployed app on GitHub_**
-https://noemiegrau.github.io/project-1-group-4/
+https://noemiegrau.github.io/pawpals/
 
 ## **_Link URL to GitHub Repository_**
-https://github.com/Noemiegrau/project-1-group-4
+https://github.com/Noemiegrau/pawpals
 
 
 
